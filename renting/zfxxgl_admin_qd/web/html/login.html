@@ -21,6 +21,14 @@
 						<div class="layui-form-item">
 							<input type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
 						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<input type="text" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+							</div>
+							<div class="layui-inline">
+								<canvas id="canvas" width="132" height="43" onclick="dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
+							</div>
+						</div>
 						<div class="layui-form-item m-login-btn">
 							<div class="layui-inline">
 								<button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
@@ -34,6 +42,7 @@
 			</div>
 		</div>
 		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/login.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			layui.use(['form', 'layedit', 'laydate'], function() {
 				var form = layui.form(),
@@ -48,16 +57,21 @@
 						}
 					},
 					password: [/(.+){6,12}$/, '密码必须6到12位'],
-					verity: [/(.+){6}$/, '验证码必须是6位'],
+					verity: [/(.+){4}$/, '验证码必须是4位'],
 					
 				});
 
 				
 				//监听提交
 				form.on('submit(login)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
+					var verity = data.field.verity;
+					if(checkedVerity(verity)){
+						layer.alert(JSON.stringify(data.field), {
 						title: '最终的提交信息'
-					})
+						})
+					}else{
+						layer.msg("验证码错误");
+					}
 					return false;
 				});
 
