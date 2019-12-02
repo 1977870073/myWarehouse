@@ -1,0 +1,21 @@
+server:
+  port: 8010
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/renting?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.cozyBed.renting_Admin.po
+  mapper-locations: classpath:mapping/*.xml
+
+#showSql
+logging:
+  level:
+    com:
+      cozyBed:
+        remtimg_Admin:
+          mapper: debug

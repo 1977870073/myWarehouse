@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cozyBed.renting_Admin.mapper.RentHouseinfoMapperExpand" >
+    <resultMap id="BaseResultMap" type="com.cozyBed.renting_Admin.po.RentHouseinfo">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="price" jdbcType="INTEGER" property="price" />
+        <result column="price_type" jdbcType="VARCHAR" property="priceType" />
+        <result column="house_type" jdbcType="VARCHAR" property="houseType" />
+        <result column="rental_mode" jdbcType="VARCHAR" property="rentalMode" />
+        <result column="area" jdbcType="INTEGER" property="area" />
+        <result column="floor" jdbcType="VARCHAR" property="floor" />
+        <result column="allfloor" jdbcType="INTEGER" property="allfloor" />
+        <result column="orientation" jdbcType="VARCHAR" property="orientation" />
+        <result column="renovation" jdbcType="VARCHAR" property="renovation" />
+        <result column="residential_areas" jdbcType="VARCHAR" property="residentialAreas" />
+        <result column="residential_note" jdbcType="VARCHAR" property="residentialNote" />
+        <result column="district" jdbcType="VARCHAR" property="district" />
+        <result column="user" jdbcType="VARCHAR" property="user" />
+        <result column="user_type" jdbcType="INTEGER" property="userType" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+        <result column="flag" jdbcType="INTEGER" property="flag" />
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs">
+        <result column="title" jdbcType="LONGVARCHAR" property="title" />
+        <result column="address" jdbcType="LONGVARCHAR" property="address" />
+        <result column="picture" jdbcType="LONGVARCHAR" property="picture" />
+    </resultMap>
+    <resultMap extends="ResultMapWithBLOBs" id="ResultMapWithBLOBsExpand" type="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand"></resultMap>
+    <!-- 定义房源筛选的sql片段，就是房源查询条件 -->
+    <sql id="query_info_where">
+        <!-- 使用动态sql，通过if判断，满足条件进行sql拼接 -->
+            <if test=" district!=null">
+                and district='${ district}'
+            </if>
+            <if test=" minPrice!=0">
+                and price &gt; #{ minPrice}
+            </if>
+            <if test=" maxPrice!=0">
+                and price &lt; #{ maxPrice}
+            </if>
+            <if test=" houseType!=null">
+                <if test=" houseType=='一居'">
+                    and house_type LIKE '1%'
+                </if>
+                <if test=" houseType=='二居'">
+                    and house_type LIKE '2%'
+                </if>
+                <if test=" houseType=='三居'">
+                    and house_type LIKE '3%'
+                </if>
+                <if test=" houseType=='四居'">
+                    and house_type LIKE '4%'
+                </if>
+                <if test=" houseType=='其它'">
+                    and house_type NOT REGEXP '^[1-4]'
+                </if>
+            </if>
+            <if test=" rentalMode!=null">
+                and rental_mode='${ rentalMode}'
+            </if>
+            <if test=" orientation!=null">
+                and orientation='${ orientation}'
+            </if>
+            and flag = 0
+    </sql>
+
+    <!-- 房源信息列表查询 -->
+    <!-- parameterType传入对象
+        resultType返回丢向，建议使用扩展对象
+     -->
+    <select id="selectInfoes" parameterType="com.cozyBed.renting_Admin.po.Choose"
+            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs"
+            resultMap="ResultMapWithBLOBs">
+        SELECT * FROM rent_houseinfo
+        <where>
+            <include refid="query_info_where"></include>
+        </where>
+        LIMIT #{index,jdbcType=INTEGER},10
+    </select>
+
+    <select id="infoCount" parameterType="com.cozyBed.renting_Admin.po.Choose"
+            resultType="java.lang.Long">
+        SELECT count(*) FROM rent_houseinfo
+        <where>
+            <include refid="query_info_where"></include>
+        </where>
+    </select>
+
+    <!-- 房源信息查询 -->
+    <select id="findByPrimaryKey" parameterType="java.lang.Integer"
+            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand"
+            resultMap="ResultMapWithBLOBsExpand">
+        SELECT * FROM rent_houseinfo where id=#{id,jdbcType=INTEGER}
+    </select>
+    <!-- 模糊查询房源信息 -->
+    <select id="selectBySearch" parameterType="java.lang.String"
+            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand"
+            resultMap="ResultMapWithBLOBsExpand">
+        SELECT * FROM rent_houseinfo where title like CONCAT('%', #{search,jdbcType=VARCHAR} , '%')
+    </select>
+
+    <select id="userHouseCount" parameterType="java.lang.String"
+            resultType="java.lang.Long">
+        SELECT count(*) FROM rent_houseinfo WHERE user = #{user,jdbcType=VARCHAR} and user_type = 0
+    </select>
+
+    <select id="userHouse"
+            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs"
+            resultMap="ResultMapWithBLOBs">
+        SELECT * FROM rent_houseinfo
+        WHERE user = #{user,jdbcType=VARCHAR} and user_type = 0
+        LIMIT #{index,jdbcType=INTEGER},40
+    </select>
+</mapper>
