@@ -16,17 +16,17 @@
 				<div class="m-login-warp">
 					<form class="layui-form">
 						<div class="layui-form-item">
-							<input type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+							<input type="text" name="title" required lay-verify="title" placeholder="用户名" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
-							<input type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+							<input type="password" name="password" required lay-verify="password" placeholder="密码" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
 							<div class="layui-inline">
-								<input type="text" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+								<input type="text" name="verity" required lay-verify="verity" placeholder="验证码" autocomplete="off" class="layui-input">
 							</div>
 							<div class="layui-inline">
-								<canvas id="canvas" width="132" height="43" onclick="dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
+								<canvas id="canvas" width="120" height="43" onclick="dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
 							</div>
 						</div>
 						<div class="layui-form-item m-login-btn">
@@ -41,6 +41,8 @@
 				</div>
 			</div>
 		</div>
+		<script src="../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/tools/aes.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/login.js" type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -48,27 +50,39 @@
 				var form = layui.form(),
 					layer = layui.layer;
 
-
 				//自定义验证规则
-				form.verify({
-					title: function(value) {
-						if(value.length < 5) {
-							return '标题至少得5个字符啊';
-						}
-					},
-					password: [/(.+){6,12}$/, '密码必须6到12位'],
-					verity: [/(.+){4}$/, '验证码必须是4位'],
-					
-				});
+                form.verify({
+                    title: function(value) {
+                        if(value.length < 6) {
+                            return '用户名少于6个字符';
+                        }
+                    },
+                    password: [/(.+){6}$/, '密码少于6个字符'],
+                    verity: [/(.+){4}$/, '验证码必须是4位'],
 
-				
+                });
 				//监听提交
 				form.on('submit(login)', function(data) {
 					var verity = data.field.verity;
-					if(checkedVerity(verity)){
-						layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-						})
+                    var index = layer.load(2, {time: 10*1000});
+                    if(checkedVerity(verity)){
+					    var username = encrypt(data.field.title);
+					    var password = encrypt(data.field.password);
+                        $.ajax({
+                            url: '/web/do/login/verification',
+                            type: 'post',
+                            data: {"username":username,"password":password},
+                            dataType: 'text',
+                            success: function (data) {
+                                if(data=="success"){
+                                    layer.close(index);
+                                    window.location.href = '/web/zf/html/htgl/index.html';
+                                }else{
+                                    layer.close(index);
+                                    layer.msg("登陆失败",{icon: 2, anim: 6})
+                                }
+                            }
+                        })
 					}else{
 						layer.msg("验证码错误");
 					}

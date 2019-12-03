@@ -17,9 +17,6 @@
 			draw(show_num); 
 			return false;
 		}
-	
-   
-	
 	  }
 	function draw(show_num) {
         var canvas_width=document.getElementById('canvas').clientWidth;
@@ -74,3 +71,10 @@
         return "rgb(" + r + "," + g + "," + b + ")";
     }
 	//验证码--end
+    //加密
+    function encrypt(word){
+        var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+        var srcs = CryptoJS.enc.Utf8.parse(word);
+        var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+        return encrypted.toString();
+    }

@@ -33,10 +33,8 @@ public class LoginController {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         int flag = 0;
-//        String user = Aes.aesDecrypt(username, Aes.KEY);
-//        String pass = Aes.aesDecrypt(password, Aes.KEY);
-        String user = username;
-        String pass = password;
+        String user = Aes.aesDecrypt(username, Aes.KEY);
+        String pass = Aes.aesDecrypt(password, Aes.KEY);
         try {
             RentAdminExample example = new RentAdminExample();
             RentAdminExample.Criteria criteria = example.createCriteria();
