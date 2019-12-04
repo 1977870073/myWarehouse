@@ -5,9 +5,10 @@
 		<meta name="renderer" content="webkit">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>网站后台管理模版</title>
+		<title>主页</title>
 		<link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
+		<link rel="stylesheet" type="text/css" href="../../static/fonts_expand/iconfont.css"/>
 	</head>
 	<body>
 		<div class="wrap-container welcome-container">
@@ -15,35 +16,46 @@
 				<div class="welcome-left-container col-lg-9">
 					<div class="data-show">
 						<ul class="clearfix">
-							<li class="col-sm-12 col-md-4 col-xs-12">
+							<li class="col-sm-6 col-md-3">
 								<a href="javascript:;" class="clearfix">
-									<div class="icon-bg bg-org f-l">
+									<div class="icon-bg bg-red f-l">
 										<span class="iconfont">&#xe606;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">会员数</p>
+										<p class="name">用户<span>月</span></p>
+										<p><span class="color-red">89</span>数据<span class="iconfont">&#xe628;</span></p>
+									</div>
+								</a>
+							</li>
+							<li class="col-sm-6 col-md-3">
+								<a href="javascript:;" class="clearfix">
+									<div class="icon-bg bg-org f-l">
+										<span class="iconfont">&#xe60d;</span>
+									</div>
+									<div class="right-text-con">
+										<p class="name">用户收藏<span>月</span></p>
 										<p><span class="color-org">89</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
-							<li class="col-sm-12 col-md-4 col-xs-12">
+							<li class="col-sm-6 col-md-3">
 								<a href="javascript:;" class="clearfix">
 									<div class="icon-bg bg-blue f-l">
-										<span class="iconfont">&#xe602;</span>
+										<span class="iconfont">&#xe752;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">文章数</p>
+										<p class="name">后台发布房源<span>月</span></p>
 										<p><span class="color-blue">189</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
-							<li class="col-sm-12 col-md-4 col-xs-12">
+							<li class="col-sm-6 col-md-3">
 								<a href="javascript:;" class="clearfix">
 									<div class="icon-bg bg-green f-l">
 										<span class="iconfont">&#xe605;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">评论数</p>
+										<p class="name">用户发布房源<span>月</span></p>
 										<p><span class="color-green">221</span>数据<span class="iconfont">&#xe60f;</span></p>
 									</div>
 								</a>
@@ -61,7 +73,11 @@
 						<div class="panel-body clearfix">
 							<div class="col-md-2">
 								<p class="title">服务器环境</p>
-								<span class="info">Apache/2.4.4 (Win32) PHP/5.4.16</span>
+								<span class="info">Apache Tomcat7.0</span>
+							</div>
+							<div class="col-md-2">
+								<p class="title"> Nginx版本</p>
+								<span class="info">1.14.2</span>
 							</div>
 							<div class="col-md-2">
 								<p class="title">服务器IP地址</p>
@@ -72,72 +88,68 @@
 								<span class="info">localhost </span>
 							</div>
 							<div class="col-md-2">
-								<p class="title"> PHP版本</p>
-								<span class="info">5.4.16</span>
-							</div>
-							<div class="col-md-2">
 								<p class="title">数据库信息</p>
 								<span class="info">5.6.12-log </span>
 							</div>
 							<div class="col-md-2">
 								<p class="title">服务器当前时间</p>
-								<span class="info">2016-06-22 11:37:35</span>
+								<span class="info" id="server-info-time">2019-12-22 11:37:35</span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="welcome-edge col-lg-3">
-					<!--最新留言-->
+					<!--最新通知-->
 					<div class="panel panel-default comment-panel">
-						<div class="panel-header">最新留言</div>
+						<div class="panel-header">最新通知</div>
 						<div class="panel-body">
 							<div class="commentbox">
 								<ul class="commentList">
-								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
+								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://b-ssl.duitang.com/uploads/item/201505/30/20150530141535_ABaPX.jpeg"></i></a>
 								    <div class="comment-main">
 								      <header class="comment-header">
-								        <div class="comment-meta"><a class="comment-author" href="#">慕枫</a> 评论于
-								          <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
+								        <div class="comment-meta"><a class="comment-author" href="#">秘书处</a> 发布于
+								          <time title="2019年9月20日 下午2:20" datetime="2019-09-20T02:20">2019-09-20 14:20</time>
 								        </div>
 								      </header>
 								      <div class="comment-body">
-								        <p><a href="#">@某人</a> 系统真不错！！！</p>
+								        <p><a href="#">@所有人</a>  (っ• ̀ω•́ )っ国庆节就要放假啦，放假时间是10月1日~10月7日。（╯‵□′）╯9月29日和10月12日要上班！！！</p>
+								      </div>
+								    </div>
+								  </li>
+								   <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://b-ssl.duitang.com/uploads/item/201810/18/20181018162951_kgwzm.thumb.700_0.jpeg"></i></a>
+								    <div class="comment-main">
+								      <header class="comment-header">
+								        <div class="comment-meta"><a class="comment-author" href="#">大老板</a> 发布于
+								          <time title="2019年9月2日 下午4:40" datetime="2019-09-02T04:40">2019-09-02 16:40</time>
+								        </div>
+								      </header>
+								      <div class="comment-body">
+								        <p><a href="#">@所有人</a> 今年中秋节不发月饼了，每个员工领取100元过节补贴！！！</p>
+								      </div>
+								    </div>
+								  </li>
+								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://pic2.zhimg.com/50/v2-1c3bd9fe6c6a28c5ca3a678549dfde28_hd.jpg"></i></a>
+								    <div class="comment-main">
+								     <header class="comment-header">
+								        <div class="comment-meta"><a class="comment-author" href="#">秘书处</a> 发布于
+								          <time title="2019年9月2日 下午4:30" datetime="2019-09-02T04:30">2019-09-02 16:30</time>
+								        </div>
+								      </header>
+								      <div class="comment-body">
+								        <p><a href="#">@所有人</a>  (っ• ̀ω•́ )っ中秋就要放假啦，放假时间是9月13日~9月15日！！！</p>
 								      </div>
 								    </div>
 								  </li>
 								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
 								    <div class="comment-main">
 								      <header class="comment-header">
-								        <div class="comment-meta"><a class="comment-author" href="#">慕枫</a> 评论于
-								          <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
+								        <div class="comment-meta"><a class="comment-author" href="#">超级管理员</a> 发布于
+								          <time title="2019年8月30日 下午3:20" datetime="2019-08-30T03:20">2019-08-30 15:20</time>
 								        </div>
 								      </header>
 								      <div class="comment-body">
-								        <p><a href="#">@某人</a> 系统真不错！！！</p>
-								      </div>
-								    </div>
-								  </li>
-								   <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
-								    <div class="comment-main">
-								      <header class="comment-header">
-								        <div class="comment-meta"><a class="comment-author" href="#">慕枫</a> 评论于
-								          <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
-								        </div>
-								      </header>
-								      <div class="comment-body">
-								        <p><a href="#">@某人</a> 系统真不错！！！</p>
-								      </div>
-								    </div>
-								  </li>
-								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
-								    <div class="comment-main">
-								      <header class="comment-header">
-								        <div class="comment-meta"><a class="comment-author" href="#">慕枫</a> 评论于
-								          <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time>
-								        </div>
-								      </header>
-								      <div class="comment-body">
-								        <p><a href="#">@某人</a> 系统真不错！！！</p>
+								        <p><a href="#">@所有人</a> 系统处于测试阶段，若遇到问题请及时反馈！！！</p>
 								      </div>
 								    </div>
 								  </li>
@@ -148,14 +160,7 @@
 							</div>
 						</div>
 					</div>
-					<!--联系-->
-					<div class="panel panel-default contact-panel">
-						<div class="panel-header">联系我们</div>
-						<div class="panel-body">
-							<p>QQ：1465465646</p>
-							<p>E-mail:4565564@qq.com</p>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -165,6 +170,24 @@
 			layui.use(['layer','jquery'], function(){
 				var layer 	= layui.layer;
 				var $=layui.jquery;
+				setServerTime();//设置服务器信息服务器时间
+				function setServerTime(){
+					var t = null;
+					t = setTimeout(time,1000);//开始运行
+					function time()
+					{
+						clearTimeout(t);//清除定时器
+						dt = new Date();
+						var year = dt.getFullYear(); //得到年份
+						var month = dt.getMonth();//得到月份
+						var date = dt.getDate();//得到日期
+						var h=dt.getHours();//获取时
+						var m=dt.getMinutes();//获取分
+						var s=dt.getSeconds();//获取秒
+						document.getElementById("server-info-time").innerHTML =  year+"-"+month+"-"+date+" "+h+":"+m+":"+s;
+						t = setTimeout(time,1000); //设定定时器，循环运行     
+					} 
+				}
 				//图表
 				var myChart;
 				require.config({
@@ -185,7 +208,7 @@
 				        myChart.setOption(
 				        	{
 						     title: {
-						        text: "数据统计",
+						        text: "房源信息数据统计",
 						        textStyle: {
 						            color: "rgb(85, 85, 85)",
 						            fontSize: 18,
@@ -197,7 +220,7 @@
 						        trigger: "axis"
 						    },
 						    legend: {
-						        data: ["会员", "文章", "评论"],
+						        data: ["收藏数", "后台发布房源数", "用户发布房源数"],
 						        selectedMode: false,
 						    },
 						    toolbox: {
@@ -241,7 +264,7 @@
 						    },
 						    series: [
 						        {
-						            name: "会员",
+						            name: "收藏数",
 						            type: "line",
 						            smooth: true,
 						            itemStyle: {
@@ -254,7 +277,7 @@
 						            data: [10, 12, 21, 54, 260, 830, 710]
 						        },
 						        {
-						            name: "文章",
+						            name: "后台发布房源数",
 						            type: "line",
 						            smooth: true,
 						            itemStyle: {
@@ -264,10 +287,10 @@
 						                    }
 						                }
 						            },
-						            data: [30, 182, 434, 791, 390, 30, 10]
+						            data: [1320, 1132, 601, 234, 120, 90, 20]
 						        },
 						        {
-						            name: "评论",
+						            name: "用户发布房源数",
 						            type: "line",
 						            smooth: true,
 						            itemStyle: {
@@ -278,7 +301,7 @@
 						                    color: "rgb(110, 211, 199)"
 						                }
 						            },
-						            data: [1320, 1132, 601, 234, 120, 90, 20]
+						            data: [30, 182, 434, 791, 390, 30, 10]
 						        }
 						    ]
 						}

@@ -1,0 +1,44 @@
+{
+  "id": "1544435",
+  "name": "fonts_expand",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "485763",
+      "name": "收 藏",
+      "font_class": "shoucang",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "564071",
+      "name": "审批",
+      "font_class": "shengpi",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "869170",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "5174092",
+      "name": "线性图标_我的房屋",
+      "font_class": "xianxingtubiao_wodefangwu",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "6773142",
+      "name": "文件-房屋合同",
+      "font_class": "wj-fwht",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    }
+  ]
+}

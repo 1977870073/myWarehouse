@@ -1698,8 +1698,11 @@
 .main-layout-header .layui-nav li {
   border-left: 1px solid #f2f3f5;
 }
+.main-layout-header .layui-nav .layui-nav-item > a{
+	  color: #999;
+}
 .main-layout-header .layui-nav .layui-nav-item > a:hover {
-  color: #999;
+  color: #4e3d3d;
 }
 .main-layout-header .layui-nav > .layui-this a {
   color: #00b5f9;
@@ -2001,6 +2004,9 @@
   position: relative;
   top: 15px;
 }
+.welcome-left-container .data-show .bg-red {
+  background: #ffbfa7;
+}
 .welcome-left-container .data-show .bg-org {
   background: #f8bb74;
 }
@@ -2017,12 +2023,16 @@
   margin: 0;
   color: #a0a8b4;
 }
+.welcome-left-container .data-show .color-red,
 .welcome-left-container .data-show .color-org,
 .welcome-left-container .data-show .color-blue,
 .welcome-left-container .data-show .color-green {
   font-size: 28px;
   padding-right: 10px;
   font-family: "arial";
+}
+.welcome-left-container .data-show .color-red {
+	color: #ffbfa7;
 }
 .welcome-left-container .data-show .color-org {
   color: #f8bb74;
@@ -2037,6 +2047,17 @@
   margin-bottom: 10px;
   font-size: 16px;
   color: #555555;
+}
+.welcome-left-container .data-show .name span{
+	margin: 0 4px;
+	padding: 0 4px;
+	height:18px;
+	line-height:18px;
+	border-radius: 2px;
+	background-color: #1E9FFF!important;
+	font-size: 13px;
+	text-align: center;
+	color: #fff!important;
 }
 .welcome-left-container .chart-panel {
   margin: 0px 15px 15px;
