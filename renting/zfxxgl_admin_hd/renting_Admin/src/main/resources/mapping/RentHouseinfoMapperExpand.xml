@@ -112,4 +112,22 @@
         WHERE user = #{user,jdbcType=VARCHAR} and user_type = 0
         LIMIT #{index,jdbcType=INTEGER},40
     </select>
+    <!-- 获取一个7天内后台发布的房源数 -->
+    <select id="selectWeekCountForHT" resultType="hashmap">
+        select doTime, count(a.doTime) as count from
+            (select doTime from rent_houseinfo
+            where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 6 day))
+            and TO_DAYS(doTime) &lt;=NOW() and flag=1 and user_type=0
+            ORDER BY doTime ASC) a
+        GROUP BY a.doTime;
+    </select>
+    <!-- 获取一个7天内用户发布的房源数 -->
+    <select id="selectWeekCountForYH" resultType="hashmap">
+        select doTime, count(a.doTime) as count from
+            (select doTime from rent_houseinfo
+            where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 6 day))
+            and TO_DAYS(doTime) &lt;=NOW() and flag=1 and user_type=1
+            ORDER BY doTime ASC) a
+        GROUP BY a.doTime;
+    </select>
 </mapper>

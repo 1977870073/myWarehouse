@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cozyBed.renting_Admin.mapper.UserCollectionMapperExpand" >
+    <!--  查询过去7天收藏数 -->
+    <select id="selectWeekCount" resultType="hashmap">
+        select doTime, count(a.doTime) as count from
+            (select doTime from user_collection
+            where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 6 day))
+            and TO_DAYS(doTime) &lt;=NOW() and flag=1
+            ORDER BY doTime ASC) a
+        GROUP BY a.doTime;
+    </select>
+</mapper>
