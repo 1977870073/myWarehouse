@@ -130,4 +130,16 @@
             ORDER BY doTime ASC) a
         GROUP BY a.doTime;
     </select>
+    <!-- 获取一个月内后台发布的房源数 -->
+    <select id="selectMonthCountForHT" resultType="java.lang.Integer">
+        select count(1) as count from rent_houseinfo
+        where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 1 MONTH))
+        and TO_DAYS(doTime) &lt;=NOW() and flag=1 and user_type=0
+    </select>
+    <!-- 获取一个月内用户发布的房源数 -->
+    <select id="selectMonthCountForYH" resultType="java.lang.Integer">
+        select count(1) as count from rent_houseinfo
+        where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 1 MONTH))
+        and TO_DAYS(doTime) &lt;=NOW() and flag=1 and user_type=1
+    </select>
 </mapper>

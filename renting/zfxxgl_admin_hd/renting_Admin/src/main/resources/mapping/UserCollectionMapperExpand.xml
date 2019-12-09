@@ -10,4 +10,14 @@
             ORDER BY doTime ASC) a
         GROUP BY a.doTime;
     </select>
+    <!--  获取一个月内的收藏数 -->
+    <select id="selectMonthCount" resultType="java.lang.Integer">
+        select count(1) as count from user_collection
+        where TO_DAYS(doTime) &gt;= TO_DAYS(DATE_SUB(NOW(),INTERVAL 1 MONTH))
+        and TO_DAYS(doTime) &lt;=NOW() and flag=1
+    </select>
+
+    <select id="selectMonthUserCount" resultType="java.lang.Integer">
+        select count(1) from rent_notice
+    </select>
 </mapper>

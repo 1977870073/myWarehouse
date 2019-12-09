@@ -23,4 +23,18 @@ public interface UserCollectionMapperExpand {
      * @throws Exception
      */
     public List<Map<String, Object>> selectWeekCount()throws Exception;
+
+    /**
+     * 获取一个月内的收藏数
+     * @return
+     * @throws Exception
+     */
+    public Integer selectMonthCount()throws  Exception;
+
+    /**
+     * 获取用户总数
+     * @return
+     * @throws Exception
+     */
+    public Integer selectMonthUserCount()throws Exception;
 }

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @ProjectName: renting_Admin
  * @Package: com.cozyBed.renting_Admin.controller
@@ -23,6 +25,12 @@ public class IndexController {
     @RequestMapping("getEchartsData")
     public String getEchartsData(){
         String result = indexServiceImpl.getEchartsData();
+        return result;
+    }
+
+    @RequestMapping("getZYData")
+    public List<Integer> getZYData(){
+        List<Integer> result = indexServiceImpl.getZYData();
         return result;
     }
 }

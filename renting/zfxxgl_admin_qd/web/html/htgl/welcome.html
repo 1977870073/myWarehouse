@@ -22,8 +22,8 @@
 										<span class="iconfont">&#xe606;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">用户<span>月</span></p>
-										<p><span class="color-red">89</span>数据<span class="iconfont">&#xe628;</span></p>
+										<p class="name">总用户</p>
+										<p><span class="color-red" id="zyu">-</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
@@ -34,7 +34,7 @@
 									</div>
 									<div class="right-text-con">
 										<p class="name">用户收藏<span>月</span></p>
-										<p><span class="color-org">89</span>数据<span class="iconfont">&#xe628;</span></p>
+										<p><span class="color-org" id="yhsc">-</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
@@ -44,8 +44,8 @@
 										<span class="iconfont">&#xe752;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">后台发布房源<span>月</span></p>
-										<p><span class="color-blue">189</span>数据<span class="iconfont">&#xe628;</span></p>
+										<p class="name">后台发布数<span>月</span></p>
+										<p><span class="color-blue" id="htfbs">-</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
@@ -55,8 +55,8 @@
 										<span class="iconfont">&#xe605;</span>
 									</div>
 									<div class="right-text-con">
-										<p class="name">用户发布房源<span>月</span></p>
-										<p><span class="color-green">221</span>数据<span class="iconfont">&#xe60f;</span></p>
+										<p class="name">用户发布数<span>月</span></p>
+										<p><span class="color-green" id="yhfbs">-</span>数据<span class="iconfont">&#xe628;</span></p>
 									</div>
 								</a>
 							</li>
@@ -105,7 +105,7 @@
 						<div class="panel-body">
 							<div class="commentbox">
 								<ul class="commentList">
-								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://b-ssl.duitang.com/uploads/item/201505/30/20150530141535_ABaPX.jpeg"></i></a>
+								  <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://pic.qqtn.com/file/2013/2014-11/2014112815095076688.png"></i></a>
 								    <div class="comment-main">
 								      <header class="comment-header">
 								        <div class="comment-meta"><a class="comment-author" href="#">秘书处</a> 发布于
@@ -117,7 +117,7 @@
 								      </div>
 								    </div>
 								  </li>
-								   <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="http://b-ssl.duitang.com/uploads/item/201810/18/20181018162951_kgwzm.thumb.700_0.jpeg"></i></a>
+								   <li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://ss1.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2609090879,1548083328&fm=27&gp=0.jpg"></i></a>
 								    <div class="comment-main">
 								      <header class="comment-header">
 								        <div class="comment-meta"><a class="comment-author" href="#">大老板</a> 发布于
@@ -171,6 +171,24 @@
 				var layer 	= layui.layer;
 				var $=layui.jquery;
 				setServerTime();//设置服务器信息服务器时间
+                setZYData();//获取主页头部数据
+				function setZYData() {
+					$.ajax({
+						type: 'get',
+                        async: true,
+                        url: '/web/do/index/getZYData',
+						success: function (data) {
+						    var d = data;
+							$('#zyu').text(d[0]);
+							$('#yhsc').text(d[1]);
+							$('#htfbs').text(d[2]);
+							$('#yhfbs').text(d[3]);
+                        },
+						error: function (errorMsg) {
+                            layer.msg("请求数据失败!")
+                        }
+					});
+                }
 				function setServerTime(){
 					var t = null;
 					t = setTimeout(time,1000);//开始运行
@@ -213,123 +231,175 @@
                             var date = dt.getDate();//得到日期
                             xParam[i] = year+"/"+month+"/"+date;
                         }
-
-				        //--- 折柱 ---
-				        myChart = ec.init(document.getElementById('chart'));
-				        myChart.showLoading();
-				        $.ajax({
-							type: 'get',
-							async: true,
-							url: '/web/do/index/getEchartsData',
-							success: function (data) {
-                                myChart.setOption(
-                                    {
-                                        title: {
-                                            text: "房源信息数据统计",
-                                            textStyle: {
-                                                color: "rgb(85, 85, 85)",
-                                                fontSize: 18,
-                                                fontStyle: "normal",
-                                                fontWeight: "normal"
-                                            }
-                                        },
-                                        tooltip: {
-                                            trigger: "axis"
-                                        },
-                                        legend: {
-                                            data: ["收藏数", "后台发布房源数", "用户发布房源数"],
-                                            selectedMode: false,
-                                        },
-                                        toolbox: {
-                                            show: true,
-                                            feature: {
-                                                dataView: {
-                                                    show: false,
-                                                    readOnly: true
-                                                },
-                                                magicType: {
-                                                    show: false,
-                                                    type: ["line", "bar", "stack", "tiled"]
-                                                },
-                                                restore: {
-                                                    show: false
-                                                },
-                                                saveAsImage: {
-                                                    show: true
-                                                },
-                                                mark: {
-                                                    show: false
-                                                }
-                                            }
-                                        },
-                                        calculable: false,
-                                        xAxis: [
-                                            {
-                                                type: "category",
-                                                boundaryGap: false,
-                                                data: xParam
-                                            }
-                                        ],
-                                        yAxis: [
-                                            {
-                                                type: "value"
-                                            }
-                                        ],
-                                        grid: {
-                                            x2: 30,
-                                            x: 50
-                                        },
-                                        series: [
-                                            {
-                                                name: "收藏数",
-                                                type: "line",
-                                                smooth: true,
-                                                itemStyle: {
-                                                    normal: {
-                                                        areaStyle: {
-                                                            type: "default"
-                                                        }
-                                                    }
-                                                },
-                                                data: [1, 2, 3, 5, 20, 53, 42]
-                                            },
-                                            {
-                                                name: "后台发布房源数",
-                                                type: "line",
-                                                smooth: true,
-                                                itemStyle: {
-                                                    normal: {
-                                                        areaStyle: {
-                                                            type: "default"
-                                                        }
-                                                    }
-                                                },
-                                                data: [60, 66, 57, 36, 28, 41, 30]
-                                            },
-                                            {
-                                                name: "用户发布房源数",
-                                                type: "line",
-                                                smooth: true,
-                                                itemStyle: {
-                                                    normal: {
-                                                        areaStyle: {
-                                                            type: "default"
-                                                        },
-                                                        color: "rgb(248, 187, 116)"
-                                                    }
-                                                },
-                                                data: [1, 14, 40, 56, 39, 14, 2	]
-                                            }
-                                        ]
+                        //--- 折柱 ---
+                        myChart = ec.init(document.getElementById('chart'));
+                        myChart.showLoading();
+                        myChart.setOption(
+                            {
+                                title: {
+                                    text: "房源信息数据统计",
+                                    textStyle: {
+                                        color: "rgb(85, 85, 85)",
+                                        fontSize: 18,
+                                        fontStyle: "normal",
+                                        fontWeight: "normal"
                                     }
-                                );
-                                myChart.hideLoading();
-                            },
-							error: function (errorMsg) {
-							    layer.msg("图表请求数据失败!")
-								myChart.hideLoading();
+                                },
+                                tooltip: {
+                                    trigger: "axis"
+                                },
+                                legend: {
+                                    data: ["收藏数", "后台发布房源数", "用户发布房源数"],
+                                    selectedMode: false,
+                                },
+                                toolbox: {
+                                    show: true,
+                                    feature: {
+                                        dataView: {
+                                            show: false,
+                                            readOnly: true
+                                        },
+                                        magicType: {
+                                            show: false,
+                                            type: ["line", "bar", "stack", "tiled"]
+                                        },
+                                        restore: {
+                                            show: false
+                                        },
+                                        saveAsImage: {
+                                            show: true
+                                        },
+                                        mark: {
+                                            show: false
+                                        }
+                                    }
+                                },
+                                calculable: false,
+                                xAxis: [
+                                    {
+                                        type: "category",
+                                        boundaryGap: false,
+                                        data: xParam
+                                    }
+                                ],
+                                yAxis: [
+                                    {
+                                        type: "value"
+                                    }
+                                ],
+                                grid: {
+                                    x2: 30,
+                                    x: 50
+                                }
                             }
-						});
+                        );
+						setTimeout(function () {
+                            $.ajax({
+                                type: 'get',
+                                async: true,
+                                url: '/web/do/index/getEchartsData',
+                                success: function (data) {
+                                    myChart.setOption(
+                                        {
+                                            series: [
+                                                {
+                                                    name: "收藏数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            }
+                                                        }
+                                                    },
+                                                    data: [1, 2, 3, 5, 20, 53, 42]
+                                                },
+                                                {
+                                                    name: "后台发布房源数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            }
+                                                        }
+                                                    },
+                                                    data: [60, 66, 57, 36, 28, 41, 30]
+                                                },
+                                                {
+                                                    name: "用户发布房源数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            },
+                                                            color: "rgb(248, 187, 116)"
+                                                        }
+                                                    },
+                                                    data: [1, 14, 40, 56, 39, 14, 2	]
+                                                }
+                                            ]
+                                        }
+                                    );
+                                    myChart.hideLoading();
+                                },
+                                error: function (errorMsg) {
+                                    layer.msg("图表请求数据失败!")
+                                    myChart.hideLoading();
+                                    myChart.setOption(
+                                        {
+                                            series: [
+                                                {
+                                                    name: "收藏数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            }
+                                                        }
+                                                    },
+                                                    data: []
+                                                },
+                                                {
+                                                    name: "后台发布房源数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            }
+                                                        }
+                                                    },
+                                                    data: []
+                                                },
+                                                {
+                                                    name: "用户发布房源数",
+                                                    type: "line",
+                                                    smooth: true,
+                                                    itemStyle: {
+                                                        normal: {
+                                                            areaStyle: {
+                                                                type: "default"
+                                                            },
+                                                            color: "rgb(248, 187, 116)"
+                                                        }
+                                                    },
+                                                    data: []
+                                                }
+                                            ]
+                                        }
+                                    );
+                                }
+                            });
+                        },2000)
+
 					}
 				);
 				$(window).resize(function(){

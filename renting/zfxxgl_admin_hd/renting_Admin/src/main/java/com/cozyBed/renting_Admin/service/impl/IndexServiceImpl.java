@@ -94,4 +94,26 @@ public class IndexServiceImpl implements IndexService {
         rtResult.put("yh",yhList);
         return JSON.toJSONString(rtResult);
     }
+
+    /**
+     * 获取主页顶部数据数据
+     * @return
+     */
+    @Override
+    public List<Integer> getZYData() {
+        List<Integer> result = new ArrayList<>();
+        try {
+            Integer num = userCollectionMapperExpand.selectMonthUserCount();//用户数
+            result.add(num);
+            num = userCollectionMapperExpand.selectMonthCount();//收藏数
+            result.add(num);
+            num = rentHouseinfoMapperExpand.selectMonthCountForHT();//后台房源发布数
+            result.add(num);
+            num = rentHouseinfoMapperExpand.selectMonthCountForYH();//用户房源发布数
+            result.add(num);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

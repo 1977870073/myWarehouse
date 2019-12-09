@@ -81,4 +81,18 @@ public interface RentHouseinfoMapperExpand {
      * @throws Exception
      */
     public List<Map<String, Object>> selectWeekCountForYH()throws Exception;
+
+    /**
+     * 获取一个月内后台发布的房源数
+     * @return
+     * @throws Exception
+     */
+    public Integer selectMonthCountForHT()throws Exception;
+
+    /**
+     * 获取一个月内用户发布的房源数
+     * @return
+     * @throws Exception
+     */
+    public Integer selectMonthCountForYH()throws Exception;
 }

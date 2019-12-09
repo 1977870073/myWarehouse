@@ -1,5 +1,7 @@
 package com.cozyBed.renting_Admin.service;
 
+import java.util.List;
+
 /**
  * @ProjectName: renting_Admin
  * @Package: com.cozyBed.renting_Admin.service.impl
@@ -15,4 +17,10 @@ public interface IndexService {
      * @return
      */
     public String getEchartsData();
+
+    /**
+     * 获取主页顶部数据数据
+     * @return
+     */
+    public List<Integer> getZYData();
 }
