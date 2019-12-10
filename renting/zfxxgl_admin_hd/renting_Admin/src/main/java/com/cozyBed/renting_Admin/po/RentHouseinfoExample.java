@@ -1303,6 +1303,76 @@ public class RentHouseinfoExample {
             addCriterion("flag not between", value1, value2, "flag");
             return (Criteria) this;
         }
+
+        public Criteria andDotimeIsNull() {
+            addCriterion("dotime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeIsNotNull() {
+            addCriterion("dotime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeEqualTo(String value) {
+            addCriterion("dotime =", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotEqualTo(String value) {
+            addCriterion("dotime <>", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeGreaterThan(String value) {
+            addCriterion("dotime >", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeGreaterThanOrEqualTo(String value) {
+            addCriterion("dotime >=", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLessThan(String value) {
+            addCriterion("dotime <", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLessThanOrEqualTo(String value) {
+            addCriterion("dotime <=", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLike(String value) {
+            addCriterion("dotime like", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotLike(String value) {
+            addCriterion("dotime not like", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeIn(List<String> values) {
+            addCriterion("dotime in", values, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotIn(List<String> values) {
+            addCriterion("dotime not in", values, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeBetween(String value1, String value2) {
+            addCriterion("dotime between", value1, value2, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotBetween(String value1, String value2) {
+            addCriterion("dotime not between", value1, value2, "dotime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

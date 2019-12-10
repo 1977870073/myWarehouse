@@ -20,6 +20,7 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="dotime" jdbcType="VARCHAR" property="dotime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs">
     <result column="title" jdbcType="LONGVARCHAR" property="title" />
@@ -87,7 +88,7 @@
   <sql id="Base_Column_List">
     id, price, price_type, house_type, rental_mode, area, floor, allfloor, orientation, 
     renovation, residential_areas, residential_note, district, user, user_type, user_name, 
-    user_phone, flag
+    user_phone, flag, dotime
   </sql>
   <sql id="Blob_Column_List">
     title, address, picture
@@ -147,16 +148,16 @@
       renovation, residential_areas, residential_note, 
       district, user, user_type, 
       user_name, user_phone, flag, 
-      title, address, picture
-      )
+      dotime, title, address, 
+      picture)
     values (#{id,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, #{priceType,jdbcType=VARCHAR}, 
       #{houseType,jdbcType=VARCHAR}, #{rentalMode,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, 
       #{floor,jdbcType=VARCHAR}, #{allfloor,jdbcType=INTEGER}, #{orientation,jdbcType=VARCHAR}, 
       #{renovation,jdbcType=VARCHAR}, #{residentialAreas,jdbcType=VARCHAR}, #{residentialNote,jdbcType=VARCHAR}, 
       #{district,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
       #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
-      #{title,jdbcType=LONGVARCHAR}, #{address,jdbcType=LONGVARCHAR}, #{picture,jdbcType=LONGVARCHAR}
-      )
+      #{dotime,jdbcType=VARCHAR}, #{title,jdbcType=LONGVARCHAR}, #{address,jdbcType=LONGVARCHAR}, 
+      #{picture,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs">
     insert into rent_houseinfo
@@ -214,6 +215,9 @@
       </if>
       <if test="flag != null">
         flag,
+      </if>
+      <if test="dotime != null">
+        dotime,
       </if>
       <if test="title != null">
         title,
@@ -279,6 +283,9 @@
       </if>
       <if test="flag != null">
         #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="dotime != null">
+        #{dotime,jdbcType=VARCHAR},
       </if>
       <if test="title != null">
         #{title,jdbcType=LONGVARCHAR},
@@ -354,6 +361,9 @@
       <if test="record.flag != null">
         flag = #{record.flag,jdbcType=INTEGER},
       </if>
+      <if test="record.dotime != null">
+        dotime = #{record.dotime,jdbcType=VARCHAR},
+      </if>
       <if test="record.title != null">
         title = #{record.title,jdbcType=LONGVARCHAR},
       </if>
@@ -388,6 +398,7 @@
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_phone = #{record.userPhone,jdbcType=VARCHAR},
       flag = #{record.flag,jdbcType=INTEGER},
+      dotime = #{record.dotime,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=LONGVARCHAR},
       address = #{record.address,jdbcType=LONGVARCHAR},
       picture = #{record.picture,jdbcType=LONGVARCHAR}
@@ -414,7 +425,8 @@
       user_type = #{record.userType,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_phone = #{record.userPhone,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=INTEGER}
+      flag = #{record.flag,jdbcType=INTEGER},
+      dotime = #{record.dotime,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -473,6 +485,9 @@
       <if test="flag != null">
         flag = #{flag,jdbcType=INTEGER},
       </if>
+      <if test="dotime != null">
+        dotime = #{dotime,jdbcType=VARCHAR},
+      </if>
       <if test="title != null">
         title = #{title,jdbcType=LONGVARCHAR},
       </if>
@@ -504,6 +519,7 @@
       user_name = #{userName,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},
       flag = #{flag,jdbcType=INTEGER},
+      dotime = #{dotime,jdbcType=VARCHAR},
       title = #{title,jdbcType=LONGVARCHAR},
       address = #{address,jdbcType=LONGVARCHAR},
       picture = #{picture,jdbcType=LONGVARCHAR}
@@ -527,7 +543,8 @@
       user_type = #{userType,jdbcType=INTEGER},
       user_name = #{userName,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER}
+      flag = #{flag,jdbcType=INTEGER},
+      dotime = #{dotime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

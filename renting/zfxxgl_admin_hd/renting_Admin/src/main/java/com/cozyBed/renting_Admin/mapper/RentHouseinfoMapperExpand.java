@@ -25,7 +25,7 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    public List<RentHouseinfoWithBLOBs> selectInfoes(Choose choose)throws Exception;
+    public List<RentHouseinfoWithBLOBsExpand> selectInfoes(Choose choose)throws Exception;
 
     /**
      * 返回RentHouseinfoWithBLOBsExpand类型的数据,显示房源详细信息

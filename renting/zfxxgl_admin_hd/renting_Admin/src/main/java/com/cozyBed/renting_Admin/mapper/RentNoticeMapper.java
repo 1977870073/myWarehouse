@@ -2,10 +2,9 @@ package com.cozyBed.renting_Admin.mapper;
 
 import com.cozyBed.renting_Admin.po.RentNotice;
 import com.cozyBed.renting_Admin.po.RentNoticeExample;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface RentNoticeMapper {

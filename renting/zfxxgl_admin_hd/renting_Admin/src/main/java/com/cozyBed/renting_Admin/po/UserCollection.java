@@ -7,6 +7,10 @@ public class UserCollection {
 
     private Integer house;
 
+    private Integer flag;
+
+    private String dotime;
+
     public Integer getId() {
         return id;
     }
@@ -29,5 +33,21 @@ public class UserCollection {
 
     public void setHouse(Integer house) {
         this.house = house;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
+    public String getDotime() {
+        return dotime;
+    }
+
+    public void setDotime(String dotime) {
+        this.dotime = dotime == null ? null : dotime.trim();
     }
 }

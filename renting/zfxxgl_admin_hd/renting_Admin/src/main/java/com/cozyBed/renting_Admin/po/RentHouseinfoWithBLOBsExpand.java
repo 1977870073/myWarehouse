@@ -15,6 +15,8 @@ public class RentHouseinfoWithBLOBsExpand extends RentHouseinfoWithBLOBs {
 
     private List<String> pic = new ArrayList<String>();
 
+    public Integer rownum;
+
     private int temp = 0;
 
     private StringBuffer baseData;
@@ -42,5 +44,13 @@ public class RentHouseinfoWithBLOBsExpand extends RentHouseinfoWithBLOBs {
 
     public StringBuffer getBaseData() {
         return baseData;
+    }
+
+    public Integer getRownum() {
+        return rownum;
+    }
+
+    public void setRownum(Integer rownum) {
+        this.rownum = rownum;
     }
 }

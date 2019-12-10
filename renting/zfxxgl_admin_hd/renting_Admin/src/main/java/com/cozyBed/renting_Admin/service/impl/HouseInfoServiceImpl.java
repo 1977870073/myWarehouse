@@ -26,7 +26,7 @@ public class HouseInfoServiceImpl implements HouseInfoService {
     @Autowired
     private RentHouseinfoMapper rentHouseinfoMapper;
 
-    public List<RentHouseinfoWithBLOBs> selectInfoes(Choose choose) throws Exception {
+    public List<RentHouseinfoWithBLOBsExpand> selectInfoes(Choose choose) throws Exception {
         return rentHouseinfoMapperExpand.selectInfoes(choose);
     }
 

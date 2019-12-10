@@ -5,6 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user" jdbcType="VARCHAR" property="user" />
     <result column="house" jdbcType="INTEGER" property="house" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="doTime" jdbcType="VARCHAR" property="dotime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user, house
+    id, user, house, flag, doTime
   </sql>
   <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.UserCollectionExample" resultMap="BaseResultMap">
     select
@@ -98,10 +100,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
-    insert into user_collection (id, user, house
-      )
-    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{house,jdbcType=INTEGER}
-      )
+    insert into user_collection (id, user, house, 
+      flag, doTime)
+    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{house,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER}, #{dotime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
     insert into user_collection
@@ -115,6 +117,12 @@
       <if test="house != null">
         house,
       </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="dotime != null">
+        doTime,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -125,6 +133,12 @@
       </if>
       <if test="house != null">
         #{house,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="dotime != null">
+        #{dotime,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -146,6 +160,12 @@
       <if test="record.house != null">
         house = #{record.house,jdbcType=INTEGER},
       </if>
+      <if test="record.flag != null">
+        flag = #{record.flag,jdbcType=INTEGER},
+      </if>
+      <if test="record.dotime != null">
+        doTime = #{record.dotime,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -155,7 +175,9 @@
     update user_collection
     set id = #{record.id,jdbcType=INTEGER},
       user = #{record.user,jdbcType=VARCHAR},
-      house = #{record.house,jdbcType=INTEGER}
+      house = #{record.house,jdbcType=INTEGER},
+      flag = #{record.flag,jdbcType=INTEGER},
+      doTime = #{record.dotime,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,13 +191,21 @@
       <if test="house != null">
         house = #{house,jdbcType=INTEGER},
       </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="dotime != null">
+        doTime = #{dotime,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
     update user_collection
     set user = #{user,jdbcType=VARCHAR},
-      house = #{house,jdbcType=INTEGER}
+      house = #{house,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=INTEGER},
+      doTime = #{dotime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

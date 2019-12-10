@@ -18,7 +18,7 @@ public interface HouseInfoService {
     /**
      * 返回查询的房源信息
      */
-    public List<RentHouseinfoWithBLOBs> selectInfoes(Choose choose)throws Exception;
+    public List<RentHouseinfoWithBLOBsExpand> selectInfoes(Choose choose)throws Exception;
 
     /**返回查询的房源信息数量
      *

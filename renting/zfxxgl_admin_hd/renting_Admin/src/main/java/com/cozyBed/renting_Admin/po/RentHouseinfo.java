@@ -37,6 +37,8 @@ public class RentHouseinfo {
 
     private Integer flag;
 
+    private String dotime;
+
     public Integer getId() {
         return id;
     }
@@ -179,5 +181,13 @@ public class RentHouseinfo {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public String getDotime() {
+        return dotime;
+    }
+
+    public void setDotime(String dotime) {
+        this.dotime = dotime == null ? null : dotime.trim();
     }
 }

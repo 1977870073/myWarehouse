@@ -70,9 +70,9 @@
         resultType返回丢向，建议使用扩展对象
      -->
     <select id="selectInfoes" parameterType="com.cozyBed.renting_Admin.po.Choose"
-            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs"
-            resultMap="ResultMapWithBLOBs">
-        SELECT * FROM rent_houseinfo
+            resultType="com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand"
+            resultMap="ResultMapWithBLOBsExpand">
+        SELECT @rownum:=@rownum+1 AS rownum, a.* FROM (SELECT @rownum:=0) r,rent_houseinfo a
         <where>
             <include refid="query_info_where"></include>
         </where>

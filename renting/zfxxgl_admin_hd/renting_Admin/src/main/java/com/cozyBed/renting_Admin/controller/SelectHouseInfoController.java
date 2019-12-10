@@ -3,7 +3,7 @@ package com.cozyBed.renting_Admin.controller;
 import com.alibaba.fastjson.JSON;
 import com.cozyBed.renting_Admin.po.Choose;
 import com.cozyBed.renting_Admin.po.Page;
-import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs;
+import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand;
 import com.cozyBed.renting_Admin.service.HouseInfoService;
 import com.cozyBed.renting_Admin.utils.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class SelectHouseInfoController {
         }
         c.setIndex((i-1)*10);
         Page page =  page = new Page(i,10,(int)houseInfoService.infoCount(c));
-        List<RentHouseinfoWithBLOBs> list = houseInfoService.selectInfoes(c);
+        List<RentHouseinfoWithBLOBsExpand> list = houseInfoService.selectInfoes(c);
         Object[] obj = new Object[]{list, page};
         return JSON.toJSONString(list);
     }
