@@ -11,7 +11,12 @@
 	</head>
 		<table class="layui-hide" id="shenpi"></table>
 	<body>
-
+		<script type="text/html" id="biaoti">
+			<a href="#" class="lauui-table-link">{{d.title}}</a>
+		</script>
+		<script type="text/html" id="caozuo">
+			<button type="button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm" onclick="javascript:window.localhost.href='#'">审批</button>
+		</script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
             layui.use('table', function(){
@@ -22,16 +27,15 @@
                     ,url:'/web/do/houseInfo/init'
                     ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
                     ,cols: [[
-                        {field:'id', width:80, title: 'ID', sort: true}
-                        ,{field:'username', width:80, title: '用户名'}
-                        ,{field:'sex', width:80, title: '性别', sort: true}
-                        ,{field:'city', width:80, title: '城市'}
-                        ,{field:'sign', title: '签名', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                        ,{field:'experience', title: '积分', sort: true}
-                        ,{field:'score', title: '评分', sort: true}
-                        ,{field:'classify', title: '职业'}
-                        ,{field:'wealth', width:137, title: '财富', sort: true}
-                    ]]
+                        {field:'rownum', width:80, title: '行号'}
+                        ,{field:'userName', width:80, title: '用户名'}
+                        ,{field:'#biaoti', width:80, title: '标题', minWidth: 100}
+                        ,{field:'dotime', width:80, title: '时间'}
+                        ,{field:'#caozuo', title: '操作', width: '100'}
+                    ]],
+					text: {
+						none: '暂无相关数据'
+					}
                 });
             });
 		</script>
