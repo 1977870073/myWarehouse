@@ -8,153 +8,32 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>房源审批</title>
 		<link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" />
-		<link rel="stylesheet" type="text/css" href="../../static/css/admin.css" />
 	</head>
-
+		<table class="layui-hide" id="shenpi"></table>
 	<body>
-		<div class="page-content-wrap">
-			<div class="layui-form" id="table-list">
-				<table class="layui-table" lay-even lay-skin="nob">
-					<colgroup>
-						<col width="50">
-						<col class="hidden-xs" width="50">
-						<col class="hidden-xs" width="100">
-						<col>
-						<col class="hidden-xs" width="200">
-						<col width="80">
-						<col width="150">
-					</colgroup>
-					<thead>
-						<tr>
-							<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-							<th class="hidden-xs">ID</th>
-							<th class="hidden-xs">排序</th>
-							<th>菜单名称</th>
-							<th>发布时间</th>
-							<th>状态</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>关于我们</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>产品中心</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>新闻中心</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>业务范围</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>联系我们</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td class="hidden-xs"><input type="text" name="title" autocomplete="off" class="layui-input" value="0" data-id="1"></td>
-							<td>在线留言</td>
-							<td>2016-09-06 20:46:16</td>
-							<td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='1'>显示</button></td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="page-wrap">
-						<ul class="pagination">
-							<li class="disabled"><span>«</span></li>
-							<li class="active"><span>1</span></li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">»</a>
-							</li>
-						</ul>
-					</div>
-			</div>
-		</div>
+
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			layui.use(['form', 'jquery', 'layer', 'dialog'], function() {
-				var $ = layui.jquery;
+            layui.use('table', function(){
+                var table = layui.table;
 
-				//修改状态
-				$('#table-list').on('click', '.table-list-status', function() {
-					var That = $(this);
-					var status = That.attr('data-status');
-					var id = That.parent().attr('data-id');
-					if(status == 1) {
-						That.removeClass('layui-btn-normal').addClass('layui-btn-warm').html('隐藏').attr('data-status', 2);
-					} else if(status == 2) {
-						That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('显示').attr('data-status', 1);
-					}
-				})
-
-			});
+                table.render({
+                    elem: '#shenpi'
+                    ,url:'/web/do/houseInfo/init'
+                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,cols: [[
+                        {field:'id', width:80, title: 'ID', sort: true}
+                        ,{field:'username', width:80, title: '用户名'}
+                        ,{field:'sex', width:80, title: '性别', sort: true}
+                        ,{field:'city', width:80, title: '城市'}
+                        ,{field:'sign', title: '签名', width: '30%', minWidth: 100} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                        ,{field:'experience', title: '积分', sort: true}
+                        ,{field:'score', title: '评分', sort: true}
+                        ,{field:'classify', title: '职业'}
+                        ,{field:'wealth', width:137, title: '财富', sort: true}
+                    ]]
+                });
+            });
 		</script>
 	</body>
 
