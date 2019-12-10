@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: renting_Admin
@@ -23,8 +24,8 @@ public class IndexController {
     private IndexService indexServiceImpl;
 
     @RequestMapping("getEchartsData")
-    public String getEchartsData(){
-        String result = indexServiceImpl.getEchartsData();
+    public Map<String,  List<Long>> getEchartsData(){
+        Map<String,  List<Long>> result = indexServiceImpl.getEchartsData();
         return result;
     }
 

@@ -15,7 +15,7 @@
 			<a href="#" class="lauui-table-link">{{d.title}}</a>
 		</script>
 		<script type="text/html" id="caozuo">
-			<button type="button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm" onclick="javascript:window.localhost.href='#'">审批</button>
+			<button type="button" class="layui-btn layui-btn-fluid layui-btn-xs layui-btn-radius layui-btn-warm" onclick="javascript:window.localhost.href='#'">审批</button>
 		</script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -25,17 +25,26 @@
                 table.render({
                     elem: '#shenpi'
                     ,url:'/web/do/houseInfo/init'
-                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,cellMinWidth: 80
+					,parseData: function (res) {
+						return {
+						    "code": 0,
+							"msg": "",
+							"count": res[1],
+							data: res[0]
+						}
+                    }
                     ,cols: [[
-                        {field:'rownum', width:80, title: '行号'}
-                        ,{field:'userName', width:80, title: '用户名'}
-                        ,{field:'#biaoti', width:80, title: '标题', minWidth: 100}
-                        ,{field:'dotime', width:80, title: '时间'}
-                        ,{field:'#caozuo', title: '操作', width: '100'}
+                        {field:'rownum',  title: '行号'}
+                        ,{field:'userName', title: '用户名'}
+                        ,{field:'title', title: '标题', minWidth: 200, templet: '#biaoti'}
+                        ,{field:'dotime', title: '时间'}
+                        ,{field:'caozuo', title: '操作', width: '250', templet: '#caozuo'}
                     ]],
 					text: {
 						none: '暂无相关数据'
 					}
+					,page: true
                 });
             });
 		</script>

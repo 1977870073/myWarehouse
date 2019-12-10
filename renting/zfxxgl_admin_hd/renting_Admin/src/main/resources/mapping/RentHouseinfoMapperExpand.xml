@@ -76,7 +76,7 @@
         <where>
             <include refid="query_info_where"></include>
         </where>
-        LIMIT #{index,jdbcType=INTEGER},10
+        LIMIT #{index,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
     </select>
 
     <select id="infoCount" parameterType="com.cozyBed.renting_Admin.po.Choose"

@@ -1,6 +1,7 @@
 package com.cozyBed.renting_Admin.service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: renting_Admin
@@ -16,7 +17,7 @@ public interface IndexService {
      * 获取主页echarts图房源数据
      * @return
      */
-    public String getEchartsData();
+    public Map<String,  List<Long>> getEchartsData();
 
     /**
      * 获取主页顶部数据数据

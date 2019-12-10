@@ -8,6 +8,7 @@ import com.cozyBed.renting_Admin.service.HouseInfoService;
 import com.cozyBed.renting_Admin.utils.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,19 +28,14 @@ public class SelectHouseInfoController {
     @Autowired
     private HouseInfoService houseInfoService;
     @RequestMapping("/init")
-    public String init(HttpServletRequest request)throws Exception{
-        String index = request.getParameter("index");
-        int i = 0;
+    public String init(@RequestParam(required = false, defaultValue = "1") Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer limit)throws Exception{
         Choose c = new Choose();
-        if(ObjectUtil.isEmply(index)){
-            i=1;
-        }else{
-            i=Integer.parseInt(index);
-        }
-        c.setIndex((i-1)*10);
-        Page page =  page = new Page(i,10,(int)houseInfoService.infoCount(c));
+        c.setIndex((page-1)*10);
+        c.setLimit(limit);
+        Page p =  new Page(page,10,(int)houseInfoService.infoCount(c));
         List<RentHouseinfoWithBLOBsExpand> list = houseInfoService.selectInfoes(c);
-        Object[] obj = new Object[]{list, page};
-        return JSON.toJSONString(list);
+        Object[] obj = new Object[]{list, p.getTotalRecord()};
+        return JSON.toJSONString(obj);
     }
 }

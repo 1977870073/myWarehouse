@@ -20,6 +20,7 @@ public class Choose {
    private List<String> c5 = new ArrayList<String>();
 
    private int index;//页数
+   private int limit;//一页显示多少数据
    private String district;//区域
    private String priceRange;//价格区间
    private int minPrice;//最低价
@@ -27,6 +28,14 @@ public class Choose {
    private String houseType;//房屋类型
    private String rentalMode;//租房方式
    private String orientation;//朝向
+
+   public int getLimit() {
+      return limit;
+   }
+
+   public void setLimit(int limit) {
+      this.limit = limit;
+   }
 
    public void setIndex(int index) {
       this.index = index;

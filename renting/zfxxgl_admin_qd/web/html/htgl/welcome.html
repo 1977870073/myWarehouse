@@ -197,7 +197,7 @@
 						clearTimeout(t);//清除定时器
 						var dt = new Date();
 						var year = dt.getFullYear(); //得到年份
-						var month = dt.getMonth();//得到月份
+						var month = dt.getMonth()+1;//得到月份
 						var date = dt.getDate();//得到日期
 						var h=dt.getHours();//获取时
 						var m=dt.getMinutes();//获取分
@@ -227,7 +227,7 @@
                             var dt = new Date();
                             dt.setDate(dt.getDate()+(-6+i));
                             var year = dt.getFullYear(); //得到年份
-                            var month = dt.getMonth();//得到月份
+                            var month = dt.getMonth()+1;//得到月份
                             var date = dt.getDate();//得到日期
                             xParam[i] = year+"/"+month+"/"+date;
                         }
@@ -293,113 +293,111 @@
                                 }
                             }
                         );
-						setTimeout(function () {
-                            $.ajax({
-                                type: 'get',
-                                async: true,
-                                url: '/web/do/index/getEchartsData',
-                                success: function (data) {
-                                    myChart.setOption(
-                                        {
-                                            series: [
-                                                {
-                                                    name: "收藏数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            }
-                                                        }
-                                                    },
-                                                    data: [1, 2, 3, 5, 20, 53, 42]
-                                                },
-                                                {
-                                                    name: "后台发布房源数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            }
-                                                        }
-                                                    },
-                                                    data: [60, 66, 57, 36, 28, 41, 30]
-                                                },
-                                                {
-                                                    name: "用户发布房源数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            },
-                                                            color: "rgb(248, 187, 116)"
-                                                        }
-                                                    },
-                                                    data: [1, 14, 40, 56, 39, 14, 2	]
-                                                }
-                                            ]
-                                        }
-                                    );
-                                    myChart.hideLoading();
-                                },
-                                error: function (errorMsg) {
-                                    layer.msg("图表请求数据失败!")
-                                    myChart.hideLoading();
-                                    myChart.setOption(
-                                        {
-                                            series: [
-                                                {
-                                                    name: "收藏数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            }
-                                                        }
-                                                    },
-                                                    data: []
-                                                },
-                                                {
-                                                    name: "后台发布房源数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            }
-                                                        }
-                                                    },
-                                                    data: []
-                                                },
-                                                {
-                                                    name: "用户发布房源数",
-                                                    type: "line",
-                                                    smooth: true,
-                                                    itemStyle: {
-                                                        normal: {
-                                                            areaStyle: {
-                                                                type: "default"
-                                                            },
-                                                            color: "rgb(248, 187, 116)"
-                                                        }
-                                                    },
-                                                    data: []
-                                                }
-                                            ]
-                                        }
-                                    );
-                                }
-                            });
-                        },2000)
 
+						$.ajax({
+							type: 'get',
+							async: true,
+							url: '/web/do/index/getEchartsData',
+							success: function (data) {
+								myChart.setOption(
+									{
+										series: [
+											{
+												name: "收藏数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														}
+													}
+												},
+												data: [1, 2, 3, 5, 20, 53, 42]
+											},
+											{
+												name: "后台发布房源数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														}
+													}
+												},
+												data: [60, 66, 57, 36, 28, 41, 30]
+											},
+											{
+												name: "用户发布房源数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														},
+														color: "rgb(248, 187, 116)"
+													}
+												},
+												data: [1, 14, 40, 56, 39, 14, 2	]
+											}
+										]
+									}
+								);
+								myChart.hideLoading();
+							},
+							error: function (errorMsg) {
+								layer.msg("图表请求数据失败!")
+								myChart.hideLoading();
+								myChart.setOption(
+									{
+										series: [
+											{
+												name: "收藏数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														}
+													}
+												},
+												data: []
+											},
+											{
+												name: "后台发布房源数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														}
+													}
+												},
+												data: []
+											},
+											{
+												name: "用户发布房源数",
+												type: "line",
+												smooth: true,
+												itemStyle: {
+													normal: {
+														areaStyle: {
+															type: "default"
+														},
+														color: "rgb(248, 187, 116)"
+													}
+												},
+												data: []
+											}
+										]
+									}
+								);
+							}
+						});
 					}
 				);
 				$(window).resize(function(){

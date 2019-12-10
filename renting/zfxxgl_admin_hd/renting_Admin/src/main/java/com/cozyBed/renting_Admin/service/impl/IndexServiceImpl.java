@@ -30,7 +30,7 @@ public class IndexServiceImpl implements IndexService {
      * @return
      */
     @Override
-    public String getEchartsData() {
+    public Map<String,  List<Long>> getEchartsData() {
         Map<String,  List<Long>> rtResult = new HashMap<>();
         List<Long> scList = new ArrayList<>();//收藏数
         List<Long> htList = new ArrayList<>();//后台发布房源数
@@ -92,7 +92,7 @@ public class IndexServiceImpl implements IndexService {
         rtResult.put("sc",scList);
         rtResult.put("ht",htList);
         rtResult.put("yh",yhList);
-        return JSON.toJSONString(rtResult);
+        return rtResult;
     }
 
     /**
