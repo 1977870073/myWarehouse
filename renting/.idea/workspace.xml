@@ -26,8 +26,8 @@
       <file leaf-file-name="addHouse.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/addHouse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="352">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#dd#0;n#dl#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#dd#0;n#dl#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -160,16 +160,7 @@
               <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="old" type="462c0819:PsiDirectoryNode" />
+              <item name="layui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -189,9 +180,9 @@
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\css\old" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\images\img" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js\old" />
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\css\old" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js\tools" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\font" />
     </key>
@@ -232,15 +223,15 @@
       <workItem from="1575899246485" duration="9000" />
       <workItem from="1575899274726" duration="1797000" />
       <workItem from="1575938406939" duration="10047000" />
-      <workItem from="1576024654316" duration="12835000" />
+      <workItem from="1576024654316" duration="15220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49854000" />
+    <option name="totallyTimeSpent" value="52239000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16776751" />
@@ -269,13 +260,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/shenpi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -607,10 +591,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/css/old/addHouseInfo.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/addHouse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="352">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#input#0;n#dd#0;n#dl#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#dd#0;n#dl#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
