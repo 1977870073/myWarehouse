@@ -18,6 +18,13 @@ body{
     font-size: 22px;
     padding-left:10px ;
 }
+.content .conTop .goback{
+	font-size: 14px;
+	font-weight: 100;
+	color: #77c;
+	margin-right: 50px;
+	border-bottom: 1px solid #77c;
+}
 .content .showImg{
     width: 690px;
     height:550px;
