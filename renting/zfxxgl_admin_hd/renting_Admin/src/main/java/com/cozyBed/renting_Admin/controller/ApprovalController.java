@@ -10,6 +10,7 @@ import com.cozyBed.renting_Admin.utils.Aes;
 import com.cozyBed.renting_Admin.utils.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,16 +33,9 @@ public class ApprovalController {
     private RentNoticeService noticeService;
 
     @RequestMapping("/selectInfo")
-    public String selectInfo(HttpServletRequest request)throws Exception{
-        String id = request.getParameter("id");
-        int i = 0;
-        if(ObjectUtil.isEmply(id)){
-            i=47;
-        }else{
-            i=Integer.parseInt(id);
-        }
-        RentHouseinfoWithBLOBsExpand info = houseInfo.findByPrimaryKey(i);
-        return JSON.toJSONString(info);
+    public RentHouseinfoWithBLOBsExpand selectInfo(@RequestParam Integer bh)throws Exception{
+        RentHouseinfoWithBLOBsExpand info = houseInfo.findByPrimaryKey(bh);
+        return info;
     }
 
     @RequestMapping("/tYes")

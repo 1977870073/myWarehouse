@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布房源</title>
+    <link href="/web/zf/static/images/icon.png" rel="icon" />
+    <link href="${pageContext.request.contextPath }/css/addHouseInfo.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/top.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/general.css" rel="stylesheet">
+
+</head>
+<body>
+
+<p class="conTop">发布房源信息</p>
+
+<div class="content">
+    <div class="conInfo">
+        <dl>
+            <dt>出租方式</dt>
+            <dd>
+                <select class="rental_mode sel" name="rental_mode">
+                    <option>整租</option>
+                    <option>合租</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>小区名称</dt>
+            <dd>
+                <input type="text" placeholder="请输入小区名称" style="width: 450px; height: 25px; line-height: 25px;" name="residential_areas" class="txt"/>
+            </dd>
+        </dl>
+        <dl>
+            <dt>小区备注</dt>
+            <dd style="font-size: 14px;color: #868686;">
+                <input type="text" placeholder="请输入距离地铁站的距离" style="width: 450px; height: 25px; line-height: 25px;" name="residential_note" class="txt"/>&nbsp;&nbsp;&nbsp;可不填
+            </dd>
+        </dl>
+        <dl>
+            <dt>小区区域</dt>
+            <dd>
+                <select class="district sel" name="district">
+                    <option>天河</option>
+                    <option>番禺</option>
+                    <option>海珠</option>
+                    <option>白云</option>
+                    <option>越秀</option>
+                    <option>花都</option>
+                    <option>增城</option>
+                    <option>荔湾</option>
+                    <option>黄埔</option>
+                    <option>南沙</option>
+                    <option>从化</option>
+                    <option>其它</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>小区地址</dt>
+            <dd>
+                <input type="text" placeholder="请输入小区地址" style="width: 450px; height: 25px; line-height: 25px;" name="address" class="txt"/>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋户型</dt>
+            <dd>
+                <input type="text" style="width: 150px; height: 25px; line-height: 25px;" name="house_type"  class="txt"/>
+                <span>例：1室1厅1卫</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋面积</dt>
+            <dd>
+                <input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;"  name="area"  class="txt"/>
+                <span>平方米</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋装修</dt>
+            <dd>
+                <input type="radio" name="renovation" value="豪华装修" checked /><label>豪华装修</label>
+                <input type="radio" name="renovation" value="精装修" /><label>精装修</label>
+                <input type="radio" name="renovation" value="中等装修" /><label>中等装修</label>
+                <input type="radio" name="renovation" value="简单装修" /><label>简单装修</label>
+                <input type="radio" name="renovation" value="毛胚房" /><label>毛胚房</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋朝向</dt>
+            <dd>
+                <select class="orientation sel" name="orientation">
+                    <option>东</option>
+                    <option>南</option>
+                    <option>西</option>
+                    <option>北</option>
+                    <option>东南</option>
+                    <option>东北</option>
+                    <option>西南</option>
+                    <option>西北</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋楼层</dt>
+            <dd>
+                <input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;" name="floor"  class="txt"/>
+                <span>层，共</span>
+                <input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;" name="allfloor" class="txt" />
+                <span>层</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房屋租金</dt>
+            <dd>
+                <input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 80px; height: 25px; line-height: 25px;" name="price"  class="txt"/>
+                <span>月/元</span>
+                <select class="price_type sel" name="price_type">
+                    <option>面议</option>
+                    <option>年付</option>
+                    <option>半年付</option>
+                    <option>押一付一</option>
+                    <option>押一付二</option>
+                    <option>押一付三</option>
+                    <option selected>押二付一</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>房源标题</dt>
+            <dd>
+                <input type="text" placeholder="请输入标题" style="width: 500px; height: 25px; line-height: 25px;" name="title" class="txt" />
+            </dd>
+        </dl>
+        <dl>
+            <dt>姓名</dt>
+            <dd>
+                <input type="text" placeholder="请输入联系人姓名" name="name" class="txt" />
+            </dd>
+        </dl>
+        <dl>
+            <dt>联系方式</dt>
+            <dd>
+                <input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" maxlength="11" placeholder="请输入联系电话" name="phone"  class="txt"/>
+            </dd>
+        </dl>
+        <dl>
+            <dt>上传图片</dt>
+            <dd>
+                <button id="add" type="button">添加图片</button>
+                <input type="file" id="file_input" multiple/>
+                <div class="picshow"><p>首图片将作为首页展示图片</p></div>
+            </dd>
+        </dl>
+        <button id="submit" type="button">确定发布</button>
+    </div>
+</div>
+
+
+
+<script src="${pageContext.request.contextPath }/js/general.js"></script>
+<script src="${pageContext.request.contextPath }/js/jquery-3.3.1.min.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    window.onload = function() {
+        var input = document.getElementById("file_input");
+        var result;
+        var dataArr = []; // 储存所选图片的结果(文件名和base64数据)
+        var fd;  //FormData方式发送请求
+        var oAdd = document.getElementById("add");
+        var oSubmit = document.getElementById("submit");
+        var oInput = document.getElementById("file_input");
+
+        if (typeof FileReader === 'undefined') {
+            alert("抱歉，你的浏览器不支持 FileReader");
+            input.setAttribute('disabled', 'disabled');
+        } else {
+            input.addEventListener('change', readFile, false);
+        }　　　　　//handler
+
+
+        function readFile() {
+            fd = new FormData();
+            var iLen = this.files.length;
+            for (var i = 0; i < iLen; i++) {
+                if (!input['value'].match(/.jpg|.gif|.png|.jpeg|.bmp/i)) {　　//判断上传文件格式
+                    return alert("上传的图片格式不正确，请重新选择");
+                }
+                var reader = new FileReader();
+                fd.append(i, this.files[i]);
+                reader.readAsDataURL(this.files[i]);  //转成base64
+                reader.fileName = this.files[i].name;
+
+                reader.onload = function (e) {
+                    var imgMsg = {
+                        name: this.fileName,//获取文件名
+                        base64: this.result   //reader.readAsDataURL方法执行完后，base64数据储存在reader.result里
+                    }
+                    dataArr.push(imgMsg);
+                    result = '<div class="delete">delete</div><div class="result"><img class="subPic" src="' + this.result + '" alt="' + this.fileName + '"/></div>';
+                    var div = document.createElement('div');
+                    div.innerHTML = result;
+                    div['className'] = 'float';
+                    document.getElementsByClassName('picshow')[0].appendChild(div);  　　//插入dom树
+                    var img = div.getElementsByTagName('img')[0];
+                    img.onload = function () {
+                        var nowHeight = ReSizePic(this); //设置图片大小
+                        this.parentNode.style.display = 'block';
+                        var oParent = this.parentNode;
+                        if (nowHeight) {
+                            oParent.style.paddingTop = (oParent.offsetHeight - nowHeight) / 2 + 'px';
+                        }
+                    }
+                    div.onclick = function () {
+                        $(this).remove();                  // 在页面中删除该图片元素
+                    }
+                }
+            }
+        }
+
+
+        function send() {
+            var submitArr = [];
+            $('.subPic').each(function () {
+                    submitArr.push({
+                        name: $(this).attr('alt'),
+                        base64: $(this).attr('src')
+                    });
+                }
+            );
+            var price = $('input:text[name="price"]').val();
+            var priceType = $('.price_type option:selected') .val();
+            var houseType = $('input:text[name="house_type"]').val();
+            var rentalMode = $('.rental_mode option:selected') .val();
+            var area = $('input:text[name="area"]').val();
+            var floor = $('input:text[name="floor"]').val();
+            var allfloor = $('input:text[name="allfloor"]').val();
+            var orientation = $('.orientation option:selected') .val();
+            var renovation = $('input:radio[name="renovation"]:checked').val();
+            var residentialAreas =  $('input:text[name="residential_areas"]').val();
+            var residentialNote = $('input:text[name="residential_note"]').val();
+            var district = $('.district option:selected') .val();
+            var userName =  $('input:text[name="name"]').val();
+            var userPhone = $('input:text[name="phone"]').val();
+            var title = $('input:text[name="title"]').val();
+            var address = $('input:text[name="address"]').val();
+
+
+
+
+            $.ajax({
+                url: '${pageContext.request.contextPath }/addHouseInfo/uploadInfo.action',
+                type: 'post',
+                data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
+                    "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
+                    "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
+                    "title":title,"address":address},
+                dataType: 'text',
+                success: function (data) {
+                    if(data=="success"){
+                        alert("发布成功!")
+                        window.location.href = '${pageContext.request.contextPath }/house/init.action?index=1';
+                    }else{
+                        alert("发布失败")
+                    }
+                }
+            })
+        }
+
+
+
+
+        oAdd.onclick = function () {
+            oInput.value = "";   // 先将oInput值清空，否则选择图片与上次相同时change事件不会触发
+            oInput.click();
+        }
+
+
+        oSubmit.onclick = function () {
+            var input = document.getElementsByClassName("conInfo")[0].getElementsByTagName("input");
+            for (var i = 0; i < input.length; i++) {
+                if(i==1){
+                    continue;
+                }
+                if(input[i].type=='text'){
+                    if(input[i].value == ""){
+                        alert("请输入完整的信息")
+                        return false;
+                    }
+                }
+            }
+            if (!dataArr.length) {
+                alert('请先选择文件')
+                return false;
+            }
+            send();
+        }
+    }
+
+    //图片显示适配
+    function ReSizePic(ThisPic) {
+        var RePicWidth = 200; //显示的宽度值
+
+        var TrueWidth = ThisPic.width; //图片实际宽度
+        var TrueHeight = ThisPic.height; //图片实际高度
+
+        if (TrueWidth > TrueHeight) {
+            //宽大于高
+            var reWidth = RePicWidth;
+            ThisPic.width = reWidth;
+            //垂直居中
+            var nowHeight = TrueHeight * (reWidth / TrueWidth);
+            return nowHeight;  //将图片修改后的高度返回，供垂直居中用
+        } else {
+            //宽小于高
+            var reHeight = RePicWidth;
+            ThisPic.height = reHeight;
+        }
+    }
+</script>

@@ -10,20 +10,10 @@
 <body>
 
 <div class="content">
-    <div class="conTop"><a class="goback" href="#" onClick="javascript:history.back(-1);"><<返回</a><span id="title">好房子</span></div>
+    <div class="conTop"><a class="goback" href="#" onClick="javascript:history.back();">&laquo;返回</a><span id="title">好房子</span></div>
     <div class="showImg">
         <div class="sImg">
             <div class="bigImg" id="bigImg">
-                <img width="690px" height="440px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg">
-                <img width="690px" height="440px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg">
-                <img width="690px" height="440px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg">
-                <img width="690px" height="440px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg">
-                <img width="690px" height="440px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg">
-                <img width="690px" height="440px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg">
-                <img width="690px" height="440px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg">
-                <img width="690px" height="440px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg">
-                <img width="690px" height="440px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg">
-                <img width="690px" height="440px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg">
             </div>
             <div class="bl" style="opacity: 0"></div>
             <div class="br" style="opacity: 0"></div>
@@ -31,16 +21,6 @@
         <div class="mImg">
             <div class="mListImg">
                 <ul class="litImg" id="litImg">
-                    <li><img width="120px" height="78px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg"></li>
-                    <li><img width="120px" height="78px" src="/web/img/1e3a30d1-f2f9-4a10-8968-923ea8fd0f9c.jpg"></li>
                 </ul>
             </div>
             <div class="mbl"><img src="/web/zf/static/images/img/lbtn.png" /></div>
@@ -78,62 +58,6 @@
         <button class="tNo" id="tNo">不通过</button>
     </div>
 </div>
-
-<!--<div class="content">-->
-    <!--<div class="conTop">${info.title}</div>-->
-    <!--<div class="showImg">-->
-        <!--<div class="sImg">-->
-            <!--<div class="bigImg">-->
-                <!--<c:forEach items="${info.pic}" var="pic">-->
-                    <!--<img width="690px" height="440px" src="/upload/${pic}">-->
-                <!--</c:forEach>-->
-            <!--</div>-->
-            <!--<div class="bl" style="opacity: 0"></div>-->
-            <!--<div class="br" style="opacity: 0"></div>-->
-        <!--</div>-->
-        <!--<div class="mImg">-->
-            <!--<div class="mListImg">-->
-                <!--<ul class="litImg">-->
-                    <!--<c:forEach items="${info.pic}" var="pic">-->
-                        <!--<li><img width="120px" height="78px" src="/upload/${pic}"></li>-->
-                    <!--</c:forEach>-->
-                <!--</ul>-->
-            <!--</div>-->
-            <!--<div class="mbl"><img src="${pageContext.request.contextPath }/img/lbtn.png" /></div>-->
-            <!--<div class="mbr"><img src="${pageContext.request.contextPath }/img/rbtn.png" /></div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="rentInfo">-->
-        <!--<div class="rentPrice">-->
-            <!--<p><span>${info.price}</span>元/月 （押二付一）</p>-->
-        <!--</div>-->
-        <!--<div class="rentdiv1">-->
-            <!--<div class="rental_mode"><p>${info.rentalMode}</p><p>出租方式</p></div>-->
-            <!--<div class="house_type"><p>${info.houseType}</p><p>户型</p></div>-->
-            <!--<div class="rentArea"><p>${info.area}平方</p><p>建筑面积</p></div>-->
-        <!--</div>-->
-        <!--<div class="rentdiv2">-->
-            <!--<div class="orientation"><p>${info.orientation}</p><p>朝向</p></div>-->
-            <!--<div class="rentFloor"><p>${info.floor}</p><p>楼层（共${info.allfloor}层）</p></div>-->
-            <!--<div class="renovation"><p>${info.renovation}</p><p>装饰</p></div>-->
-        <!--</div>-->
-        <!--<div class="rentdiv3">-->
-            <!--<div class="residential_areas"><p>小&nbsp;&nbsp;&nbsp;&nbsp;区</p><p>${info.residentialAreas} (${info.district})</p></div>-->
-            <!--<div class="residential_areas2"><p>${info.residentialNote}</p></div>-->
-            <!--<div class="renovation"><p>地&nbsp;&nbsp;&nbsp;&nbsp;址</p><p>${info.address}</p></div>-->
-        <!--</div>-->
-        <!--<div class="rentdiv4">-->
-            <!--<div><img src="../img/noavatars.gif" height="80px"> </div>-->
-            <!--<div class="cInfo">-->
-                <!--<span>${info.userName}</span>-->
-                <!--<p>${info.userPhone}</p>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<span class="approval">审&nbsp;&nbsp;&nbsp;&nbsp;批</span>-->
-        <!--<button class="tYes" onclick="tYes(${info.id},${info.user})">通过</button>-->
-        <!--<button class="tNo" onclick="tNo(${info.id},${info.user})">不通过</button>-->
-    <!--</div>-->
-<!--</div>-->
 <script src="/web/zf/static/js/jquery-3.3.1.min.js"></script>
 <script src="/web/zf/static/js/old/general.js"></script>
 <script src="/web/zf/static/js/old/approval.js"></script>

@@ -7,13 +7,13 @@ window.onload = function(){
 		$.ajax({
 			type: 'get',
 			url: '/web/do/approval/selectInfo',
-			data: {"bh", cp01},
-			dataType: 'text',
+			data: {"bh": cp01},
+			dataType: 'json',
 			success: function(data){
 				init(data);
 			},
 			error: function(errorMsg){
-				layui.msg()
+				alert("网络链接失败！")
 			}
 		});
 	}
@@ -50,8 +50,6 @@ function SMALLblAndbrFun(){
     var IndexImg = 1;
     var endImg = list.length;
     var width = 126;
-    list[0].className="cur";
-    litImg.style.width = width*list.length+"px";
 
     mbl.onclick = function(){
         IndexImg = ImgLast(bigImg,IndexImg);
@@ -233,34 +231,39 @@ function  fadeOut(obj,time) {
 }
 
 function init(data){
-	$('#title').text(data['title']);
-	$('#rentPrice').text(data['price']);
-	$('#rental_mode').text(data['rentalMode']);
-	$('#house_type').text(data['houseType']);
-	$('#rentArea').text(data['area']);
-	$('#orientation').text(data['orientation']);
-	$('#rentFloor').text(data['floor']);
-	$('#rentAllFloor').text(data['allfloor']);
-	$('#renovation').text(data['renovation']);
-	$('#residential_areas').text(data['residentialAreas']+"("+data['district']+")";
-	$('#residential_areas2').text(data['residentialNote']);
-	$('#rentAddress').text(data['address']);
-	$('#cName').text(data['userName']);
-	$('#cPhone').text(data['userPhone']);
-	var pic = data['pic'];
+    document.title = data.title;
+	$('#title').text(data.title);
+	$('#rentPrice').text(data.price);
+	$('#rental_mode').text(data.rentalMode);
+	$('#house_type').text(data.houseType);
+	$('#rentArea').text(data.area);
+	$('#orientation').text(data.orientation);
+	$('#rentFloor').text(data.floor);
+	$('#rentAllFloor').text(data.allfloor);
+	$('#renovation').text(data.renovation);
+	$('#residential_areas').text(data.residentialAreas+"("+data.district+")");
+	$('#residential_areas2').text(data.residentialNote);
+	$('#rentAddress').text(data.address);
+	$('#cName').text(data.userName);
+	$('#cPhone').text(data.userPhone);
+	var pic = data.pic;
 	var bigHtml = "";
 	var litHtml = "";
 	for(var i=0; i<pic.length; i++){
-		bigHtml +="<img width='690px' height='440px' src='"+pic[i]+"'>";
-		litHtml +="<li><img src='"+pic[i]+"'></li>";
+		bigHtml +="<img width='690px' height='440px' src='/web/img/"+pic[i]+"'>";
+		if(i==0){
+            litHtml +="<li class='cur'><img src='/web/img/"+pic[i]+"'></li>";
+        }else{
+            litHtml +="<li><img src='/web/img/"+pic[i]+"'></li>";
+        }
 	}
-	$('#bigImg').append(bigHtml);
-	$('#litImg').append(litHtml);
+	$('#bigImg').html(bigHtml);
+	$('#litImg').html(litHtml);
 	$('#tYes').click(function(){
-		tYes(data['id'],data['user']);
+		tYes(data.id,data.user);
 	});
 	$('#tNo').click(function(){
-		tNo(data['id'],data['user']);
+		tNo(data.id,data.user);
 	});
 	
 }
@@ -275,7 +278,7 @@ function tYes(id,user) {
 			console.log(data)
 			if(data=="success"){
 				alert("操作成功！");
-				window.location.href = '/web/zf/html/htgl/shenpi.html';
+				window.location.href = '/web/zf/html/htgl/index.html';
 			}else{
 				alert("操作失败！");
 			}
@@ -293,7 +296,7 @@ function tNo(id,user) {
 			console.log(data)
 			if(data=="success"){
 				alert("操作成功！");
-				window.location.href = '/web/zf/html/htgl/shenpi.html';
+				window.location.href = '/web/zf/html/htgl/index.html';
 			}else{
 				alert("操作失败！");
 			}
