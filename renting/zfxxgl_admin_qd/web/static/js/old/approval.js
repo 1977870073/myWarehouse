@@ -33,7 +33,7 @@ function turnLeftImg(){
     var bigImg = document.getElementsByClassName("bigImg")[0].getElementsByTagName("img");
     var IndexImg = 1;
     var endImg = list.length;
-    var width = 126;
+    var width = 131;
     afterImg = turnLeft(litImg,list,afterImg,endImg,width);
 }
 function turnRightImg(){

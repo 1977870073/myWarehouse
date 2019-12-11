@@ -66,27 +66,36 @@ body{
 }
 .content .showImg .mImg{
     width: 690px;
-    height: 78px;
+    height: 100px;
     margin-top: 10px;
     position: relative;
 }
 .content .showImg .mImg .mListImg{
     width: 630px;
-    height: 78px;
+    height: 100px;
     position: relative;
     overflow: hidden;
     margin: 0 32px 0 28px;
 }
 .content .showImg .mImg .mListImg ul{
     position: absolute;
-    width: 1000px;
-    height: 78px;
+    width: 2300px !important;
+    height: 100px;
 }
 .content .showImg .mImg .mListImg ul li{
     display: inline;
     float: left;
     cursor: pointer;
     margin-left: 6px;
+}
+.content .showImg .mImg .mListImg ul li img{
+	width: 120px;
+	height: 82px;
+}
+.content .showImg .mImg .mListImg ul li.cur img{
+	width: 125px;
+	height: 84px;
+	border: 2px solid #d7221f;
 }
 .content .showImg .mImg .mbl{
     width: 25px;
