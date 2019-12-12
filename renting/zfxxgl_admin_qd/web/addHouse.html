@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布房源</title>
+    <link href="./static/images/icon.png" rel="icon" />
+    <link href="./static/css/old/addHouseInfo.css" rel="stylesheet">
+    <link href="./static/layui/css/layui.css" rel="stylesheet">
+
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>发布房源信息</legend>
+</fieldset>
+
+<div class="content">
+    <form class="layui-form" action="">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">出租方式</label>
+					<div class="layui-input-inline">
+				        <select name="rental_mode">
+				        	<option>整租</option>
+							<option>合租</option>
+				        </select>
+				      </div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">小区名称</label>
+				<div class="layui-input-block">
+					<input type="text" name="residential_areas" lay-verify="required" autocomplete="off" placeholder="请输入小区名称" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">小区备注</label>
+				<div class="layui-input-inline">
+					<input type="text" name="residential_note" autocomplete="off" placeholder="请输入距离地铁站的距离" class="layui-input">
+				</div>
+				<div class="layui-form-mid layui-word-aux">可不填</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">小区区域</label>
+					<div class="layui-input-inline">
+				        <select name="district">
+				        	<option>天河</option>
+							<option>番禺</option>
+							<option>海珠</option>
+							<option>白云</option>
+							<option>越秀</option>
+							<option>花都</option>
+							<option>增城</option>
+							<option>荔湾</option>
+							<option>黄埔</option>
+							<option>南沙</option>
+							<option>从化</option>
+							<option>其它</option>
+				        </select>
+				      </div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">小区地址</label>
+				<div class="layui-input-block">
+					<input type="text" name="address" lay-verify="required" autocomplete="off" placeholder="请输入小区地址" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">房屋户型</label>
+				<div class="layui-input-inline">
+					<input type="text" name="house_type" lay-verify="required" autocomplete="off" placeholder="请输入房屋户型" class="layui-input">
+				</div>
+				<div class="layui-form-mid layui-word-aux">例：1室1厅1卫</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">房屋面积</label>
+				<div class="layui-input-inline">
+					<input type="text" name="area" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" lay-verify="required|number" autocomplete="off" placeholder="请输入房屋面积" class="layui-input">
+				</div>
+				<div class="layui-form-mid layui-word-aux">单位：平方米</div>
+			</div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">房屋装修</label>
+			    <div class="layui-input-block">
+			    	<input type="radio" name="renovation" value="豪华装修" title="豪华装修" checked />
+			    	<input type="radio" name="renovation" value="精装修" title="精装修" />
+			    	<input type="radio" name="renovation" value="中等装修" title="中等装修" />
+			    	<input type="radio" name="renovation" value="简单装修" title="简单装修" />
+			    	<input type="radio" name="renovation" value="毛胚房" title="毛胚房" />
+			    </div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">房屋朝向</label>
+					<div class="layui-input-inline">
+				        <select name="orientation">
+				        	<option>东</option>
+							<option>南</option>
+							<option>西</option>
+							<option>北</option>
+							<option>东南</option>
+							<option>东北</option>
+							<option>西南</option>
+							<option>西北</option>
+				        </select>
+				      </div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">房屋楼层</label>
+				<div class="layui-input-inline">
+					<input type="text" name="floor" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" lay-verify="required|number" autocomplete="off" placeholder="请输入房屋楼层数" class="layui-input">
+				</div>
+				<div class="layui-form-mid layui-word-aux">层，共</div>
+				<div class="layui-input-inline">
+					<input type="text" name="allfloor" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" lay-verify="required|number" autocomplete="off" placeholder="请输入房屋总楼层数" class="layui-input">
+				</div>
+				<div class="layui-form-mid layui-word-aux">层</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">房屋租金</label>
+					<div class="layui-input-inline">
+						<input type="text" name="price" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" lay-verify="required|number" autocomplete="off" placeholder="请输入房屋租金" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">月/元</div>
+					<div class="layui-input-inline">
+				        <select name="price_type">
+				        	<option>面议</option>
+							<option>年付</option>
+							<option>半年付</option>
+							<option>押一付一</option>
+							<option>押一付二</option>
+							<option>押一付三</option>
+							<option selected>押二付一</option>
+				        </select>
+				      </div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">房源标题</label>
+				<div class="layui-input-block">
+					<input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">姓名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">联系方式</label>
+				<div class="layui-input-inline">
+					<input type="text" name="phone" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" maxlength="11" lay-verify="required" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">上传图片</label>
+				<div>
+					<button id="add" type="button">添加图片</button>
+					<input type="file" id="file_input" multiple/>
+					<div class="picshow"><p>首图片将作为首页展示图片</p></div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button id="submit" class="layui-btn" lay-submit lay-filter="formDemo">确定发布</button>
+			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    </div>
+			 </div>
+	</form>
+</div>
+
+<!--<dl>
+				<dt>出租方式</dt>
+				<dd>
+					<select class="rental_mode sel" name="rental_mode">
+						<option>整租</option>
+						<option>合租</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>小区名称</dt>
+				<dd>
+					<input type="text" placeholder="请输入小区名称" style="width: 450px; height: 25px; line-height: 25px;" name="residential_areas" class="txt"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>小区备注</dt>
+				<dd style="font-size: 14px;color: #868686;">
+					<input type="text" placeholder="请输入距离地铁站的距离" style="width: 450px; height: 25px; line-height: 25px;" name="residential_note" class="txt"/>&nbsp;&nbsp;&nbsp;可不填
+				</dd>
+			</dl>
+			<dl>
+				<dt>小区区域</dt>
+				<dd>
+					<select class="district sel" name="district">
+						<option>天河</option>
+						<option>番禺</option>
+						<option>海珠</option>
+						<option>白云</option>
+						<option>越秀</option>
+						<option>花都</option>
+						<option>增城</option>
+						<option>荔湾</option>
+						<option>黄埔</option>
+						<option>南沙</option>
+						<option>从化</option>
+						<option>其它</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>小区地址</dt>
+				<dd>
+					<input type="text" placeholder="请输入小区地址" style="width: 450px; height: 25px; line-height: 25px;" name="address" class="txt"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋户型</dt>
+				<dd>
+					<input type="text" style="width: 150px; height: 25px; line-height: 25px;" name="house_type"  class="txt"/>
+					<span>例：1室1厅1卫</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋面积</dt>
+				<dd>
+					<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;"  name="area"  class="txt"/>
+					<span>平方米</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋装修</dt>
+				<dd>
+					<input type="radio" name="renovation" value="豪华装修" checked /><label>豪华装修</label>
+					<input type="radio" name="renovation" value="精装修" /><label>精装修</label>
+					<input type="radio" name="renovation" value="中等装修" /><label>中等装修</label>
+					<input type="radio" name="renovation" value="简单装修" /><label>简单装修</label>
+					<input type="radio" name="renovation" value="毛胚房" /><label>毛胚房</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋朝向</dt>
+				<dd>
+					<select class="orientation sel" name="orientation">
+						<option>东</option>
+						<option>南</option>
+						<option>西</option>
+						<option>北</option>
+						<option>东南</option>
+						<option>东北</option>
+						<option>西南</option>
+						<option>西北</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋楼层</dt>
+				<dd>
+					<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;" name="floor"  class="txt"/>
+					<span>层，共</span>
+					<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 50px; height: 25px; line-height: 25px;" name="allfloor" class="txt" />
+					<span>层</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房屋租金</dt>
+				<dd>
+					<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" style="width: 80px; height: 25px; line-height: 25px;" name="price"  class="txt"/>
+					<span>月/元</span>
+					<select class="price_type sel" name="price_type">
+						<option>面议</option>
+						<option>年付</option>
+						<option>半年付</option>
+						<option>押一付一</option>
+						<option>押一付二</option>
+						<option>押一付三</option>
+						<option selected>押二付一</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>房源标题</dt>
+				<dd>
+					<input type="text" placeholder="请输入标题" style="width: 500px; height: 25px; line-height: 25px;" name="title" class="txt" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>姓名</dt>
+				<dd>
+					<input type="text" placeholder="请输入联系人姓名" name="name" class="txt" />
+				</dd>
+			</dl>
+			<dl>
+				<dt>联系方式</dt>
+				<dd>
+					<input type="text" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" maxlength="11" placeholder="请输入联系电话" name="phone"  class="txt"/>
+				</dd>
+			</dl>
+			<dl>
+				<dt>上传图片</dt>
+				<dd>
+					<button id="add" type="button">添加图片</button>
+					<input type="file" id="file_input" multiple/>
+					<div class="picshow"><p>首图片将作为首页展示图片</p></div>
+				</dd>
+			</dl>
+			<button id="submit" type="button">确定发布</button>-->
+<script src="./static/js/jquery-3.3.1.min.js"></script>
+<script src="./static/layui/layui.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	layui.use('form', function(){
+ 	 var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+	  //但是，如果你的HTML是动态生成的，自动渲染就会失效
+	  //因此你需要在相应的地方，执行下述方法来进行渲染
+	  form.render();
+	  
+	  //监听提交
+	  form.on('submit(formDemo)', function(data){
+	  	layer.msg(JSON.stringify(data.field));
+	    send();
+	    return false;
+	  });
+	});  
+    window.onload = function() {
+        var input = document.getElementById("file_input");
+        var result;
+        var dataArr = []; // 储存所选图片的结果(文件名和base64数据)
+        var fd;  //FormData方式发送请求
+        var oAdd = document.getElementById("add");
+        var oInput = document.getElementById("file_input");
+
+        if (typeof FileReader === 'undefined') {
+            alert("抱歉，你的浏览器不支持 FileReader");
+            input.setAttribute('disabled', 'disabled');
+        } else {
+            input.addEventListener('change', readFile, false);
+        }　　　　　//handler
+
+
+        function readFile() {
+            fd = new FormData();
+            var iLen = this.files.length;
+            for (var i = 0; i < iLen; i++) {
+                if (!input['value'].match(/.jpg|.gif|.png|.jpeg|.bmp/i)) {　　//判断上传文件格式
+                    return alert("上传的图片格式不正确，请重新选择");
+                }
+                var reader = new FileReader();
+                fd.append(i, this.files[i]);
+                reader.readAsDataURL(this.files[i]);  //转成base64
+                reader.fileName = this.files[i].name;
+
+                reader.onload = function (e) {
+                    var imgMsg = {
+                        name: this.fileName,//获取文件名
+                        base64: this.result   //reader.readAsDataURL方法执行完后，base64数据储存在reader.result里
+                    }
+                    dataArr.push(imgMsg);
+                    result = '<div class="delete">delete</div><div class="result"><img class="subPic" src="' + this.result + '" alt="' + this.fileName + '"/></div>';
+                    var div = document.createElement('div');
+                    div.innerHTML = result;
+                    div['className'] = 'float';
+                    document.getElementsByClassName('picshow')[0].appendChild(div);  　　//插入dom树
+                    var img = div.getElementsByTagName('img')[0];
+                    img.onload = function () {
+                        var nowHeight = ReSizePic(this); //设置图片大小
+                        this.parentNode.style.display = 'block';
+                        var oParent = this.parentNode;
+                        if (nowHeight) {
+                            oParent.style.paddingTop = (oParent.offsetHeight - nowHeight) / 2 + 'px';
+                        }
+                    }
+                    div.onclick = function () {
+                        $(this).remove();                  // 在页面中删除该图片元素
+                    }
+                }
+            }
+        }
+
+
+        function send() {
+            var submitArr = [];
+            $('.subPic').each(function () {
+                    submitArr.push({
+                        name: $(this).attr('alt'),
+                        base64: $(this).attr('src')
+                    });
+                }
+            );
+            var price = $('input:text[name="price"]').val();
+            var priceType = $('.price_type option:selected') .val();
+            var houseType = $('input:text[name="house_type"]').val();
+            var rentalMode = $('.rental_mode option:selected') .val();
+            var area = $('input:text[name="area"]').val();
+            var floor = $('input:text[name="floor"]').val();
+            var allfloor = $('input:text[name="allfloor"]').val();
+            var orientation = $('.orientation option:selected') .val();
+            var renovation = $('input:radio[name="renovation"]:checked').val();
+            var residentialAreas =  $('input:text[name="residential_areas"]').val();
+            var residentialNote = $('input:text[name="residential_note"]').val();
+            var district = $('.district option:selected') .val();
+            var userName =  $('input:text[name="name"]').val();
+            var userPhone = $('input:text[name="phone"]').val();
+            var title = $('input:text[name="title"]').val();
+            var address = $('input:text[name="address"]').val();
+
+
+			var index = layer.load(2, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒 
+
+            $.ajax({
+                url: '/web/do/addHouseInfo/uploadInfo',
+                type: 'post',
+                ansy: false,
+                data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
+                    "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
+                    "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
+                    "title":title,"address":address},
+                dataType: 'text',
+                success: function (data) {
+                    if(data=="success"){
+                        layer.msg("发布成功!", {icon:1})
+                        layer.close(index);     
+                        window.location.href = '/web/zf/html/htgl/index.html';
+                    }else{
+                        layer.msg("发布失败", {icon:2, anim:6})
+                        layer.close(index);     
+                    }
+                }
+            })
+        }
+
+        oAdd.onclick = function () {
+            oInput.value = "";   // 先将oInput值清空，否则选择图片与上次相同时change事件不会触发
+            oInput.click();
+        }
+    }
+
+    //图片显示适配
+    function ReSizePic(ThisPic) {
+        var RePicWidth = 200; //显示的宽度值
+
+        var TrueWidth = ThisPic.width; //图片实际宽度
+        var TrueHeight = ThisPic.height; //图片实际高度
+
+        if (TrueWidth > TrueHeight) {
+            //宽大于高
+            var reWidth = RePicWidth;
+            ThisPic.width = reWidth;
+            //垂直居中
+            var nowHeight = TrueHeight * (reWidth / TrueWidth);
+            return nowHeight;  //将图片修改后的高度返回，供垂直居中用
+        } else {
+            //宽小于高
+            var reHeight = RePicWidth;
+            ThisPic.height = reHeight;
+        }
+    }
+</script>
