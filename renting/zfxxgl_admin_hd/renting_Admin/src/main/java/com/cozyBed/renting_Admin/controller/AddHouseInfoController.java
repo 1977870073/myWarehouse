@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs;
 import com.cozyBed.renting_Admin.service.HouseInfoService;
 import com.cozyBed.renting_Admin.utils.Aes;
+import com.cozyBed.renting_Admin.utils.SimpleDateFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,6 +53,7 @@ public class AddHouseInfoController {
         info.setUser(user);
         info.setUserType(0);
         info.setFlag(1);
+        info.setDotime(SimpleDateFormatUtil.getDateTime());
         int flag = 0;
         try {
             flag = houseInfo.insertInfo(info);
