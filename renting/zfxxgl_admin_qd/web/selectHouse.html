@@ -15,69 +15,24 @@
 </div>
 
 <!--内容-->
-<div class="content">
-    <div class="content-top">出租房屋</div>
-
-	<dl class="conList">
-		<dt>
-			<a href="#" target="_self" class="z_pic">
-				<img src="00c917e2-4eab-43ec-88f4-d3a07f22ccf1.jpg" width="220px" height="165.24px">
-			</a>
-		</dt>
-		<dd>
-			<p><a href="#" target="_self" class="z_title">xxx</a></p>
-			<p>
-				<span class="z_rentalMode">xx</span>
-				<span class="splitline">|</span>
-				<span class="z_houseType">xx</span>
-				<span class="splitline">|</span>
-				<span class="z_area">xx</span>平方
-				<span class="splitline">|</span>
-				<span class="z_orientation">xx</span>
-			</p>
-			<p><span class="z_district">xx</span>-<span class="z_residentialAreas">xx</span></p>
-			<p><span class="z_residentialNote">xx</span></p>
-			<p><span class="z_price">xx</span>元/月</p>
-			<button type="button" class="update"  onclick="#">修&nbsp;改</button>
-			<button type="button" class="delete" onclick="#">删&nbsp;除</button>
-		</dd>
-	</dl>
-
-	<div class="content-null">
-		<span>您没有出租的房子！</span>
-	</div>
-	
-    <div class="page">
-        <a href="#">首页<span style="display: none">1</span></a>
-		<a href="#">上一页<span style="display: none"></span></a>
-		<a href="#">2</a>
-		<a href="#">3</a>  
-		<a href="#">4</a>
-		<a href="#">5</a>
-		<a href="#">下一页<span style="display: none">5</span></a>
-        <a href="#">尾页<span style="display: none">5</span></a>
-        <span>共<span>5</span>页</span>
-    </div>
-</div>
-<div id="tt"></div>
+<div class="content"></div>
 <script src="./static/js/tools/jquery-3.3.1.min.js"></script>
 <script src="./static/js/tools/jquery.tmpl.js"></script>
 <script src="./static/js/old/general.js"></script>
 </body>
 </html>
 <script id="content-info" type="text/x-jquery-tmpl">
-	<div class="content-top">出租房屋
-    </div>
-    <c:if test="${queryInfo!=null&&queryInfo.size()>0}">
-        <c:forEach var="info" items="${queryInfo }">
-            <dl class="conList">
+	<div class="content-top">出租房屋</div>
+    {{if queryInfo!=null&&queryInfo.length>0}}
+    	{{each(i,info) queryInfo}}
+    		<dl class="conList">
                 <dt>
-                    <a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">
-                        <img src="/upload/${info.picture}" width="220px" height="165.24px">
+                    <a href="#" target="_self">
+                        <img src="/web/img/${info.picture}" width="220px" height="165.24px">
                     </a>
                 </dt>
                 <dd>
-                    <p><a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">${info.title}</a></p>
+                    <p><a href="#" target="_self">${info.title}</a></p>
                     <p>
                         ${info.rentalMode}
                         <span class="splitline">|</span>
@@ -90,40 +45,34 @@
                     <p>${info.district}-${info.residentialAreas}</p>
                     <p>${info.residentialNote}</p>
                     <p><span>${info.price}</span>元/月</p>
-                    <button type="button" class="update"  onclick="window.location.href='${pageContext.request.contextPath }/update/init.action?id=${info.id}'">修&nbsp;改</button>
+                    <button type="button" class="update"  onclick="#">修&nbsp;改</button>
                     <button type="button" class="delete" onclick="send(${info.id})">删&nbsp;除</button>
                 </dd>
             </dl>
-        </c:forEach>
-    </c:if>
-    <c:if test="${queryInfo.size()<=0}">
-        <div class="content-null">
+    	{{/each}}
+    {{/if}}}
+    {{if queryInfo.length<=0}}
+    	<div class="content-null">
             <span>您没有出租的房子！</span>
         </div>
-    </c:if>
+    {{/if}}}
+    {{if page.pagNum<=page.start}}
+        {{/if}}}
     <div class="page">
         <a href="${pageContext.request.contextPath}/house/init.action?index=1">首页<span style="display: none">1</span></a>
-        <c:if test="${page.pagNum<=page.start}">
-            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.start}">上一页<span style="display: none">${page.start}</span></a>
-        </c:if>
-        <c:if test="${page.pagNum>page.start}">
-            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.pagNum-1}">上一页<span style="display: none">${page.pagNum-1}</span></a>
-        </c:if>
-        <c:forEach var="i" begin="${page.start}" end="${page.end}">
-            <c:if test="${i==page.pagNum}">
-                <a href="${pageContext.request.contextPath}/house/init.action?index=${i}"  class="page_active">${i}</a>
-            </c:if>
-            <c:if test="${i!=page.pagNum}">
-                <a href="${pageContext.request.contextPath}/house/init.action?index=${i}">${i}</a>
-            </c:if>
-        </c:forEach>
-        <c:if test="${page.pagNum>=page.totalPage}">
-            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.totalPage}">下一页<span style="display: none">${page.totalPage}</span></a>
-        </c:if>
-        <c:if test="${page.pagNum<page.end}">
-            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.pagNum+1}">下一页<span style="display: none">${page.pagNum+1}</span></a>
-        </c:if>
-        <a href="${pageContext.request.contextPath}/house/init.action?index=${page.totalPage}">尾页<span style="display: none">${page.totalPage}</span></a>
+        {{if page.pagNum<=page.start}}
+        	<a href="#">上一页<span style="display: none">${page.start}</span></a>
+        {{/if}}}
+        {{if page.pagNum>page.start}}
+        	<a href="#">上一页<span style="display: none">${page.pagNum-1}</span></a>
+        {{/if}}}
+        {{if page.pagNum>=page.totalPage}}
+        	<a href="#">下一页<span style="display: none">${page.totalPage}</span></a>
+        {{/if}}}
+		{{if page.pagNum<=page.start}}
+       		 <a href="#">下一页<span style="display: none">${page.pagNum+1}</span></a>
+        {{/if}}}
+        <a href="#">尾页<span style="display: none">${page.totalPage}</span></a>
         <span>共${page.totalPage}页</span>
     </div>
 </script>
@@ -1060,7 +1009,7 @@
 						"picture": "1554039809911.jpg"
 					}]
 				};
-		$("#info-tem").tmpl(json).appendTo("#tt");
+		$("#content-info").tmpl(json).appendTo("#content");
     })
 	
 </script>
