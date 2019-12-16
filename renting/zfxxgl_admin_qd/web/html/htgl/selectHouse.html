@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>房源</title>
+    <title>后台房源</title>
     <link href="/web/zf/static/images/icon.png" rel="icon" />
     <link href="/web/zf/static/css/old/selectHouse.css" rel="stylesheet">
     <link href="/web/zf/static/css/old/general.css" rel="stylesheet">
@@ -78,6 +78,70 @@
         <span>共${page.totalPage}页</span>
     </div>
 </div>
+
+<!-- <div class="content">
+    <div class="content-top">出租房屋
+        <a href="${pageContext.request.contextPath }/addHouseInfo/init.action">发布房源</a>
+    </div>
+    <c:if test="${queryInfo!=null&&queryInfo.size()>0}">
+        <c:forEach var="info" items="${queryInfo }">
+            <dl class="conList">
+                <dt>
+                    <a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">
+                        <img src="/upload/${info.picture}" width="220px" height="165.24px">
+                    </a>
+                </dt>
+                <dd>
+                    <p><a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">${info.title}</a></p>
+                    <p>
+                        ${info.rentalMode}
+                        <span class="splitline">|</span>
+                        ${info.houseType}
+                        <span class="splitline">|</span>
+                        ${info.area}平方
+                        <span class="splitline">|</span>
+                        ${info.orientation}
+                    </p>
+                    <p>${info.district}-${info.residentialAreas}</p>
+                    <p>${info.residentialNote}</p>
+                    <p><span>${info.price}</span>元/月</p>
+                    <button type="button" class="update"  onclick="window.location.href='${pageContext.request.contextPath }/update/init.action?id=${info.id}'">修&nbsp;改</button>
+                    <button type="button" class="delete" onclick="send(${info.id})">删&nbsp;除</button>
+                </dd>
+            </dl>
+        </c:forEach>
+    </c:if>
+    <c:if test="${queryInfo.size()<=0}">
+        <div class="content-null">
+            <span>您没有出租的房子！</span>
+        </div>
+    </c:if>
+    <div class="page">
+        <a href="${pageContext.request.contextPath}/house/init.action?index=1">首页<span style="display: none">1</span></a>
+        <c:if test="${page.pagNum<=page.start}">
+            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.start}">上一页<span style="display: none">${page.start}</span></a>
+        </c:if>
+        <c:if test="${page.pagNum>page.start}">
+            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.pagNum-1}">上一页<span style="display: none">${page.pagNum-1}</span></a>
+        </c:if>
+        <c:forEach var="i" begin="${page.start}" end="${page.end}">
+            <c:if test="${i==page.pagNum}">
+                <a href="${pageContext.request.contextPath}/house/init.action?index=${i}"  class="page_active">${i}</a>
+            </c:if>
+            <c:if test="${i!=page.pagNum}">
+                <a href="${pageContext.request.contextPath}/house/init.action?index=${i}">${i}</a>
+            </c:if>
+        </c:forEach>
+        <c:if test="${page.pagNum>=page.totalPage}">
+            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.totalPage}">下一页<span style="display: none">${page.totalPage}</span></a>
+        </c:if>
+        <c:if test="${page.pagNum<page.end}">
+            <a href="${pageContext.request.contextPath}/house/init.action?index=${page.pagNum+1}">下一页<span style="display: none">${page.pagNum+1}</span></a>
+        </c:if>
+        <a href="${pageContext.request.contextPath}/house/init.action?index=${page.totalPage}">尾页<span style="display: none">${page.totalPage}</span></a>
+        <span>共${page.totalPage}页</span>
+    </div>
+</div> -->
 
 <script src="/web/zf/static/js/tools/jquery-3.3.1.min.js"></script>
 <script src="/web/zf/static/js/old/general.js"></script>
