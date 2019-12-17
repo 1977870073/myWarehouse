@@ -1,0 +1,339 @@
+body{
+    width: 100%;
+    min-width: 1000px;
+    height: 100%;
+    background: #f8f8f8;
+}
+.content{
+    width: 1200px;
+    margin:30px auto 0px;
+    background: #FFFFFF;
+    height: 700px;
+}
+.content .conTop{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 22px;
+    padding-left:10px ;
+}
+.content .conTop .goback{
+    font-size: 14px;
+    font-weight: 100;
+    color: #77c;
+    margin-right: 50px;
+    border-bottom: 1px solid #77c;
+}
+.content .showImg{
+    width: 690px;
+    height:550px;
+    position: relative;
+    float: left;
+}
+.content .showImg .sImg{
+    width: 690px;
+    height:440px;
+    position: relative;
+}
+.content .showImg .sImg .bigImg{
+    width: 690px;
+    height:440px;
+    position: absolute;
+    float: left;
+    background: #FFFFFF;
+}
+.content .showImg .sImg .bigImg img{
+    position: absolute;
+    float: left;
+    z-index: -1;
+}
+.content .showImg .sImg .bigImg img:nth-of-type(1){
+    z-index: 10;
+}
+.content .showImg .sImg .bl{
+    width: 290px;
+    height: 440px;
+    background: url("/web/zf/static/images/img/lbtn1.png") 20px no-repeat;
+    position: absolute;
+    float: left;
+    left: 20px;
+    z-index: 11;
+    cursor: pointer;
+}
+.content .showImg .sImg .br{
+    width: 290px;
+    height: 440px;
+    background: url("/web/zf/static/images/img/rbtn1.png") 244px no-repeat;
+    position: absolute;
+    float: left;
+    left: 380px;
+    z-index: 11;
+    cursor: pointer;
+}
+.content .showImg .mImg{
+    width: 690px;
+    height: 100px;
+    margin-top: 10px;
+    position: relative;
+}
+.content .showImg .mImg .mListImg{
+    width: 630px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 32px 0 28px;
+}
+.content .showImg .mImg .mListImg ul{
+    position: absolute;
+    width: 2300px !important;
+    height: 100px;
+}
+.content .showImg .mImg .mListImg ul li{
+    display: inline;
+    float: left;
+    cursor: pointer;
+    margin-left: 6px;
+}
+.content .showImg .mImg .mListImg ul li img{
+    width: 120px;
+    height: 82px;
+}
+.content .showImg .mImg .mListImg ul li.cur img{
+    width: 125px;
+    height: 84px;
+    border: 2px solid #d7221f;
+}
+.content .showImg .mImg .mbl{
+    width: 25px;
+    height: 78px;
+    background: #9d9d9d;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+.content .showImg .mImg .mbl:hover{
+    background: #7E7E7E;
+}
+.content .showImg .mImg .mbl img{
+    margin: 32px 0px 32px 5px;
+}
+.content .showImg .mImg .mbr{
+    width: 25px;
+    height: 78px;
+    background: #9d9d9d;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+.content .showImg .mImg .mbr:hover{
+    background: #7E7E7E;
+}
+.content .showImg .mImg .mbr img{
+    margin: 32px 5px 32px 12px;
+}
+
+
+/*------租房信息--------------------------------------------------------*/
+.content .rentInfo{
+    width: 500px;
+    height:550px;
+    position: relative;
+    float: right;
+    padding-left: 20px;
+}
+.content .rentInfo .rentPrice{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    border: 1px solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+}
+.content .rentInfo .rentPrice p span{
+    font-size: 28px;
+    font-weight: 600;
+    color: #e40000;
+    margin-right:10px;
+}
+.content .rentInfo .rentdiv1{
+    width: 100%;
+    height: 100px;
+    border: 1px solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+    margin-top: 20px;
+    padding: 21px 0;
+}
+.content .rentInfo .rentdiv1 div{
+    width: 33%;
+    position: relative;
+    float: left;
+    font-size: 14px;
+    color: #727272;
+}
+.content .rentInfo .rentdiv1 .rental_mode p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv1 .house_type p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv1 .rentArea p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv2{
+    width: 100%;
+    height: 100px;
+    border: 1px solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+    margin-top: 10px;
+    padding: 21px 0;
+}
+.content .rentInfo .rentdiv2 div{
+    width: 33%;
+    position: relative;
+    float: left;
+    font-size: 14px;
+    color: #727272;
+}
+.content .rentInfo .rentdiv2 .orientation p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv2 .rentFloor p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv2 .renovation p:nth-of-type(1){
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.content .rentInfo .rentdiv3{
+    width: 100%;
+    height: 130px;
+    border: 1px solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+    margin-top: 10px;
+    padding: 21px 0;
+}
+.content .rentInfo .rentdiv3 .residential_areas{
+    width: 100%;
+    font-size: 14px;
+    color: #727272;
+    display: inline-block;
+}
+.content .rentInfo .rentdiv3 .residential_areas p{
+    position: relative;
+    float: left;
+}
+.content .rentInfo .rentdiv3 .residential_areas p:nth-of-type(2){
+    left: 40px;
+    color: #000;
+    font-size: 15px;
+}
+.content .rentInfo .rentdiv3 .residential_areas2{
+    display: inline-block;
+}
+.content .rentInfo .rentdiv3 .residential_areas2 p:nth-of-type(1){
+    margin-top: 10px;
+    margin-left: 85px;
+    font-size: 15px;
+}
+.content .rentInfo .rentdiv3 .renovation{
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
+    color: #727272;
+    display: inline-block;
+}
+.content .rentInfo .rentdiv3 .renovation p{
+    position: relative;
+    float: left;
+}
+.content .rentInfo .rentdiv3 .renovation p:nth-of-type(2){
+    left: 40px;
+    color: #000;
+    font-size: 15px;
+}
+.content .rentInfo .rentdiv4{
+    width: 100%;
+    height: 90px;
+    border: 1px solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+    margin-top: 10px;
+}
+.content .rentInfo .rentdiv4 div{
+    display: block;
+    position: relative;
+    float: left;
+}
+.content .rentInfo .rentdiv4 .cInfo{
+    left: 10px;
+}
+.content .rentInfo .rentdiv4 .cInfo p{
+    margin-top: 10px;
+    font-size: 22px;
+    color: #9d0001;
+    background: url("/web/zf/static/images/img/phone.png") no-repeat;
+    background-size: 25px;
+    padding-left: 30px;
+}
+.content .rentInfo .shoucang{
+    width: 200px;
+    height: 70px;
+    border: 0px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 600;
+    background: rgba(210, 3, 0, 0.88);
+    border-radius: 5px;
+    cursor: pointer;
+    margin:20px 100px;
+    transition: all 1s ease;
+}
+.content .rentInfo .shoucang:hover{
+    background: rgb(240, 3, 0);
+}
+.content .rentInfo .shoucang:active{
+    background: rgba(240, 3, 0, 0.61);
+}
+
+/*地图*/
+.cityMap{
+    position: relative;
+    margin: 50px auto;
+    width: 1000px;
+    height: 650px;
+    background: #000;
+    box-shadow: 1px 1px 2px #CCCCCC;
+}
+.cityMap .map-top{
+    width: 100%;
+    height: 50px;
+    background: #f0f0f0;
+    padding: 15px;
+    font-weight: bold;
+    color: rgba(72, 72, 72, 0.64);
+}
+.cityMap #container{
+    top: 50px;
+}
+#panel {
+    z-index: 999;
+    position: absolute;
+    background-color: white;
+    max-height: 100%;
+    overflow-y: auto;
+    right: 0;
+    width: 280px;
+}

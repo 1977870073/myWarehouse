@@ -110,7 +110,7 @@
             resultMap="ResultMapWithBLOBs">
         SELECT * FROM rent_houseinfo
         WHERE user = #{user,jdbcType=VARCHAR} and user_type = 0
-        LIMIT #{index,jdbcType=INTEGER},40
+        LIMIT #{index,jdbcType=INTEGER},10
     </select>
     <!-- 获取一个7天内后台发布的房源数 -->
     <select id="selectWeekCountForHT" resultType="hashmap">

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>走过路过</title>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/AMap.PlaceSearchRender1120.css"/>
+    <link href="/web/zf/static/images/icon.png" rel="icon" />
+    <link href="/web/zf/static/css/old/details.css" rel="stylesheet">
+    <link href="/web/zf/static/css/old/general.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="content">
+    <div class="conTop"><a class="goback" href="#" onClick="javascript:history.back();">&laquo;返回</a><span id="title">好房子</span></div>
+    <div class="showImg">
+        <div class="sImg">
+            <div class="bigImg" id="bigImg">
+            </div>
+            <div class="bl" style="opacity: 0"></div>
+            <div class="br" style="opacity: 0"></div>
+        </div>
+        <div class="mImg">
+            <div class="mListImg">
+                <ul class="litImg" id="litImg">
+                </ul>
+            </div>
+            <div class="mbl"><img src="/web/zf/static/images/img/lbtn.png" /></div>
+            <div class="mbr"><img src="/web/zf/static/images/img/rbtn.png" /></div>
+        </div>
+    </div>
+    <div class="rentInfo">
+        <div class="rentPrice">
+            <p><span id="rentPrice">1999</span>元/月 （押二付一）</p>
+        </div>
+        <div class="rentdiv1">
+            <div class="rental_mode"><p id="rental_mode">整租</p><p>出租方式</p></div>
+            <div class="house_type"><p id="house_type">一房一厅</p><p>户型</p></div>
+            <div class="rentArea"><p><span id="rentArea">40</span>m²</p><p>建筑面积</p></div>
+        </div>
+        <div class="rentdiv2">
+            <div class="orientation"><p id="orientation">南</p><p>朝向</p></div>
+            <div class="rentFloor"><p id="rentFloor">高</p><p>楼层（共<span id="rentAllFloor"></span>层）</p></div>
+            <div class="renovation"><p id="renovation">精</p><p>装饰</p></div>
+        </div>
+        <div class="rentdiv3">
+            <div class="residential_areas"><p>小&nbsp;&nbsp;&nbsp;&nbsp;区</p><p id="residential_areas">xxx小区</p></div>
+            <div class="residential_areas2"><p id="residential_areas2"></p></div>
+            <div class="renovation"><p>地&nbsp;&nbsp;&nbsp;&nbsp;址</p><p id="rentAddress">xxx</p></div>
+        </div>
+        <div class="rentdiv4">
+            <div><img src="/web/zf/static/images/img/noavatars.gif" height="80px"> </div>
+            <div class="cInfo">
+                <span id="cName">xxx</span>
+                <p id="cPhone">111</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cityMap">
+    <div class="map-top">地图</div>
+    <div id="container" style="width: 1000px;height: 600px;"></div>
+    <div id="panel"></div>
+</div>
+<p id="address" hidden>广州塔</p>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=0466ce613d6cc03b9b2a4e214c67ee89&plugin=AMap.PlaceSearch"></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+<script src="/web/zf/static/js/tools/jquery-3.3.1.min.js"></script>
+<script src="/web/zf/static/js/old/general.js"></script>
+<script src="/web/zf/static/js/old/details.js"></script>
+</body>
+</html>

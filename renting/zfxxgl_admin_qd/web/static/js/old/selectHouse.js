@@ -1,17 +1,24 @@
 window.onload = function(){
-	// query();
+    var page = getQueryVariable("page")
+	if(isEmpty(page)){
+        query(1);
+	}else{
+        query(page);
+	}
 }
+//获取房源数据
 function query(num){
 	$.ajax({
-		type: 'get',
-		url: '/web/do/house/init',
-		data: {page:num},
-		success: function(data){
-			renderHTML(data);
-		},
-		error{
-			
-		}
+        type: 'get',
+        url: '/web/do/house/init',
+        data: {"page": num},
+        dataType: 'json',
+        success: function(data){
+            renderHTML(data);
+        },
+        error: function(errorMsg){
+            alert("网络链接失败！")
+        }
 	});
 }
 //将数据渲染到content
@@ -26,9 +33,9 @@ function renderHTML(json){
 		if(page!=null){
 			for(var i = page.start; i<=page.end; i++){
 				if(i==page.pagNum){
-					page_startToend_html+="<a href='#'  class='page_active'>"+i+"</a>";
+					page_startToend_html+="<a href='/web/zf/html/htgl/selectHouse.html?page="+i+"' class='page_active'  target='_self'>"+i+"</a>";
 				}else{
-					page_startToend_html+="<a href='#' >"+i+"</a>";
+					page_startToend_html+="<a href='/web/zf/html/htgl/selectHouse.html?page="+i+"'  target='_self'>"+i+"</a>";
 				}
 			}
 			$("#page_startToend").html(page_startToend_html);
@@ -36,7 +43,7 @@ function renderHTML(json){
 	}
 }
 //删除
-function send(id) {
+function del(id) {
 	var flag = confirm("确定要删除吗？")
 	if(flag==true){
 		$.ajax({
@@ -54,4 +61,9 @@ function send(id) {
 			}
 		})
 	}
+}
+
+//跳转修改页面
+function tiaozhuan(id) {
+	window.location.href="/web/zf/html/htgl/update.html?cp01="+id;
 }

@@ -6,6 +6,7 @@ import com.cozyBed.renting_Admin.service.HouseInfoService;
 import com.cozyBed.renting_Admin.utils.Aes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,19 +31,12 @@ public class HouseController {
     private HouseInfoService houseInfo;
 
     @RequestMapping("/init")
-    public Map<String, Object> init(HttpServletRequest request) throws Exception {
+    public Map<String, Object> init(HttpServletRequest request,@RequestParam(required = false, defaultValue = "1") Integer page) throws Exception {
         HttpSession session = request.getSession();
         String user = session.getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        String index = request.getParameter("index");
-        int i = 0;
-        if(index==""||index==null){
-            i=1;
-        }else{
-            i=Integer.parseInt(index);
-        }
-        Page page =  page = new Page(i,40,(int)houseInfo.selectByUserCount(user));
-        List<RentHouseinfoWithBLOBs> temp = houseInfo.selectByUser(user,(i-1)*40);
+        Page p =  new Page(page,10,(int)houseInfo.selectByUserCount(user));
+        List<RentHouseinfoWithBLOBs> temp = houseInfo.selectByUser(user,(page-1)*10);
         List<RentHouseinfoWithBLOBs> list = new ArrayList<RentHouseinfoWithBLOBs>();
         for (RentHouseinfoWithBLOBs f:temp){
             String s = f.getPicture().split("[,]")[0];
@@ -55,7 +49,7 @@ public class HouseController {
         }
         Map<String, Object> rtMap = new HashMap<>();
         rtMap.put("queryInfo", list);
-        rtMap.put("page", page);
+        rtMap.put("page", p);
         return rtMap;
     }
 
