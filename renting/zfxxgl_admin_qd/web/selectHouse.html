@@ -15,7 +15,7 @@
 </div>
 
 <!--内容-->
-<div class="content"></div>
+<div id="content" class="content"></div>
 <script src="./static/js/tools/jquery-3.3.1.min.js"></script>
 <script src="./static/js/tools/jquery.tmpl.js"></script>
 <script src="./static/js/old/general.js"></script>
@@ -23,7 +23,7 @@
 </html>
 <script id="content-info" type="text/x-jquery-tmpl">
 	<div class="content-top">出租房屋</div>
-    {{if queryInfo!=null&&queryInfo.length>0}}
+    {{if queryInfo.length>0}}
     	{{each(i,info) queryInfo}}
     		<dl class="conList">
                 <dt>
@@ -50,35 +50,29 @@
                 </dd>
             </dl>
     	{{/each}}
-    {{/if}}}
-    {{if queryInfo.length<=0}}
-    	<div class="content-null">
-            <span>您没有出租的房子！</span>
-        </div>
-    {{/if}}}
-    {{if page.pagNum<=page.start}}
-        {{/if}}}
+    {{/if}}
     <div class="page">
-        <a href="${pageContext.request.contextPath}/house/init.action?index=1">首页<span style="display: none">1</span></a>
+        <a href="#">首页<span style="display: none">1</span></a>
         {{if page.pagNum<=page.start}}
         	<a href="#">上一页<span style="display: none">${page.start}</span></a>
-        {{/if}}}
+        {{/if}}
         {{if page.pagNum>page.start}}
         	<a href="#">上一页<span style="display: none">${page.pagNum-1}</span></a>
-        {{/if}}}
+        {{/if}}
+		<span id="page_startToend"></span>
         {{if page.pagNum>=page.totalPage}}
         	<a href="#">下一页<span style="display: none">${page.totalPage}</span></a>
-        {{/if}}}
-		{{if page.pagNum<=page.start}}
+        {{/if}}
+    	{{if page.pagNum<=page.start}}
        		 <a href="#">下一页<span style="display: none">${page.pagNum+1}</span></a>
-        {{/if}}}
+        {{/if}}
         <a href="#">尾页<span style="display: none">${page.totalPage}</span></a>
-        <span>共${page.totalPage}页</span>
+        <span>共${page.totalPage}页,${page.totalRecord}条数据</span>
     </div>
 </script>
 <script type="text/javascript">
 	$(function () {
-		var json = {
+		var json ={
 					"page": {
 						"pagNum": 1,
 						"pageSize": 40,
@@ -1009,7 +1003,24 @@
 						"picture": "1554039809911.jpg"
 					}]
 				};
-		$("#content-info").tmpl(json).appendTo("#content");
+		if(json.queryInfo==null || json.queryInfo == undefined){
+			var content_html = "<div class='content-top'>出租房屋</div><div class='content-null'><span>您没有出租的房子！</span></div>";
+			$("#content").html(content_html);
+		}else{
+			$("#content-info").tmpl(json).appendTo("#content");
+			var page_startToend_html = "";
+			var page = json.page;
+			if(page!=null){
+				for(var i = page.start; i<=page.end; i++){
+					if(i==page.pagNum){
+						page_startToend_html+="<a href='#'  class='page_active'>"+i+"</a>";
+					}else{
+						page_startToend_html+="<a href='#' >"+i+"</a>";
+					}
+				}
+				$("#page_startToend").html(page_startToend_html);
+			}
+		}
     })
 	
 </script>
