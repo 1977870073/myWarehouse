@@ -12,32 +12,77 @@
 	<body>
 		<div class="m-login-bg">
 			<div class="m-login">
-				<h3>后台系统登录</h3>
+				<h3>后台管理系统登录</h3>
 				<div class="m-login-warp">
-					<form class="layui-form">
-						<div class="layui-form-item">
-							<input type="text" name="title" required lay-verify="title" placeholder="用户名" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item">
-							<input type="password" name="password" required lay-verify="password" placeholder="密码" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item">
-							<div class="layui-inline">
-								<input type="text" name="verity" required lay-verify="verity" placeholder="验证码" autocomplete="off" class="layui-input">
+					
+					<div class="layui-tab">
+						<ul class="layui-tab-title">
+							<li class="layui-this">房东登录</li>
+							<li>管理员登录</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<form class="layui-form" id="fangdong">
+									<div class="layui-form-item">
+										<input type="text" name="f_title" required lay-verify="f_title" placeholder="用户名" autocomplete="off" class="layui-input">
+									</div>
+									<div class="layui-form-item">
+										<input type="password" name="f_password" required lay-verify="f_password" placeholder="密码" autocomplete="off" class="layui-input">
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<input type="text" name="f_verity" required lay-verify="f_verity" placeholder="验证码" autocomplete="off" class="layui-input">
+										</div>
+										<div class="layui-inline">
+											<canvas id="f_canvas" width="100" height="43" onclick="f_dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
+										</div>
+									</div>
+									<div class="layui-form-item m-login-btn">
+										<div class="layui-inline">
+											<button class="layui-btn layui-btn-normal" lay-submit lay-filter="f_login">登录</button>
+										</div>
+										<div class="layui-inline">
+											<button type="reset" class="layui-btn layui-btn-primary">取消</button>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<a href="#">注册账号</a>
+										</div>
+										<div class="layui-inline">
+											<a href="#">忘记密码</a>
+										</div>
+									</div>
+								</form>
 							</div>
-							<div class="layui-inline">
-								<canvas id="canvas" width="120" height="43" onclick="dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
+							<div class="layui-tab-item">
+								<form class="layui-form" id="guanliyuan">
+									<div class="layui-form-item">
+										<input type="text" name="g_title" required lay-verify="g_title" placeholder="用户名" autocomplete="off" class="layui-input">
+									</div>
+									<div class="layui-form-item">
+										<input type="password" name="g_password" required lay-verify="g_password" placeholder="密码" autocomplete="off" class="layui-input">
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<input type="text" name="g_verity" required lay-verify="g_verity" placeholder="验证码" autocomplete="off" class="layui-input">
+										</div>
+										<div class="layui-inline">
+											<canvas id="g_canvas" width="100" height="43" onclick="g_dj()" style="border: 1px solid #ccc; border-radius: 5px;"></canvas>
+										</div>
+									</div>
+									<div class="layui-form-item m-login-btn">
+										<div class="layui-inline">
+											<button class="layui-btn layui-btn-normal" lay-submit lay-filter="g_login">登录</button>
+										</div>
+										<div class="layui-inline">
+											<button type="reset" class="layui-btn layui-btn-primary">取消</button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-						<div class="layui-form-item m-login-btn">
-							<div class="layui-inline">
-								<button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
-							</div>
-							<div class="layui-inline">
-								<button type="reset" class="layui-btn layui-btn-primary">取消</button>
-							</div>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -46,28 +91,45 @@
 		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/login.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			layui.use(['form', 'layedit', 'laydate'], function() {
+			layui.use(['form','element'], function() {
 				var form = layui.form,
 					layer = layui.layer;
+				var element = layui.element;
 
 				//自定义验证规则
                 form.verify({
-                    title: function(value) {
+					f_title: function(value) {
+					    if(value.length < 6) {
+					        return '用户名少于6个字符';
+					    }
+					},
+					f_password: [/(.+){6}$/, '密码少于6个字符'],
+					f_verity: [/(.+){4}$/, '验证码必须是4位'],
+                    g_title: function(value) {
                         if(value.length < 6) {
                             return '用户名少于6个字符';
                         }
                     },
-                    password: [/(.+){6}$/, '密码少于6个字符'],
-                    verity: [/(.+){4}$/, '验证码必须是4位'],
+                    g_password: [/(.+){6}$/, '密码少于6个字符'],
+                    g_verity: [/(.+){4}$/, '验证码必须是4位'],
 
                 });
 				//监听提交
-				form.on('submit(login)', function(data) {
-					var verity = data.field.verity;
+				form.on('submit(f_login)', function(data) {
+					var verity = data.field.f_verity;
+					if(checkedVerity("f_canvas",verity)){
+						
+					}else{
+						layer.msg("验证码错误");
+					}
+					return false;
+				});
+				form.on('submit(g_login)', function(data) {
+					var verity = data.field.g_verity;
                     var index = layer.load(2, {time: 10*1000});
-                    if(checkedVerity(verity)){
-					    var username = encrypt(data.field.title);
-					    var password = encrypt(data.field.password);
+                    if(checkedVerity("g_canvas",verity)){
+					    var username = encrypt(data.field.g_title);
+					    var password = encrypt(data.field.g_password);
                         $.ajax({
                             url: '/web/do/login/verification',
                             type: 'post',
@@ -81,7 +143,17 @@
                                     layer.close(index);
                                     layer.msg("登陆失败",{icon: 2, anim: 6})
                                 }
-                            }
+                            },
+							error: function(err){
+								if(err.status>=400&&err.status<500){
+								   layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+								}else if(err.status>=500&&err.status<600){
+								   layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+								}else{
+									layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+								}
+								 layer.close(index);
+							}
                         })
 					}else{
 						layer.close(index);

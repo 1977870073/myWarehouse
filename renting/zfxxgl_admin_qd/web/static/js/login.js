@@ -1,27 +1,41 @@
 	//验证码--start
-	var show_num = [];
-	draw(show_num);
-	function dj(){
-	 draw(show_num);   
+	var f_show_num = [];
+	var g_show_num = [];
+	draw("f_canvas",f_show_num);
+	draw("g_canvas",g_show_num);
+	function f_dj(){
+	 draw("f_canvas",f_show_num);   
 	 }
-	function checkedVerity(val){
+	 function g_dj(){
+	  draw("g_canvas",g_show_num);   
+	  }
+	function checkedVerity(idName,val){
 		if(val==''){
 			return false;
 		}
-		var num = show_num.join("");
+		var num;
+		if(idName == "g_canvas"){
+			num = g_show_num.join("");
+		}else{
+			num = f_show_num.join("");
+		}
 		val = val.toLowerCase();//字母转小写
 		num = num.toLowerCase();//字母转小写
 		if(val == num){
 			return true;
 		}else{
-			draw(show_num); 
+			if(idName == "g_canvas"){
+				draw(idName,g_show_num); 
+			}else{
+				draw(idName,f_show_num); 
+			}
 			return false;
 		}
 	  }
-	function draw(show_num) {
-        var canvas_width=document.getElementById('canvas').clientWidth;
-        var canvas_height=document.getElementById('canvas').clientHeight;
-        var canvas = document.getElementById("canvas");//获取到canvas的对象，演员
+	function draw(idName,show_num) {
+        var canvas_width=100;//在layui中的tab页会将canves的width设置为0，所以通过js设置
+        var canvas_height=43;
+        var canvas = document.getElementById(idName);//获取到canvas的对象，演员
         var context = canvas.getContext("2d");//获取到canvas画图的环境，演员表演的舞台
         canvas.width = canvas_width;
         canvas.height = canvas_height;
@@ -34,7 +48,7 @@
             var deg = Math.random() * 30 * Math.PI / 180;//产生0~30之间的随机弧度
             var txt = aCode[j];//得到随机的一个内容
             show_num[i] = txt;
-            var x = 20 + i * 20;//文字在canvas上的x坐标
+            var x = 10 + i * 20;//文字在canvas上的x坐标
             var y = 20 + Math.random() * 8;//文字在canvas上的y坐标
             context.font = "bold 23px 微软雅黑";
 
