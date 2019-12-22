@@ -6,6 +6,9 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="userType" jdbcType="VARCHAR" property="usertype" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="activation" jdbcType="VARCHAR" property="activation" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, name
+    id, username, password, name, userType, email, activation
   </sql>
   <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.RentUserExample" resultMap="BaseResultMap">
     select
@@ -100,9 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.RentUser">
     insert into rent_user (id, username, password, 
-      name)
+      name, userType, email, 
+      activation)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR})
+      #{name,jdbcType=VARCHAR}, #{usertype,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{activation,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.RentUser">
     insert into rent_user
@@ -119,6 +124,15 @@
       <if test="name != null">
         name,
       </if>
+      <if test="usertype != null">
+        userType,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="activation != null">
+        activation,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -132,6 +146,15 @@
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="activation != null">
+        #{activation,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -156,6 +179,15 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
+      <if test="record.usertype != null">
+        userType = #{record.usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activation != null">
+        activation = #{record.activation,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +198,10 @@
     set id = #{record.id,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR}
+      name = #{record.name,jdbcType=VARCHAR},
+      userType = #{record.usertype,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      activation = #{record.activation,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +218,15 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="usertype != null">
+        userType = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="activation != null">
+        activation = #{activation,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -190,7 +234,10 @@
     update rent_user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR}
+      name = #{name,jdbcType=VARCHAR},
+      userType = #{usertype,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      activation = #{activation,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

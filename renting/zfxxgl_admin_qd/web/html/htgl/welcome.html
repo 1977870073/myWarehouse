@@ -347,7 +347,16 @@
 								);
 								myChart.hideLoading();
 							},
-							error: function (errorMsg) {
+							error: function (err) {
+                                if(err.status>=400&&err.status<500){
+                                    layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                                }else if(err.status>=500&&err.status<600){
+                                    layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                                }else if(err.status==1000){
+                                    parent.window.location.href = "/web/zf/html/login.html"
+                                }else{
+                                    layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                                }
 								layer.msg("图表请求数据失败!")
 								myChart.hideLoading();
 								myChart.setOption(

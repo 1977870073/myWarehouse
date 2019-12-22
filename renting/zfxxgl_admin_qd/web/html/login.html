@@ -117,9 +117,43 @@
 				//监听提交
 				form.on('submit(f_login)', function(data) {
 					var verity = data.field.f_verity;
+                    var index = layer.load(2, {time: 10*1000});
 					if(checkedVerity("f_canvas",verity)){
-						
+                        var username = encrypt(data.field.f_title);
+                        var password = encrypt(data.field.f_password);
+                        $.ajax({
+                            url: '/web/do/login/verificationFD',
+                            type: 'post',
+                            data: {"username":username,"password":password},
+                            dataType: 'text',
+                            success: function (data) {
+                                if(data=="success"){
+                                    layer.close(index);
+                                    window.location.href = '/web/zf/html/htgl/index.html';
+                                }else if(data=="passE"){
+                                    layer.close(index);
+                                    layer.msg("密码错误！",{icon: 2, anim: 6})
+                                }else if(data=="actiE"){
+                                    layer.close(index);
+                                    layer.msg("账号未激活,请激活后再登陆!",{icon: 2, anim: 6})
+                                }else{
+                                    layer.close(index);
+                                    layer.msg("用户名不存在!",{icon: 2, anim: 6})
+								}
+                            },
+                            error: function(err){
+                                layer.close(index);
+                                if(err.status>=400&&err.status<500){
+                                    layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                                }else if(err.status>=500&&err.status<600){
+                                    layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                                }else{
+                                    layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                                }
+                            }
+                        })
 					}else{
+                        layer.close(index);
 						layer.msg("验证码错误");
 					}
 					return false;
@@ -139,12 +173,16 @@
                                 if(data=="success"){
                                     layer.close(index);
                                     window.location.href = '/web/zf/html/htgl/index.html';
+                                }else if(data=="passE"){
+                                    layer.close(index);
+                                    layer.msg("密码错误！",{icon: 2, anim: 6})
                                 }else{
                                     layer.close(index);
-                                    layer.msg("登陆失败",{icon: 2, anim: 6})
+                                    layer.msg("用户名不存在!",{icon: 2, anim: 6})
                                 }
                             },
 							error: function(err){
+                                layer.close(index);
 								if(err.status>=400&&err.status<500){
 								   layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
 								}else if(err.status>=500&&err.status<600){
@@ -152,7 +190,6 @@
 								}else{
 									layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
 								}
-								 layer.close(index);
 							}
                         })
 					}else{

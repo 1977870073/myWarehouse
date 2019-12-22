@@ -5,7 +5,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/renting?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/renting?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&userAffectRows=true
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

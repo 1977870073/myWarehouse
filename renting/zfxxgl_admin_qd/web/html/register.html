@@ -8,7 +8,7 @@
 	<body style="background: #eee;">
 		<ul class="layui-nav">
 			<li class="layui-nav-item">
-				<a href="#" onClick="javascript:history.back();">《返回</a>
+				<a href="javascript:;" onClick="javascript:history.back();">《返回</a>
 			</li>
 			<li class="layui-nav-item">
 				<a href="login.html">登录</a>
@@ -23,6 +23,12 @@
 					<label class="layui-form-label">用户名</label>
 					<div class="layui-input-inline">
 					  <input type="text" name="username" lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">昵称</label>
+					<div class="layui-input-inline">
+						<input type="text" name="ncname" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -71,14 +77,51 @@
 				form.on('submit(zcfd)', function(data) {
 					var password = data.field.password;
 					var checkpassword = data.field.checkpassword;
+                    var index = layer.load(2, {time: 10*1000});
 					if(password == checkpassword){
-						
+                        var username = data.field.username;
+                        username = encrypt(username);
+                        password = encrypt(password);
+                        var nc = data.field.ncname;
+                        var email = data.field.email;
+                        $.ajax({
+                            url: '/web/do/login/registerFD',
+                            type: 'post',
+                            data: {"arg1":username,"arg2":password,"arg3":nc,"arg4":email},
+                            dataType: 'text',
+                            success: function (data) {
+                                if(data=="success"){
+                                    layer.close(index);
+                                    window.location.href = 'login.html';
+                                }else{
+                                    layer.close(index);
+                                    layer.msg("系统异常");
+								}
+                            },
+                            error: function(err){
+                                layer.close(index);
+                                if(err.status>=400&&err.status<500){
+                                    layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                                }else if(err.status>=500&&err.status<600){
+                                    layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                                }else{
+                                    layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                                }
+                            }
+                        })
 					}else{
+                        layer.close(index);
 						layer.msg("密码不一致");
 					}
 					return false;
 				});
 			})
+            function encrypt(word){
+                var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+                var srcs = CryptoJS.enc.Utf8.parse(word);
+                var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+                return encrypted.toString();
+            }
 		</script>
 	</body>
 </html>

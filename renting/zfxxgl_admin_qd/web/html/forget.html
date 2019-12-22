@@ -8,7 +8,7 @@
 	<body style="background: #eee;">
 		<ul class="layui-nav">
 			<li class="layui-nav-item">
-				<a href="#" onClick="javascript:history.back();">《返回</a>
+				<a href="javascript:;" onClick="javascript:history.back();">《返回</a>
 			</li>
 			<li class="layui-nav-item">
 				<a href="login.html">登录</a>
@@ -18,16 +18,23 @@
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 			  <legend>修改房东账号</legend>
 			</fieldset>
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">用户名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="username" lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+					</div>
+				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">邮箱</label>
 					<div class="layui-input-inline">
-					  <input type="text" name="username" lay-verify="required" placeholder="请输入注册账号时填写的邮箱" autocomplete="off" class="layui-input">
+					  <input type="text" name="email" lay-verify="required|email" placeholder="请输入注册账号时填写的邮箱" autocomplete="off" class="layui-input">
 					</div>
 					<div class="layui-form-mid layui-word-aux">系统将通过该邮箱发送激活码！</div>
 				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-					  <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">注册</button>
+					  <button type="submit" class="layui-btn" lay-submit="" lay-filter="qd">确定</button>
 					  <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
 				</div>
@@ -36,5 +43,62 @@
 		<script src="../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/tools/aes.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+            layui.use(['form'],function (){
+                var form = layui.form;
+                //自定义验证规则
+                form.verify({
+                    username: function(value) {
+                        if(value.length < 6) {
+                            return '用户名少于6个字符';
+                        }
+                    }
+                });
+                //监听提交
+                form.on('submit(qd)', function(data) {
+                    var username = data.field.username;
+                    var email = data.field.email;
+                    username = encrypt(username);
+                    email = encrypt(email);
+                    var index = layer.load(2, {time: 10*1000});
+                    $.ajax({
+                        url: '/web/do/login/sendMail',
+                        type: 'post',
+                        data: {"arg1":username,"arg2":email},
+                        dataType: 'text',
+                        success: function (data) {
+                            if(data=="success"){
+                                layer.close(index);
+                                layer.msg("发送成功，请前往邮箱验证身份！");
+                            }else if(data=="nothisemail"){
+                                layer.close(index);
+                                layer.msg("邮箱不匹配！");
+							}else{
+                                layer.close(index);
+                                layer.msg("系统异常");
+                            }
+                        },
+                        error: function(err){
+                            layer.close(index);
+                            if(err.status>=400&&err.status<500){
+                                layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                            }else if(err.status>=500&&err.status<600){
+                                layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                            }else{
+                                layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                            }
+                        }
+                    })
+                    return false;
+                });
+            })
+
+            function encrypt(word){
+                var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+                var srcs = CryptoJS.enc.Utf8.parse(word);
+                var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+                return encrypted.toString();
+            }
+		</script>
 	</body>
 </html>

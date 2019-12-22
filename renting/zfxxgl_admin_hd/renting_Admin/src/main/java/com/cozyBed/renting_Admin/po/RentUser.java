@@ -9,6 +9,12 @@ public class RentUser {
 
     private String name;
 
+    private String usertype;
+
+    private String email;
+
+    private String activation;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +45,29 @@ public class RentUser {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype == null ? null : usertype.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getActivation() {
+        return activation;
+    }
+
+    public void setActivation(String activation) {
+        this.activation = activation == null ? null : activation.trim();
     }
 }

@@ -5,13 +5,10 @@
 		<title>激活成功！</title>
 		<link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" />
 		<style>
-			.fly-column {
-				height: 50px;
-				line-height: 50px;
-			}
 			.fly-marginTop{
 				width: 750px;
 				margin: 50px auto;
+				text-align: center;
 			}
 			.fly-panel {
 				margin-bottom: 15px;
@@ -20,7 +17,7 @@
 				box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
 			}
 			.fly-none {
-				min-height: 600px;
+				min-height: 400px;
 				text-align: center;
 				padding-top: 50px;
 				color: #999;
@@ -33,6 +30,9 @@
 				line-height: 300px;
 				font-size: 300px;
 				color: #393D49;
+			}
+			.div-hidden{
+				display: none;
 			}
 		</style>
 	</head>
@@ -49,10 +49,79 @@
 			<div class="fly-panel">
 			  <div class="fly-none">
 				<h2><i class="iconfont"><img src="../../static/images/img/yz_success.png"></i></h2>
-				<p id="message">激活成功！</p>
+				<p>激活成功！</p>
 			  </div>
 			</div>
+			<div class="fly-panel div-hidden">
+				<div class="fly-none">
+					<h2><i class="iconfont"><img src="../../static/images/img/yz_success.png"></i></h2>
+					<p>验证成功！</p>
+				</div>
+			</div>
+			<div class="fly-panel  div-hidden">
+				<div class="fly-none">
+					<h2><i class="iconfont"><img src="../../static/images/img/yz_error.png"></i></h2>
+					<p>验证失败！</p>
+				</div>
+			</div>
+			<a href="#" id="tiaozhuan"></a>
 		</div>
+		<script src="../../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../static/js/old/general.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+			    var div = document.getElementsByClassName("fly-panel");
+				var arg1 = getQueryVariable("arg1");
+				var arg2 = getQueryVariable("arg2");
+				var arg3 = getQueryVariable("arg3");
+
+				if(!isEmpty(arg1)&&!isEmpty(arg3)){
+                    if(!isEmpty(arg2)){
+                        if(arg2=="1"){
+							var url = "http://localhost:7049/web/do/login/activationZFD";
+							urlFun(url);
+                        }else if(arg2=="2"){
+                            var url = "http://localhost:7049/web/do/login/activationWJFD";
+                            urlFun(url);
+                            div[0].classList.add("div-hidden");
+                            div[1].classList.remove("div-hidden");
+                        }else if(arg2=="3"){
+                            var url = "http://localhost:7049/web/do/login/activationZYH";
+                            urlFun(url);
+                        }else if(arg2=="4"){
+                            var url = "http://localhost:7049/web/do/login/activationWJYH";
+                            urlFun(url);
+                            div[0].classList.add("div-hidden");
+                            div[1].classList.remove("div-hidden");
+                        }else{
+                            div[0].classList.add("div-hidden");
+                            div[2].classList.remove("div-hidden");
+                        }
+                    }
+				}
+                function  urlFun(url) {
+					$.ajax({
+						type: 'post',
+						url: url,
+						data:{'arg1':arg1, 'arg2':arg3},
+						success:function (data) {
+							if(data[0]=="success"){
+                                var a = document.getElementById("tiaozhuan");
+                                a.href=data[1];
+                                a.innerText=data[2];
+							}else{
+							    alert("校验码已超过有效期，请重新发送！")
+                            }
+                        },
+                        error: function(err){
+							alert(err.status+"网络异常！");
+                        }
+					});
+                }
+            }
+
+
+		</script>
 	</body>
 </html>

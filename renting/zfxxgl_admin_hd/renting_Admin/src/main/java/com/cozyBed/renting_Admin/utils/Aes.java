@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 /**
  * AES的加密和解密
- * @author libo
+ * @author 呵呵
  */
 public class Aes {
     //密钥 (需要前端和后端保持一致)
