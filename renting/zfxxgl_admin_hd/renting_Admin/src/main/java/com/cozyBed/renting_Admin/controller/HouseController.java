@@ -31,12 +31,12 @@ public class HouseController {
     private HouseInfoService houseInfo;
 
     @RequestMapping("/init")
-    public Map<String, Object> init(HttpServletRequest request,@RequestParam(required = false, defaultValue = "1") Integer page) throws Exception {
+    public Map<String, Object> init(HttpServletRequest request,@RequestParam(required = false, defaultValue = "1") Integer page,String userType) throws Exception {
         HttpSession session = request.getSession();
         String user = session.getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        Page p =  new Page(page,10,(int)houseInfo.selectByUserCount(user));
-        List<RentHouseinfoWithBLOBs> temp = houseInfo.selectByUser(user,(page-1)*10);
+        Page p =  new Page(page,10,(int)houseInfo.selectByUserCount(user,userType));
+        List<RentHouseinfoWithBLOBs> temp = houseInfo.selectByUser(user,userType, (page-1)*10);
         List<RentHouseinfoWithBLOBs> list = new ArrayList<RentHouseinfoWithBLOBs>();
         for (RentHouseinfoWithBLOBs f:temp){
             String s = f.getPicture().split("[,]")[0];

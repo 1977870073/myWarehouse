@@ -1,17 +1,27 @@
 window.onload = function(){
-    var page = getQueryVariable("page")
-	if(isEmpty(page)){
-        query(1);
+    var page = getQueryVariable("page");
+    var uType = getQueryVariable("uType");
+    if(isEmpty(uType)){
+        if(isEmpty(page)){
+            query(1,uType);
+        }else{
+            query(page,uType);
+        }
 	}else{
-        query(page);
+        if(isEmpty(page)){
+            query(1,0);
+        }else{
+            query(page,0);
+        }
 	}
+
 }
 //获取房源数据
-function query(num){
+function query(num,uType){
 	$.ajax({
         type: 'get',
         url: '/web/do/house/init',
-        data: {"page": num},
+        data: {"page": num,"userType": uType},
         dataType: 'json',
         success: function(data){
             renderHTML(data);

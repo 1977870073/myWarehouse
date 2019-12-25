@@ -55,7 +55,7 @@ public interface HouseInfoService {
      * @return
      * @throws Exception
      */
-    public List<RentHouseinfoWithBLOBs> selectByUser(String user, Integer index)throws Exception;
+    public List<RentHouseinfoWithBLOBs> selectByUser(String user, String userType, Integer index)throws Exception;
 
     /**
      * 查询出租房源数量
@@ -63,7 +63,7 @@ public interface HouseInfoService {
      * @return
      * @throws Exception
      */
-    public long selectByUserCount(String user)throws Exception;
+    public long selectByUserCount(String user, String userType)throws Exception;
 
     /**
      * 修改房源信息

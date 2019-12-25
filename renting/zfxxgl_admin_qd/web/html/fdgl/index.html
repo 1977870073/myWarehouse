@@ -18,17 +18,11 @@
 					<span>租房信息系统管理平台</span>
 				</div>
 				<ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
-				  <li class="layui-nav-item">
-				    <a href="javascript:;" data-url="welcome.html" data-id='1' data-text="后台主页"><i class="iconfont">&#xe6ce;</i>后台主页</a>
-				  </li>
-				  <li class="layui-nav-item">
-				    <a href="javascript:;" data-url="shenpi.html" data-id='2' data-text="房源审批"><i class="iconfont">&#xe63b;</i>房源审批</a>
-				  </li>
 				  <li class="layui-nav-item layui-nav-itemed">
 				    <a href="javascript:;"><i class="iconfont">&#xe607;</i>房源管理</a>
 				    <dl class="layui-nav-child">
-				      <dd><a href="javascript:;" data-url="selectHouse.html" data-id='3' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
-				      <dd><a href="javascript:;" data-url="addHouse.html" data-id='4' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
+				      <dd><a href="javascript:;" data-url="selectHouse.html?page=1&uType=1" data-id='3' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
+				      <dd><a href="javascript:;" data-url="addHouse.html?uType=1" data-id='4' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
 				    </dl>
 				  </li>
 				</ul>
@@ -59,7 +53,7 @@
 					  <div class="layui-tab-content">
 					    <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
 					    	<!--1-->
-					    	<iframe src="welcome.html" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
+					    	<iframe src="../htgl/selectHouse.html?page=1&uType=1" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
 					    	<!--1end-->
 					    </div>
 					  </div>
@@ -71,11 +65,6 @@
 				
 			</div>
 		</div>
-		<script type="text/javascript">
-			var scope={
-				link:'./welcome.html'
-			}
-		</script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/main.js" type="text/javascript" charset="utf-8"></script>

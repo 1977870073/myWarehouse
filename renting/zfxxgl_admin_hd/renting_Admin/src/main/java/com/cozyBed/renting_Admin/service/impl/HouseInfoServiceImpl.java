@@ -52,13 +52,13 @@ public class HouseInfoServiceImpl implements HouseInfoService {
     }
 
     @Override
-    public List<RentHouseinfoWithBLOBs> selectByUser(String user, Integer index) throws Exception {
-        return rentHouseinfoMapperExpand.userHouse(user,index);
+    public List<RentHouseinfoWithBLOBs> selectByUser(String user, String userType, Integer index) throws Exception {
+        return rentHouseinfoMapperExpand.userHouse(user,userType, index);
     }
 
     @Override
-    public long selectByUserCount(String user) throws Exception {
-        return rentHouseinfoMapperExpand.userHouseCount(user);
+    public long selectByUserCount(String user, String userType) throws Exception {
+        return rentHouseinfoMapperExpand.userHouseCount(user,userType);
     }
 
     @Override

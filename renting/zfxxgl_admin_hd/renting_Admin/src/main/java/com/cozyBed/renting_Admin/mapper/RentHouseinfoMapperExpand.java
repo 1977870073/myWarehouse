@@ -57,7 +57,7 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    public long userHouseCount(String user)throws Exception;
+    public long userHouseCount(@Param("user") String user, @Param("userType") String userType)throws Exception;
 
     /**
      * 返回40条user的房源
@@ -66,7 +66,7 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    public List<RentHouseinfoWithBLOBs> userHouse(@Param("user") String user, @Param("index") Integer index)throws Exception;
+    public List<RentHouseinfoWithBLOBs> userHouse(@Param("user") String user, @Param("userType") String userType, @Param("index") Integer index)throws Exception;
 
     /**
      * 获取一个7天内后台发布的房源数
