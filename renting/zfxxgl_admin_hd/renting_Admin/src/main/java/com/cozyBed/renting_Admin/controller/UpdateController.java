@@ -49,7 +49,7 @@ public class UpdateController {
 
 
     @RequestMapping("/updateInfo")
-    public String updateInfo(HttpServletRequest request, RentHouseinfoWithBLOBs info, @RequestParam(required = false) StringBuffer baseData)throws Exception{
+    public String updateInfo(HttpServletRequest request, RentHouseinfoWithBLOBs info, @RequestParam(required = false) StringBuffer baseData,@RequestParam("cp02") Integer userType)throws Exception{
         HttpSession session = request.getSession();
         String user = session.getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
@@ -66,7 +66,7 @@ public class UpdateController {
             info.setPicture(list.toString());
         }
         info.setUser(user);
-        info.setUserType(0);
+        info.setUserType(userType);
         info.setFlag(1);
         info.setDotime(SimpleDateFormatUtil.getDateTime());
         int flag = 0;

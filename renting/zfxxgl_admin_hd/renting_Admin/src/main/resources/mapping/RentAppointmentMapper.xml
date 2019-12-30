@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cozyBed.renting_Admin.mapper.UserCollectionMapper">
-  <resultMap id="BaseResultMap" type="com.cozyBed.renting_Admin.po.UserCollection">
+<mapper namespace="com.cozyBed.renting_Admin.mapper.RentAppointmentMapper">
+  <resultMap id="BaseResultMap" type="com.cozyBed.renting_Admin.po.RentAppointment">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="fd" jdbcType="VARCHAR" property="fd" />
+    <result column="uName" jdbcType="VARCHAR" property="uname" />
+    <result column="uPhone" jdbcType="VARCHAR" property="uphone" />
+    <result column="uTime" jdbcType="VARCHAR" property="utime" />
     <result column="house" jdbcType="INTEGER" property="house" />
-    <result column="flag" jdbcType="INTEGER" property="flag" />
-    <result column="doTime" jdbcType="VARCHAR" property="dotime" />
-    <result column="sendFlag" jdbcType="INTEGER" property="sendflag" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,15 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user, house, flag, doTime, sendFlag
+    id, user, fd, uName, uPhone, uTime, house, beizhu
   </sql>
-  <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.UserCollectionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.RentAppointmentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_collection
+    from rent_appointment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,29 +89,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_collection
+    from rent_appointment
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user_collection
+    delete from rent_appointment
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cozyBed.renting_Admin.po.UserCollectionExample">
-    delete from user_collection
+  <delete id="deleteByExample" parameterType="com.cozyBed.renting_Admin.po.RentAppointmentExample">
+    delete from rent_appointment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
-    insert into user_collection (id, user, house, 
-      flag, doTime, sendFlag
-      )
-    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{house,jdbcType=INTEGER}, 
-      #{flag,jdbcType=INTEGER}, #{dotime,jdbcType=VARCHAR}, #{sendflag,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
+    insert into rent_appointment (id, user, fd, 
+      uName, uPhone, uTime, 
+      house, beizhu)
+    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{fd,jdbcType=VARCHAR}, 
+      #{uname,jdbcType=VARCHAR}, #{uphone,jdbcType=VARCHAR}, #{utime,jdbcType=VARCHAR}, 
+      #{house,jdbcType=INTEGER}, #{beizhu,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
-    insert into user_collection
+  <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
+    insert into rent_appointment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -117,17 +119,23 @@
       <if test="user != null">
         user,
       </if>
+      <if test="fd != null">
+        fd,
+      </if>
+      <if test="uname != null">
+        uName,
+      </if>
+      <if test="uphone != null">
+        uPhone,
+      </if>
+      <if test="utime != null">
+        uTime,
+      </if>
       <if test="house != null">
         house,
       </if>
-      <if test="flag != null">
-        flag,
-      </if>
-      <if test="dotime != null">
-        doTime,
-      </if>
-      <if test="sendflag != null">
-        sendFlag,
+      <if test="beizhu != null">
+        beizhu,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -137,28 +145,34 @@
       <if test="user != null">
         #{user,jdbcType=VARCHAR},
       </if>
+      <if test="fd != null">
+        #{fd,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="uphone != null">
+        #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null">
+        #{utime,jdbcType=VARCHAR},
+      </if>
       <if test="house != null">
         #{house,jdbcType=INTEGER},
       </if>
-      <if test="flag != null">
-        #{flag,jdbcType=INTEGER},
-      </if>
-      <if test="dotime != null">
-        #{dotime,jdbcType=VARCHAR},
-      </if>
-      <if test="sendflag != null">
-        #{sendflag,jdbcType=INTEGER},
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cozyBed.renting_Admin.po.UserCollectionExample" resultType="java.lang.Long">
-    select count(*) from user_collection
+  <select id="countByExample" parameterType="com.cozyBed.renting_Admin.po.RentAppointmentExample" resultType="java.lang.Long">
+    select count(*) from rent_appointment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_collection
+    update rent_appointment
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -166,17 +180,23 @@
       <if test="record.user != null">
         user = #{record.user,jdbcType=VARCHAR},
       </if>
+      <if test="record.fd != null">
+        fd = #{record.fd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uname != null">
+        uName = #{record.uname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uphone != null">
+        uPhone = #{record.uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.utime != null">
+        uTime = #{record.utime,jdbcType=VARCHAR},
+      </if>
       <if test="record.house != null">
         house = #{record.house,jdbcType=INTEGER},
       </if>
-      <if test="record.flag != null">
-        flag = #{record.flag,jdbcType=INTEGER},
-      </if>
-      <if test="record.dotime != null">
-        doTime = #{record.dotime,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sendflag != null">
-        sendFlag = #{record.sendflag,jdbcType=INTEGER},
+      <if test="record.beizhu != null">
+        beizhu = #{record.beizhu,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -184,45 +204,55 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_collection
+    update rent_appointment
     set id = #{record.id,jdbcType=INTEGER},
       user = #{record.user,jdbcType=VARCHAR},
+      fd = #{record.fd,jdbcType=VARCHAR},
+      uName = #{record.uname,jdbcType=VARCHAR},
+      uPhone = #{record.uphone,jdbcType=VARCHAR},
+      uTime = #{record.utime,jdbcType=VARCHAR},
       house = #{record.house,jdbcType=INTEGER},
-      flag = #{record.flag,jdbcType=INTEGER},
-      doTime = #{record.dotime,jdbcType=VARCHAR},
-      sendFlag = #{record.sendflag,jdbcType=INTEGER}
+      beizhu = #{record.beizhu,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
-    update user_collection
+  <update id="updateByPrimaryKeySelective" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
+    update rent_appointment
     <set>
       <if test="user != null">
         user = #{user,jdbcType=VARCHAR},
       </if>
+      <if test="fd != null">
+        fd = #{fd,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null">
+        uName = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="uphone != null">
+        uPhone = #{uphone,jdbcType=VARCHAR},
+      </if>
+      <if test="utime != null">
+        uTime = #{utime,jdbcType=VARCHAR},
+      </if>
       <if test="house != null">
         house = #{house,jdbcType=INTEGER},
       </if>
-      <if test="flag != null">
-        flag = #{flag,jdbcType=INTEGER},
-      </if>
-      <if test="dotime != null">
-        doTime = #{dotime,jdbcType=VARCHAR},
-      </if>
-      <if test="sendflag != null">
-        sendFlag = #{sendflag,jdbcType=INTEGER},
+      <if test="beizhu != null">
+        beizhu = #{beizhu,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
-    update user_collection
+  <update id="updateByPrimaryKey" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
+    update rent_appointment
     set user = #{user,jdbcType=VARCHAR},
+      fd = #{fd,jdbcType=VARCHAR},
+      uName = #{uname,jdbcType=VARCHAR},
+      uPhone = #{uphone,jdbcType=VARCHAR},
+      uTime = #{utime,jdbcType=VARCHAR},
       house = #{house,jdbcType=INTEGER},
-      flag = #{flag,jdbcType=INTEGER},
-      doTime = #{dotime,jdbcType=VARCHAR},
-      sendFlag = #{sendflag,jdbcType=INTEGER}
+      beizhu = #{beizhu,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

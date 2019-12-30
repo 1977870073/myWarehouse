@@ -11,6 +11,8 @@ public class UserCollection {
 
     private String dotime;
 
+    private Integer sendflag;
+
     public Integer getId() {
         return id;
     }
@@ -49,5 +51,13 @@ public class UserCollection {
 
     public void setDotime(String dotime) {
         this.dotime = dotime == null ? null : dotime.trim();
+    }
+
+    public Integer getSendflag() {
+        return sendflag;
+    }
+
+    public void setSendflag(Integer sendflag) {
+        this.sendflag = sendflag;
     }
 }

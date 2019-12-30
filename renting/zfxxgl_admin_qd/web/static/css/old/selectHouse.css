@@ -7,7 +7,7 @@ body{
     width: 1000px;
     min-height: 500px;
     background: #FFFFFF;
-    margin: 80px auto;
+    margin: 30px auto;
 }
 .content .content-null{
     width: 300px;
@@ -42,6 +42,14 @@ body{
 }
 .content .content-top a:hover{
     text-decoration: underline;
+}
+.content .content_info{
+    width: 100%;
+    min-height: 400px;
+}
+.content .content_info .content_info_null{
+    margin-top: 80px;
+    text-align: center;
 }
 .content .conList{
     width: 100%;

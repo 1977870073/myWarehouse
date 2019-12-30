@@ -7,7 +7,8 @@ layui.use(['layer', 'form', 'element', 'jquery', 'dialog'], function() {
 	var hideBtn = $('#hideBtn');
 	var mainLayout = $('#main-layout');
 	var mainMask = $('.main-mask');
-	//监听导航点击
+    setName();//设置用户名
+	//监听左侧菜单点击
 	element.on('nav(leftNav)', function(elem) {
 		var id = elem[0].attributes[2].value;
 		var url = elem[0].attributes[1].value;
@@ -32,13 +33,12 @@ layui.use(['layer', 'form', 'element', 'jquery', 'dialog'], function() {
 	});
 	//监听导航点击
 	element.on('nav(rightNav)', function(elem) {
-		var navA = $(elem).find('a');
-		var id = navA.attr('data-id');
-		var url = navA.attr('data-url');
-		var text = navA.attr('data-text');
-		if(!url){
-			return;
-		}
+        var id = elem[0].attributes[2].value;
+        var url = elem[0].attributes[1].value;
+        var text = elem[0].attributes[3].value;
+        if(!url){
+            return;
+        }
 		var isActive = $('.main-layout-tab .layui-tab-title').find("li[lay-id=" + id + "]");
 		if(isActive.length > 0) {
 			//切换到选项卡
@@ -86,6 +86,25 @@ function tuichu() {
                 layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
             }
             layer.close(index);
+        }
+	});
+}
+
+function setName() {
+	$.ajax({
+        type: 'get',
+        url: '/web/do/login/getName',
+        success: function (data) {
+            $('#you_father_name').html(data);
+        },
+        error: function (errorMsg) {
+            if(err.status>=400&&err.status<500){
+                layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+            }else if(err.status>=500&&err.status<600){
+                layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+            }else{
+                layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+            }
         }
 	});
 }

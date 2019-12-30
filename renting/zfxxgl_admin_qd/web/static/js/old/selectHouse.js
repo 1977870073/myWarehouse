@@ -1,17 +1,19 @@
+var cp02;
 window.onload = function(){
     var page = getQueryVariable("page");
     var uType = getQueryVariable("uType");
     if(isEmpty(uType)){
         if(isEmpty(page)){
-            query(1,uType);
-        }else{
-            query(page,uType);
-        }
-	}else{
-        if(isEmpty(page)){
             query(1,0);
         }else{
             query(page,0);
+        }
+	}else{
+    	cp02=uType;
+        if(isEmpty(page)){
+            query(1,uType);
+        }else{
+            query(page,uType);
         }
 	}
 
@@ -26,8 +28,16 @@ function query(num,uType){
         success: function(data){
             renderHTML(data);
         },
-        error: function(errorMsg){
-            alert("网络链接失败！")
+        error: function(err){
+            if(err.status>=400&&err.status<500){
+                alert(err.status+"网络异常！")
+            }else if(err.status>=500&&err.status<600){
+                alert(err.status+"服务器异常！")
+            }else if(err.status==1000){
+                parent.window.location.href = "/web/zf/html/login.html"
+            }else{
+                alert(err.status+ '(' + err.statusText + ')')
+            }
         }
 	});
 }
@@ -57,14 +67,14 @@ function del(id) {
 	var flag = confirm("确定要删除吗？")
 	if(flag==true){
 		$.ajax({
-			url: '#',
+			url: '/web/do/house/deleteInfo',
 			type: 'post',
 			data: {"id":id},
 			dataType: 'text',
 			success: function (data) {
 				if(data=="success"){
 					alert("删除成功")
-					window.location.href = '#';
+					window.location.href = '/web/zf/html/comm/selectHouse.html?page=1&uType=1';
 				}else{
 					alert("删除失败")
 				}
@@ -75,5 +85,9 @@ function del(id) {
 
 //跳转修改页面
 function tiaozhuan(id) {
-	window.location.href="/web/zf/html/htgl/update.html?cp01="+id;
+	if(isEmpty(cp02)){
+		alert("页面信息不全，无法正常修改");
+		return false;
+	}
+	window.location.href="/web/zf/html/comm/update.html?cp01="+id+"&cp02="+cp02;
 }

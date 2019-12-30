@@ -6,6 +6,7 @@ import com.cozyBed.renting_Admin.po.RentUser;
 import com.cozyBed.renting_Admin.po.RentUserExample;
 import com.cozyBed.renting_Admin.service.RentAdminService;
 import com.cozyBed.renting_Admin.utils.Aes;
+import com.cozyBed.renting_Admin.utils.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,6 +57,7 @@ public class LoginController {
                     HttpSession session = request.getSession();
                     session.setAttribute("user",username);
                     session.setAttribute("username",list.get(0).getName());
+                    session.setAttribute("type","cc0110");
                 }else{
                     return "passE";
                 }
@@ -97,6 +99,7 @@ public class LoginController {
                         HttpSession session = request.getSession();
                         session.setAttribute("user",username);
                         session.setAttribute("username",list.get(0).getName());
+                        session.setAttribute("type","cc0111");
                     }else{
                         return "actiE";
                     }
@@ -240,5 +243,14 @@ public class LoginController {
         HttpSession session = request.getSession();
         session.invalidate();
         return "success";
+    }
+
+    @RequestMapping("/getName")
+    public String getName(HttpServletRequest request){
+        String name = (String) request.getSession().getAttribute("username");
+        if(ObjectUtil.isEmply(name)){
+            return "未命名";
+        }
+        return name;
     }
 }

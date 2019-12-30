@@ -65,13 +65,14 @@ layui.use('form', function(){
     //因此你需要在相应的地方，执行下述方法来进行渲染
     form.render();
     var cp01 = getQueryVariable("cp01")
-    if(isEmpty(cp01)){
+    var cp02 = getQueryVariable("cp02")
+    if(isEmpty(cp01)||isEmpty(cp02)||!(cp02=="1"||cp02=="2")){
         layer.msg("未包含页面信息", {icon:5, anim:6});
     }else{
         $.ajax({
             type: 'get',
             url: '/web/do/update/init',
-            data: {'id': cp01},
+            data: {'id': cp01,"type":cp02},
             dataType: 'json',
             success: function (data) {
                 form.val("houseForm", {
@@ -92,7 +93,19 @@ layui.use('form', function(){
                     "title": data.title,
                     "address": data.address,
                     "id": data.id
+                    "miaoshu":data.miaoshu
                 });
+            },
+            error: function(err){
+                if(err.status>=400&&err.status<500){
+                    layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                }else if(err.status>=500&&err.status<600){
+                    layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                }else if(err.status==1000){
+                    parent.window.location.href = "/web/zf/html/login.html"
+                }else{
+                    layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                }
             }
         });
     }
@@ -123,7 +136,7 @@ layui.use('form', function(){
         var title = data.field.title;
         var address = data.field.address;
         var id = data.field.id;
-
+        var miaoshu = data.miaoshu;
 
         var index = layer.load(2, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
         if (submitArr.length>0){
@@ -134,13 +147,13 @@ layui.use('form', function(){
                 data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
                     "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
                     "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
-                    "title":title,"address":address,"id":id},
+                    "title":title,"address":address,"id":id,"miaoshu":miaoshu,"cp02":cp02},
                 dataType: 'text',
                 success: function (data) {
                     if(data=="success"){
                         layer.msg("修改成功!", {icon:1})
                         layer.close(index);
-                        window.location.href = '/web/zf/html/htgl/selectHouse.html';
+                        window.location.href = '/web/zf/html/comm/selectHouse.html';
                     }else{
                         layer.msg("修改失败", {icon:2, anim:6})
                         layer.close(index);
@@ -156,13 +169,13 @@ layui.use('form', function(){
                 data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
                     "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
                     "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,
-                    "title":title,"address":address,"id":id},
+                    "title":title,"address":address,"id":id,"miaoshu":miaoshu,"cp02":cp02},
                 dataType: 'text',
                 success: function (data) {
                     if(data=="success"){
                         layer.msg("修改成功!", {icon:1})
                         layer.close(index);
-                        window.location.href = '/web/zf/html/htgl/selectHouse.html';
+                        window.location.href = '/web/zf/html/comm/selectHouse.html';
                     }else{
                         layer.msg("修改失败", {icon:2, anim:6})
                         layer.close(index);

@@ -7,6 +7,8 @@ public class RentHouseinfoWithBLOBs extends RentHouseinfo {
 
     private String picture;
 
+    private String miaoshu;
+
     public String getTitle() {
         return title;
     }
@@ -29,5 +31,13 @@ public class RentHouseinfoWithBLOBs extends RentHouseinfo {
 
     public void setPicture(String picture) {
         this.picture = picture == null ? null : picture.trim();
+    }
+
+    public String getMiaoshu() {
+        return miaoshu;
+    }
+
+    public void setMiaoshu(String miaoshu) {
+        this.miaoshu = miaoshu == null ? null : miaoshu.trim();
     }
 }

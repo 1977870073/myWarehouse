@@ -158,6 +158,12 @@
 				</div>
 			</div>
 			<div class="layui-form-item">
+				<label class="layui-form-label">房源描述</label>
+				<div class="layui-input-blocks">
+					<textarea name="miaoshu" placeholder="请输入描述内容" class="layui-textarea"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item">
 				<label class="layui-form-label">上传图片</label>
 				<div>
 					<button id="add" type="button">添加图片</button>
@@ -174,6 +180,7 @@
 	</form>
 </div>
 <script src="../../static/js/tools/jquery-3.3.1.min.js"></script>
+<script src="../../static/js/old/general.js"></script>
 <script src="../../static/layui/layui.js"></script>
 </body>
 </html>
@@ -275,31 +282,79 @@
           var userPhone = data.field.phone;
           var title = data.field.title;
           var address = data.field.address;
+          var miaoshu = data.field.miaoshu;
 
-
-          var index = layer.load(2, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
-
-          $.ajax({
-              url: '/web/do/addHouseInfo/uploadInfo',
-              type: 'post',
-              ansy: false,
-              data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
-                  "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
-                  "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
-                  "title":title,"address":address},
-              dataType: 'text',
-              success: function (data) {
-                  if(data=="success"){
-                      layer.msg("发布成功!", {icon:1})
-                      layer.close(index);
-                      window.location.href = '/web/zf/html/htgl/index.html';
-                  }else{
-                      layer.msg("发布失败", {icon:2, anim:6})
-                      layer.close(index);
-                      return false;
+          var cp01 = getQueryVariable("cp01")
+          if(isEmpty(cp01)||!(cp01=='1'||cp01=='2')){
+              layer.msg("未包含页面信息", {icon:5, anim:6});
+          }else if(cp01=='1'){
+              var index = layer.load(2, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
+              $.ajax({
+                  url: '/web/do/addHouseInfo/uploadInfo',
+                  type: 'post',
+                  ansy: false,
+                  data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
+                      "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
+                      "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
+                      "title":title,"address":address,"miaoshu":miaoshu,"cp02":"0"},
+                  dataType: 'text',
+                  success: function (data) {
+                      if(data=="success"){
+                          layer.msg("发布成功!", {icon:1})
+                          layer.close(index);
+                          parent.window.location.href = '/web/zf/html/htgl/index.html';
+                      }else{
+                          layer.msg("发布失败", {icon:2, anim:6})
+                          layer.close(index);
+                          return false;
+                      }
+                  },
+                  error: function(err){
+                      if(err.status>=400&&err.status<500){
+                          alert(err.status+"网络异常！")
+                      }else if(err.status>=500&&err.status<600){
+                          alert(err.status+"服务器异常！")
+                      }else if(err.status==1000){
+                          parent.window.location.href = "/web/zf/html/login.html"
+                      }else{
+                          alert(err.status+ '(' + err.statusText + ')')
+                      }
                   }
-              }
-          })
+              })
+          }else{
+              $.ajax({
+                  url: '/web/do/addHouseInfo/uploadInfo',
+                  type: 'post',
+                  ansy: false,
+                  data: {"price":price,"priceType":priceType,"houseType":houseType,"rentalMode":rentalMode,"area":area,"floor":floor,
+                      "allfloor":allfloor,"orientation":orientation,"renovation":renovation,"residentialAreas":residentialAreas,
+                      "residentialNote":residentialNote,"district":district,"userName":userName,"userPhone":userPhone,"baseData":JSON.stringify(submitArr),
+                      "title":title,"address":address,"miaoshu":miaoshu,"cp02":"1"},
+                  dataType: 'text',
+                  success: function (data) {
+                      if(data=="success"){
+                          layer.msg("发布成功!", {icon:1})
+                          layer.close(index);
+                          parent.window.location.href = '/web/zf/html/fdgl/index.html';
+                      }else{
+                          layer.msg("发布失败", {icon:2, anim:6})
+                          layer.close(index);
+                          return false;
+                      }
+                  },
+                  error: function(err){
+                      if(err.status>=400&&err.status<500){
+                          alert(err.status+"网络异常！")
+                      }else if(err.status>=500&&err.status<600){
+                          alert(err.status+"服务器异常！")
+                      }else if(err.status==1000){
+                          parent.window.location.href = "/web/zf/html/login.html"
+                      }else{
+                          alert(err.status+ '(' + err.statusText + ')')
+                      }
+                  }
+              })
+		  }
           return false;
 	  });
 	});  

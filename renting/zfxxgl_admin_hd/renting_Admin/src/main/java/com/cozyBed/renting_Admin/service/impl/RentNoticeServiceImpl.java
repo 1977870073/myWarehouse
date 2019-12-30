@@ -19,9 +19,23 @@ public class RentNoticeServiceImpl implements RentNoticeService {
     @Autowired
     private RentNoticeMapper noticeMapper;
 
-
+    /**
+     * 插入通知
+     * @param notice
+     * @return
+     * @throws Exception
+     */
     @Override
-    public int insert(RentNotice notice) throws Exception {
+    public Integer insert(RentNotice notice) throws Exception {
         return noticeMapper.insertSelective(notice);
+    }
+    /**
+     * 是否有新的消息
+     * @param user
+     * @return
+     */
+    @Override
+    public Integer hasNewNote(String user) {
+        return null;
     }
 }

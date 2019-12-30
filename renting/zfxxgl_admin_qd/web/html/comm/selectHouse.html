@@ -19,6 +19,7 @@
 
 <script id="content-info" type="text/x-jquery-tmpl">
 	<div class="content-top">出租房屋</div>
+	<div class="content_info">
     {{if queryInfo.length>0}}
     	{{each(i,info) queryInfo}}
     		<dl class="conList">
@@ -46,28 +47,35 @@
                 </dd>
             </dl>
     	{{/each}}
+    	 <div class="page">
+            <div id="page_content">
+                <a href="/web/zf/html/htgl/selectHouse.html?page=1"  target="_self">首页<span style="display: none">1</span></a>
+                {{if page.pagNum<=page.start}}
+                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.start}" target="_self">上一页</a>
+                {{/if}}
+                {{if page.pagNum>page.start}}
+                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum-1}" target="_self">上一页</a>
+                {{/if}}
+                <span id="page_startToend"></span>
+                {{if page.pagNum>=page.totalPage}}
+                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}"  target="_self">下一页</a>
+                {{/if}}
+                {{if page.pagNum<page.end}}
+                     <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum+1}" target="_self">下一页</a>
+                {{/if}}
+                <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}">尾页</a>
+            </div>
+            <div id="page_info">
+                <span>共${page.totalPage}页,${page.totalRecord}条数据</span>
+            </div>
+        </div>
     {{/if}}
-    <div class="page">
-        <div id="page_content">
-            <a href="/web/zf/html/htgl/selectHouse.html?page=1"  target="_self">首页<span style="display: none">1</span></a>
-            {{if page.pagNum<=page.start}}
-                <a href="/web/zf/html/htgl/selectHouse.html?page=${page.start}" target="_self">上一页</a>
-            {{/if}}
-            {{if page.pagNum>page.start}}
-                <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum-1}" target="_self">上一页</a>
-            {{/if}}
-            <span id="page_startToend"></span>
-            {{if page.pagNum>=page.totalPage}}
-                <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}"  target="_self">下一页</a>
-            {{/if}}
-            {{if page.pagNum<page.end}}
-                 <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum+1}" target="_self">下一页</a>
-            {{/if}}
-            <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}">尾页</a>
-        </div>
-        <div id="page_info">
-            <span>共${page.totalPage}页,${page.totalRecord}条数据</span>
-        </div>
+    {{if queryInfo.length<=0}}
+    <div class="content_info_null">
+        <img src="../../static/images/img/null.png" width="200px"/>
+        <p>您还没有出租的房子</p>
+    </div>
+    {{/if}}
     </div>
 </script>
 <script src="../../static/js/tools/jquery-3.3.1.min.js"></script>

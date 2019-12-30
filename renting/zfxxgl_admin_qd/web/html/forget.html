@@ -69,7 +69,7 @@
                         success: function (data) {
                             if(data=="success"){
                                 layer.close(index);
-                                layer.msg("发送成功，请前往邮箱验证身份！");
+                                layer.msg("发送成功，激活码将于5分钟后失效,请尽快前往激活！");
                             }else if(data=="nothisemail"){
                                 layer.close(index);
                                 layer.msg("邮箱不匹配！");

@@ -11,5 +11,18 @@ import com.cozyBed.renting_Admin.po.RentNotice;
  * @date 2019/4/15
  */
 public interface RentNoticeService {
-    public int insert(RentNotice notice)throws Exception;
+    /**
+     * 插入通知
+     * @param notice
+     * @return
+     * @throws Exception
+     */
+    public Integer insert(RentNotice notice)throws Exception;
+
+    /**
+     * 是否有新的消息
+     * @param user
+     * @return
+     */
+    public Integer hasNewNote(String user);
 }

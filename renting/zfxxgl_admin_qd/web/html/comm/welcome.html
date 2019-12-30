@@ -101,7 +101,7 @@
 				<div class="welcome-edge col-lg-3">
 					<!--最新通知-->
 					<div class="panel panel-default comment-panel">
-						<div class="panel-header">最新通知</div>
+						<div class="panel-header">最新消息</div>
 						<div class="panel-body">
 							<div class="commentbox">
 								<ul class="commentList">
@@ -155,9 +155,7 @@
 								  </li>
 								</ul>
 							</div>
-							<div id="pagesbox" style="text-align: center;padding-top: 5px;">
-								
-							</div>
+							<div id="pagesbox" style="text-align: center;padding-top: 5px;"></div>
 						</div>
 					</div>
 					
@@ -353,11 +351,18 @@
                                 }else if(err.status>=500&&err.status<600){
                                     layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
                                 }else if(err.status==1000){
-                                    parent.window.location.href = "/web/zf/html/login.html"
+                                    layer.msg("您暂未登陆！",{icon: 2, anim: 6})
+                                    setTimeout(function () {
+                                        parent.window.location.href = "/web/zf/html/login.html"
+                                    },2000);
+                                }else if(err.status==1001){
+                                    layer.msg("权限不足！",{icon: 2, anim: 6})
+									setTimeout(function () {
+                                        history.back();
+                                    },2000);
                                 }else{
                                     layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
                                 }
-								layer.msg("图表请求数据失败!")
 								myChart.hideLoading();
 								myChart.setOption(
 									{

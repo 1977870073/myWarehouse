@@ -5,7 +5,7 @@
 		<meta name="renderer" content="webkit">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>租房信息系统管理平台</title>
+		<title>租房信息系统管理平台(房东)</title>
 		<link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
 		<link rel="stylesheet" type="text/css" href="../../static/fonts_expand/iconfont.css"/>
@@ -21,8 +21,8 @@
 				  <li class="layui-nav-item layui-nav-itemed">
 				    <a href="javascript:;"><i class="iconfont">&#xe607;</i>房源管理</a>
 				    <dl class="layui-nav-child">
-				      <dd><a href="javascript:;" data-url="selectHouse.html?page=1&uType=1" data-id='3' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
-				      <dd><a href="javascript:;" data-url="addHouse.html?uType=1" data-id='4' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
+				      <dd><a href="javascript:;" data-url="../comm/selectHouse.html?page=1&uType=1" data-id='1' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
+				      <dd><a href="javascript:;" data-url="../comm/addHouse.html?cp01=2" data-id='2' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
 				    </dl>
 				  </li>
 				</ul>
@@ -37,10 +37,11 @@
 						</a>
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
+					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/note.html" data-id='3' data-text="通知"><i class="layui-icon layui-icon-notice"></i><span class="layui-badge-dot"></span></a></li>
 					  <li class="layui-nav-item">
-					    <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">超级管理员</a>
+						<a href="javascript:;" id="you_father_name">不高兴</a>
 					  </li>
-					  <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+					  <li class="layui-nav-item"><a href="javascript:;" onclick="tuichu()">退出</a></li>
 					</ul>
 				</div>
 				<!--主体内容-->
@@ -53,7 +54,7 @@
 					  <div class="layui-tab-content">
 					    <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
 					    	<!--1-->
-					    	<iframe src="../htgl/selectHouse.html?page=1&uType=1" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
+					    	<iframe src="../comm/selectHouse.html?page=1&uType=1" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
 					    	<!--1end-->
 					    </div>
 					  </div>
@@ -65,9 +66,10 @@
 				
 			</div>
 		</div>
+		<script src="../../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../static/js/old/general.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/main.js" type="text/javascript" charset="utf-8"></script>
-		
 	</body>
 </html>
