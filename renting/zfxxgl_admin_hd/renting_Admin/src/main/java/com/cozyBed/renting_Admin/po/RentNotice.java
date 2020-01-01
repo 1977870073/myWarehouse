@@ -9,6 +9,10 @@ public class RentNotice {
 
     private Integer flag;
 
+    private Integer sendflag;
+
+    private String dotime;
+
     private String message;
 
     public Integer getId() {
@@ -41,6 +45,22 @@ public class RentNotice {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public Integer getSendflag() {
+        return sendflag;
+    }
+
+    public void setSendflag(Integer sendflag) {
+        this.sendflag = sendflag;
+    }
+
+    public String getDotime() {
+        return dotime;
+    }
+
+    public void setDotime(String dotime) {
+        this.dotime = dotime == null ? null : dotime.trim();
     }
 
     public String getMessage() {

@@ -15,7 +15,4 @@ mybatis:
 #showSql
 logging:
   level:
-    com:
-      cozyBed:
-        remtimg_Admin:
-          mapper: debug
+    com.cozyBed.renting_Admin.mapper: debug

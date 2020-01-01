@@ -3,6 +3,7 @@ package com.cozyBed.renting_Admin.service.impl;
 import com.cozyBed.renting_Admin.mapper.RentHouseinfoMapper;
 import com.cozyBed.renting_Admin.mapper.RentHouseinfoMapperExpand;
 import com.cozyBed.renting_Admin.po.Choose;
+import com.cozyBed.renting_Admin.po.RentHouseinfo;
 import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs;
 import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBsExpand;
 import com.cozyBed.renting_Admin.service.HouseInfoService;
@@ -69,5 +70,14 @@ public class HouseInfoServiceImpl implements HouseInfoService {
     @Override
     public int deleteByPrimaryKey(Integer id) throws Exception {
         return rentHouseinfoMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Integer xiajia(Integer id, Integer flag) throws Exception {
+        RentHouseinfoWithBLOBs info = new RentHouseinfoWithBLOBs();
+        info.setFlag(flag);
+        info.setId(id);
+        Integer f = rentHouseinfoMapper.updateByPrimaryKeySelective(info);
+        return f;
     }
 }

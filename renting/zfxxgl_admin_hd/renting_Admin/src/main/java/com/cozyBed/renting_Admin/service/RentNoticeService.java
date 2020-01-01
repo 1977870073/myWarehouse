@@ -2,6 +2,8 @@ package com.cozyBed.renting_Admin.service;
 
 import com.cozyBed.renting_Admin.po.RentNotice;
 
+import java.util.List;
+
 /**
  * <p>Title: RentNoticeService</p>
  * <p>Description: </p>
@@ -20,9 +22,18 @@ public interface RentNoticeService {
     public Integer insert(RentNotice notice)throws Exception;
 
     /**
-     * 是否有新的消息
+     * 获取发送给房东的消息
      * @param user
      * @return
      */
-    public Integer hasNewNote(String user);
+    public List<RentNotice> getNotice(String user)throws Exception;
+
+    /**
+     * 修改房东通知状态
+     * @param user
+     * @param flag
+     * @return
+     * @throws Exception
+     */
+    public Integer updateNoticFlagToFD(String user, Integer flag)throws  Exception;
 }

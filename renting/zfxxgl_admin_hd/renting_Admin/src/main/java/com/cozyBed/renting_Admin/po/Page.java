@@ -34,8 +34,8 @@ public class Page {
         }
         // 确定limit函数的第一个参数的值
         this.start = 1;
-        this.end = 5;
-        if (totalPage <= 5) {
+        this.end = 4;
+        if (totalPage <= 4) {
             this.end = this.totalPage;
         } else {// pagNum=6;start=4;end=8
             this.start = pagNum - 2;
@@ -43,12 +43,12 @@ public class Page {
         }
         if (start <= 0) {
             this.start = 1;
-            this.end = 5;
+            this.end = 4;
         }
         // 举个例子：一共有10页，现在就在第10页，那么根据上面的逻辑end=12，错误；则end=this.totalPage;且下面导航栏还是要出现5个，则start=end-5
         if (end > this.totalPage) {
             this.end = totalPage;
-            this.start = end - 5;
+            this.start = end - 4;
         }
     }
 

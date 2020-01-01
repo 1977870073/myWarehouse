@@ -6,6 +6,8 @@
     <result column="admin" jdbcType="VARCHAR" property="admin" />
     <result column="user" jdbcType="VARCHAR" property="user" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="sendFlag" jdbcType="INTEGER" property="sendflag" />
+    <result column="doTime" jdbcType="VARCHAR" property="dotime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cozyBed.renting_Admin.po.RentNotice">
     <result column="message" jdbcType="LONGVARCHAR" property="message" />
@@ -69,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, admin, user, flag
+    id, admin, user, flag, sendFlag, doTime
   </sql>
   <sql id="Blob_Column_List">
     message
@@ -124,9 +126,11 @@
   </delete>
   <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.RentNotice">
     insert into rent_notice (id, admin, user, 
-      flag, message)
+      flag, sendFlag, doTime, 
+      message)
     values (#{id,jdbcType=INTEGER}, #{admin,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=INTEGER}, #{message,jdbcType=LONGVARCHAR})
+      #{flag,jdbcType=INTEGER}, #{sendflag,jdbcType=INTEGER}, #{dotime,jdbcType=VARCHAR}, 
+      #{message,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.RentNotice">
     insert into rent_notice
@@ -142,6 +146,12 @@
       </if>
       <if test="flag != null">
         flag,
+      </if>
+      <if test="sendflag != null">
+        sendFlag,
+      </if>
+      <if test="dotime != null">
+        doTime,
       </if>
       <if test="message != null">
         message,
@@ -159,6 +169,12 @@
       </if>
       <if test="flag != null">
         #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="sendflag != null">
+        #{sendflag,jdbcType=INTEGER},
+      </if>
+      <if test="dotime != null">
+        #{dotime,jdbcType=VARCHAR},
       </if>
       <if test="message != null">
         #{message,jdbcType=LONGVARCHAR},
@@ -186,6 +202,12 @@
       <if test="record.flag != null">
         flag = #{record.flag,jdbcType=INTEGER},
       </if>
+      <if test="record.sendflag != null">
+        sendFlag = #{record.sendflag,jdbcType=INTEGER},
+      </if>
+      <if test="record.dotime != null">
+        doTime = #{record.dotime,jdbcType=VARCHAR},
+      </if>
       <if test="record.message != null">
         message = #{record.message,jdbcType=LONGVARCHAR},
       </if>
@@ -200,6 +222,8 @@
       admin = #{record.admin,jdbcType=VARCHAR},
       user = #{record.user,jdbcType=VARCHAR},
       flag = #{record.flag,jdbcType=INTEGER},
+      sendFlag = #{record.sendflag,jdbcType=INTEGER},
+      doTime = #{record.dotime,jdbcType=VARCHAR},
       message = #{record.message,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -210,7 +234,9 @@
     set id = #{record.id,jdbcType=INTEGER},
       admin = #{record.admin,jdbcType=VARCHAR},
       user = #{record.user,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=INTEGER}
+      flag = #{record.flag,jdbcType=INTEGER},
+      sendFlag = #{record.sendflag,jdbcType=INTEGER},
+      doTime = #{record.dotime,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +253,12 @@
       <if test="flag != null">
         flag = #{flag,jdbcType=INTEGER},
       </if>
+      <if test="sendflag != null">
+        sendFlag = #{sendflag,jdbcType=INTEGER},
+      </if>
+      <if test="dotime != null">
+        doTime = #{dotime,jdbcType=VARCHAR},
+      </if>
       <if test="message != null">
         message = #{message,jdbcType=LONGVARCHAR},
       </if>
@@ -238,6 +270,8 @@
     set admin = #{admin,jdbcType=VARCHAR},
       user = #{user,jdbcType=VARCHAR},
       flag = #{flag,jdbcType=INTEGER},
+      sendFlag = #{sendflag,jdbcType=INTEGER},
+      doTime = #{dotime,jdbcType=VARCHAR},
       message = #{message,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -245,7 +279,9 @@
     update rent_notice
     set admin = #{admin,jdbcType=VARCHAR},
       user = #{user,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER}
+      flag = #{flag,jdbcType=INTEGER},
+      sendFlag = #{sendflag,jdbcType=INTEGER},
+      doTime = #{dotime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

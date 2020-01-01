@@ -52,7 +52,7 @@ public class AddHouseInfoController {
         info.setPicture(list.toString());
         info.setUser(user);
         info.setUserType(userType);
-        info.setFlag(1);
+        info.setFlag(0);
         info.setDotime(SimpleDateFormatUtil.getDateTime());
         int flag = 0;
         try {

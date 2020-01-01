@@ -81,4 +81,13 @@ public interface HouseInfoService {
      */
     public int deleteByPrimaryKey(Integer id)throws Exception;
 
+    /**
+     * 房源上下架
+     * @param id
+     * @param flag
+     * @return
+     * @throws Exception
+     */
+    public Integer xiajia(Integer id, Integer flag)throws Exception;
+
 }

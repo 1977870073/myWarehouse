@@ -363,6 +363,136 @@ public class RentNoticeExample {
             addCriterion("flag not between", value1, value2, "flag");
             return (Criteria) this;
         }
+
+        public Criteria andSendflagIsNull() {
+            addCriterion("sendFlag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagIsNotNull() {
+            addCriterion("sendFlag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagEqualTo(Integer value) {
+            addCriterion("sendFlag =", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagNotEqualTo(Integer value) {
+            addCriterion("sendFlag <>", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagGreaterThan(Integer value) {
+            addCriterion("sendFlag >", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sendFlag >=", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagLessThan(Integer value) {
+            addCriterion("sendFlag <", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagLessThanOrEqualTo(Integer value) {
+            addCriterion("sendFlag <=", value, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagIn(List<Integer> values) {
+            addCriterion("sendFlag in", values, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagNotIn(List<Integer> values) {
+            addCriterion("sendFlag not in", values, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagBetween(Integer value1, Integer value2) {
+            addCriterion("sendFlag between", value1, value2, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendflagNotBetween(Integer value1, Integer value2) {
+            addCriterion("sendFlag not between", value1, value2, "sendflag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeIsNull() {
+            addCriterion("doTime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeIsNotNull() {
+            addCriterion("doTime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeEqualTo(String value) {
+            addCriterion("doTime =", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotEqualTo(String value) {
+            addCriterion("doTime <>", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeGreaterThan(String value) {
+            addCriterion("doTime >", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeGreaterThanOrEqualTo(String value) {
+            addCriterion("doTime >=", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLessThan(String value) {
+            addCriterion("doTime <", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLessThanOrEqualTo(String value) {
+            addCriterion("doTime <=", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeLike(String value) {
+            addCriterion("doTime like", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotLike(String value) {
+            addCriterion("doTime not like", value, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeIn(List<String> values) {
+            addCriterion("doTime in", values, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotIn(List<String> values) {
+            addCriterion("doTime not in", values, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeBetween(String value1, String value2) {
+            addCriterion("doTime between", value1, value2, "dotime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDotimeNotBetween(String value1, String value2) {
+            addCriterion("doTime not between", value1, value2, "dotime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

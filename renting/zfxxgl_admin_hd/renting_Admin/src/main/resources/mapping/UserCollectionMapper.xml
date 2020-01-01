@@ -7,7 +7,6 @@
     <result column="house" jdbcType="INTEGER" property="house" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
     <result column="doTime" jdbcType="VARCHAR" property="dotime" />
-    <result column="sendFlag" jdbcType="INTEGER" property="sendflag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user, house, flag, doTime, sendFlag
+    id, user, house, flag, doTime
   </sql>
   <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.UserCollectionExample" resultMap="BaseResultMap">
     select
@@ -102,11 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
     insert into user_collection (id, user, house, 
-      flag, doTime, sendFlag
-      )
+      flag, doTime)
     values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{house,jdbcType=INTEGER}, 
-      #{flag,jdbcType=INTEGER}, #{dotime,jdbcType=VARCHAR}, #{sendflag,jdbcType=INTEGER}
-      )
+      #{flag,jdbcType=INTEGER}, #{dotime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.UserCollection">
     insert into user_collection
@@ -126,9 +123,6 @@
       <if test="dotime != null">
         doTime,
       </if>
-      <if test="sendflag != null">
-        sendFlag,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -145,9 +139,6 @@
       </if>
       <if test="dotime != null">
         #{dotime,jdbcType=VARCHAR},
-      </if>
-      <if test="sendflag != null">
-        #{sendflag,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -175,9 +166,6 @@
       <if test="record.dotime != null">
         doTime = #{record.dotime,jdbcType=VARCHAR},
       </if>
-      <if test="record.sendflag != null">
-        sendFlag = #{record.sendflag,jdbcType=INTEGER},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -189,8 +177,7 @@
       user = #{record.user,jdbcType=VARCHAR},
       house = #{record.house,jdbcType=INTEGER},
       flag = #{record.flag,jdbcType=INTEGER},
-      doTime = #{record.dotime,jdbcType=VARCHAR},
-      sendFlag = #{record.sendflag,jdbcType=INTEGER}
+      doTime = #{record.dotime,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -210,9 +197,6 @@
       <if test="dotime != null">
         doTime = #{dotime,jdbcType=VARCHAR},
       </if>
-      <if test="sendflag != null">
-        sendFlag = #{sendflag,jdbcType=INTEGER},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -221,8 +205,7 @@
     set user = #{user,jdbcType=VARCHAR},
       house = #{house,jdbcType=INTEGER},
       flag = #{flag,jdbcType=INTEGER},
-      doTime = #{dotime,jdbcType=VARCHAR},
-      sendFlag = #{sendflag,jdbcType=INTEGER}
+      doTime = #{dotime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

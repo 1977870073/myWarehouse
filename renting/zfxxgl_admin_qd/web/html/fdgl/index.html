@@ -37,7 +37,9 @@
 						</a>
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
-					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/note.html" data-id='3' data-text="通知"><i class="layui-icon layui-icon-notice"></i><span class="layui-badge-dot"></span></a></li>
+					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/notice.html" data-id='3' data-text="通知">
+						  <i class="layui-icon layui-icon-notice"></i><span class="layui-badge-dot" id="hasNewNotice" style="display: none;"></span></a>
+					  </li>
 					  <li class="layui-nav-item">
 						<a href="javascript:;" id="you_father_name">不高兴</a>
 					  </li>
@@ -71,5 +73,33 @@
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../static/js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			window.onload = function () {
+			    var timer = setTimeout(hasNewNotice(),60000);//定时查询是否有新的通知
+            }
+
+            function hasNewNotice() {
+                $.ajax({
+                    type: 'get',
+                    url: '/web/do/notice/hasNewNote',
+                    success: function (data) {
+                        if(data==1){
+                            $('#hasNewNotice').css("display","block");
+                            return true;
+                        }else{
+                            $('#hasNewNotice').css("display","none");
+                            return false;
+                        }
+                    },
+                    error: function(err){
+                        if(err.status==1000){
+                            window.location.href = "/web/zf/html/login.html";
+                        }else{
+                            alert("网络异常！");
+                        }
+                    }
+                });
+            }
+		</script>
 	</body>
 </html>

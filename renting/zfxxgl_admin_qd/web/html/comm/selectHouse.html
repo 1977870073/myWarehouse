@@ -42,6 +42,15 @@
                     <p>${info.district}-${info.residentialAreas}</p>
                     <p>${info.residentialNote}</p>
                     <p><span>${info.price}</span>元/月</p>
+                    {{if info.flag==0}}
+                        <p>审核中</p>
+                    {{/if}}
+                    {{if info.flag==1}}
+                        <input type="button" class="xj" id="xj" onclick="xiajia(this,${info.id})" value="下  架" />
+                    {{/if}}
+                    {{if info.flag==2}}
+                        <input type="button" class="xj" id="xj" onclick="xiajia(this,${info.id})" value="上  架" />
+                    {{/if}}
                     <button type="button" class="update"  onclick="tiaozhuan(${info.id})">修&nbsp;改</button>
                     <button type="button" class="delete" onclick="del(${info.id})">删&nbsp;除</button>
                 </dd>
@@ -49,23 +58,21 @@
     	{{/each}}
     	 <div class="page">
             <div id="page_content">
-                <a href="/web/zf/html/htgl/selectHouse.html?page=1"  target="_self">首页<span style="display: none">1</span></a>
+                <a href="/web/zf/html/comm/selectHouse.html?page=1"  target="_self">首页<span style="display: none">1</span></a>
                 {{if page.pagNum<=page.start}}
-                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.start}" target="_self">上一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.start}" target="_self">上一页</a>
                 {{/if}}
                 {{if page.pagNum>page.start}}
-                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum-1}" target="_self">上一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum-1}" target="_self">上一页</a>
                 {{/if}}
                 <span id="page_startToend"></span>
                 {{if page.pagNum>=page.totalPage}}
-                    <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}"  target="_self">下一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}"  target="_self">下一页</a>
                 {{/if}}
                 {{if page.pagNum<page.end}}
-                     <a href="/web/zf/html/htgl/selectHouse.html?page=${page.pagNum+1}" target="_self">下一页</a>
+                     <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum+1}" target="_self">下一页</a>
                 {{/if}}
-                <a href="/web/zf/html/htgl/selectHouse.html?page=${page.totalPage}">尾页</a>
-            </div>
-            <div id="page_info">
+                <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}">尾页</a>
                 <span>共${page.totalPage}页,${page.totalRecord}条数据</span>
             </div>
         </div>

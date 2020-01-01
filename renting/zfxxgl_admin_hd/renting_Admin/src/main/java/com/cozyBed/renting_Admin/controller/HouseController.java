@@ -67,4 +67,19 @@ public class HouseController {
             return "error";
         }
     }
+
+    @RequestMapping("/xiajia")
+    public String xiajia(HttpServletRequest request, Integer id, Integer xj){
+        int flag = 0;
+        try {
+            flag = houseInfo.xiajia(id, xj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(flag>0){
+            return "success";
+        }else{
+            return "error";
+        }
+    }
 }
