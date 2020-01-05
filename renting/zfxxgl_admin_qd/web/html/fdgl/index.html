@@ -18,13 +18,16 @@
 					<span>租房信息系统管理平台</span>
 				</div>
 				<ul class="layui-nav layui-nav-tree" lay-filter="leftNav">
-				  <li class="layui-nav-item layui-nav-itemed">
-				    <a href="javascript:;"><i class="iconfont">&#xe607;</i>房源管理</a>
-				    <dl class="layui-nav-child">
-				      <dd><a href="javascript:;" data-url="../comm/selectHouse.html?page=1&uType=1" data-id='1' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
-				      <dd><a href="javascript:;" data-url="../comm/addHouse.html?cp01=2" data-id='2' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
-				    </dl>
-				  </li>
+					 <li class="layui-nav-item layui-nav-itemed">
+						<a href="javascript:;"><i class="iconfont">&#xe607;</i>房源管理</a>
+						<dl class="layui-nav-child">
+						  <dd><a href="javascript:;" data-url="../comm/selectHouse.html?page=1&uType=1" data-id='1' data-text="房源信息"><span class="l-line"></span>房源信息</a></dd>
+						  <dd><a href="javascript:;" data-url="../comm/addHouse.html?cp01=2" data-id='2' data-text="添加房源"><span class="l-line"></span>添加房源</a></dd>
+						</dl>
+					 </li>
+					 <li class="layui-nav-item">
+						<a href="javascript:;" data-url="#" data-id='3' data-text="房源预约"><i class="iconfont">&#xe65f;</i>房源预约</a>
+					 </li>
 				</ul>
 			</div>
 			<!--右侧内容-->
@@ -37,11 +40,11 @@
 						</a>
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
-					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/notice.html" data-id='3' data-text="通知">
+					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/notice.html" data-id='4' data-text="通知">
 						  <i class="layui-icon layui-icon-notice"></i><span class="layui-badge-dot" id="hasNewNotice" style="display: none;"></span></a>
 					  </li>
 					  <li class="layui-nav-item">
-						<a href="javascript:;" id="you_father_name">不高兴</a>
+						<a href="javascript:;" data-url="../user/home.html" data-id='5' data-text="个人中心" id="you_father_name">不高兴</a>
 					  </li>
 					  <li class="layui-nav-item"><a href="javascript:;" onclick="tuichu()">退出</a></li>
 					</ul>
@@ -95,7 +98,7 @@
                         if(err.status==1000){
                             window.location.href = "/web/zf/html/login.html";
                         }else{
-                            alert("网络异常！");
+                            layer.msg("网络异常！");
                         }
                     }
                 });

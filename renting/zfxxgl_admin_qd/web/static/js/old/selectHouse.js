@@ -16,7 +16,6 @@ window.onload = function(){
             query(page,uType);
         }
 	}
-
 }
 //获取房源数据
 function query(num,uType){

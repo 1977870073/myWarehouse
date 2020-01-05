@@ -26,7 +26,7 @@ public interface RentNoticeService {
      * @param user
      * @return
      */
-    public List<RentNotice> getNotice(String user)throws Exception;
+    public List<RentNotice> getNotice(String user, Integer flag)throws Exception;
 
     /**
      * 修改房东通知状态
@@ -36,4 +36,35 @@ public interface RentNoticeService {
      * @throws Exception
      */
     public Integer updateNoticFlagToFD(String user, Integer flag)throws  Exception;
+
+    /**
+     * 删除消息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public Integer delNotice(Integer id)throws  Exception;
+
+    /**
+     * 删除该用户全部消息
+     * @param user
+     * @param sendFlag
+     * @return
+     * @throws Exception
+     */
+    public Integer delAllNotice(String user, Integer sendFlag)throws  Exception;
+
+    /**
+     * 处理预约，成功发送通知
+     * @param id 预约订单id
+     * @return
+     */
+    public Integer fdSendSuccessToUser(Integer id);
+
+    /**
+     * 处理预约，失败发送通知
+     * @param id 预约订单id
+     * @return
+     */
+    public Integer fdSendErrorToUser(Integer id);
 }

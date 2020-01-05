@@ -10,6 +10,7 @@
     <result column="uTime" jdbcType="VARCHAR" property="utime" />
     <result column="house" jdbcType="INTEGER" property="house" />
     <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user, fd, uName, uPhone, uTime, house, beizhu
+    id, user, fd, uName, uPhone, uTime, house, beizhu, flag
   </sql>
   <select id="selectByExample" parameterType="com.cozyBed.renting_Admin.po.RentAppointmentExample" resultMap="BaseResultMap">
     select
@@ -105,10 +106,12 @@
   <insert id="insert" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
     insert into rent_appointment (id, user, fd, 
       uName, uPhone, uTime, 
-      house, beizhu)
+      house, beizhu, flag
+      )
     values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{fd,jdbcType=VARCHAR}, 
       #{uname,jdbcType=VARCHAR}, #{uphone,jdbcType=VARCHAR}, #{utime,jdbcType=VARCHAR}, 
-      #{house,jdbcType=INTEGER}, #{beizhu,jdbcType=VARCHAR})
+      #{house,jdbcType=INTEGER}, #{beizhu,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cozyBed.renting_Admin.po.RentAppointment">
     insert into rent_appointment
@@ -137,6 +140,9 @@
       <if test="beizhu != null">
         beizhu,
       </if>
+      <if test="flag != null">
+        flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -162,6 +168,9 @@
       </if>
       <if test="beizhu != null">
         #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -198,6 +207,9 @@
       <if test="record.beizhu != null">
         beizhu = #{record.beizhu,jdbcType=VARCHAR},
       </if>
+      <if test="record.flag != null">
+        flag = #{record.flag,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +224,8 @@
       uPhone = #{record.uphone,jdbcType=VARCHAR},
       uTime = #{record.utime,jdbcType=VARCHAR},
       house = #{record.house,jdbcType=INTEGER},
-      beizhu = #{record.beizhu,jdbcType=VARCHAR}
+      beizhu = #{record.beizhu,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +254,9 @@
       <if test="beizhu != null">
         beizhu = #{beizhu,jdbcType=VARCHAR},
       </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -252,7 +268,8 @@
       uPhone = #{uphone,jdbcType=VARCHAR},
       uTime = #{utime,jdbcType=VARCHAR},
       house = #{house,jdbcType=INTEGER},
-      beizhu = #{beizhu,jdbcType=VARCHAR}
+      beizhu = #{beizhu,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

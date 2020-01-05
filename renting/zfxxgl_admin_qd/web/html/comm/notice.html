@@ -19,7 +19,7 @@
         <div class="note-edge col-lg-7" style="margin-top: 30px;">
             <!--最新通知-->
             <div class="panel panel-default comment-panel">
-                <div class="panel-header">通知</div>
+                <div class="panel-header">通知<a href="javascript:;" onclick="delAll()" style="float:right;color: #999;font-size: 13px;" id="qksy">清空所有</a></div>
                 <div class="panel-body">
                     <div class="commentbox" id="content"></div>
                     <div id="pagesbox" style="text-align: center;padding-top: 5px;"></div>
@@ -62,10 +62,11 @@
                     <header class="comment-header">
                         <div class="comment-meta"><a class="comment-author" href="#">管理员</a> 发送于
                             <time title="${info.doTime}" datetime="${info.doTime}">${info.doTime}</time>
+                            <a href="javascript:;" onclick="del(${info.id})" style="float:right;">删除</a>
                         </div>
                     </header>
                     <div class="comment-body">
-                        <p><a href="#">${info.message}</p>
+                        <p>${info.message}</p>
                     </div>
                 </div>
             </li>

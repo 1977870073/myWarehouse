@@ -17,6 +17,8 @@ public class RentAppointment {
 
     private String beizhu;
 
+    private Integer flag;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class RentAppointment {
 
     public void setBeizhu(String beizhu) {
         this.beizhu = beizhu == null ? null : beizhu.trim();
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }

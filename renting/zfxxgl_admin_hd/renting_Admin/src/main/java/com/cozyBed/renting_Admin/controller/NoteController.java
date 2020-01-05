@@ -37,11 +37,8 @@ public class NoteController {
     @RequestMapping("hasNewNote")
     public Integer hasNewNote(HttpServletRequest request)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
-        if (ObjectUtil.isEmply(user)){
-            return 0;
-        }
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List<RentNotice> list = rentNoticeService.getNotice(user);
+        List<RentNotice> list = rentNoticeService.getNotice(user,1);
         if(ObjectUtil.isEmply(list)){
             return 0;
         }
@@ -57,14 +54,41 @@ public class NoteController {
     @RequestMapping("getData")
     public Map<String, Object> getData(HttpServletRequest request)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
-        if (ObjectUtil.isEmply(user)){
-            return null;
-        }
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List<RentNotice> list = rentNoticeService.getNotice(user);
+        List<RentNotice> list = rentNoticeService.getNotice(user,0);
         Integer ff = rentNoticeService.updateNoticFlagToFD(user,0);
         Map<String, Object> map  =new HashMap<>();
         map.put("queryInfo", list);
         return map;
+    }
+
+    /**
+     * 删除指定id通知
+     * @param request
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("delNotice")
+    public Integer delNotice(HttpServletRequest request, Integer id)throws  Exception{
+        if (id==0){
+            return 0;
+        }
+        Integer flag = rentNoticeService.delNotice(id);
+        return flag;
+    }
+
+    /**
+     * 删除该用户所有通知
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("delAllNotice")
+    public Integer delAllNotice(HttpServletRequest request)throws  Exception{
+        String user = request.getSession().getAttribute("user").toString();
+        user = Aes.aesDecrypt(user,Aes.KEY);
+        Integer flag = rentNoticeService.delAllNotice(user, 1);
+        return flag;
     }
 }

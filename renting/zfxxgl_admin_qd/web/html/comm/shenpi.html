@@ -9,13 +9,13 @@
 		<title>房源审批管理</title>
 		<link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" />
 	</head>
-		<table class="layui-hide" id="shenpi"></table>
 	<body>
+		<table class="layui-hide" id="shenpi"></table>
 		<script type="text/html" id="biaoti">
 			<a href="#" onclick="approval({{d.id}})" class="lauui-table-link">{{d.title}}</a>
 		</script>
 		<script type="text/html" id="caozuo">
-			<button type="button" class="layui-btn layui-btn-fluid layui-btn-xs layui-btn-radius layui-btn-warm" onclick="approval({{d.id}})">审批</button>
+			<button type="button" class="layui-btn layui-btn-fluid layui-btn-radius layui-btn-sm layui-btn-warm" onclick="approval({{d.id}})">审批房源</button>
 		</script>
 		<script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -25,7 +25,8 @@
                 table.render({
                     elem: '#shenpi'
                     ,url:'/web/do/houseInfo/init'
-                    ,cellMinWidth: 80
+                    ,cellMinWidth: 60
+					,size: 'lg'
 					,parseData: function (res) {
 						return {
 						    "code": 0,
@@ -35,10 +36,10 @@
 						}
                     }
                     ,cols: [[
-                        {field:'rownum',  title: '行号'}
+                        {field:'rownum',  title: '序号'}
                         ,{field:'userName', title: '用户名'}
                         ,{field:'title', title: '标题', minWidth: 200, templet: '#biaoti'}
-                        ,{field:'dotime', title: '时间'}
+                        ,{field:'dotime', title: '申请时间'}
                         ,{field:'caozuo', title: '操作', width: '250', templet: '#caozuo'}
                     ]],
 					text: {

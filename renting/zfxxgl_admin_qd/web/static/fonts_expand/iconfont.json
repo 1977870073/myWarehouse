@@ -34,11 +34,39 @@
       "unicode_decimal": 58885
     },
     {
+      "icon_id": "5192954",
+      "name": "预约",
+      "font_class": "yuyue",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "6773142",
       "name": "文件-房屋合同",
       "font_class": "wj-fwht",
       "unicode": "e752",
       "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "7287570",
+      "name": "邮箱",
+      "font_class": "youxiang",
+      "unicode": "e739",
+      "unicode_decimal": 59193
+    },
+    {
+      "icon_id": "7821065",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "10936641",
+      "name": "备注",
+      "font_class": "beizhu",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
     }
   ]
 }
