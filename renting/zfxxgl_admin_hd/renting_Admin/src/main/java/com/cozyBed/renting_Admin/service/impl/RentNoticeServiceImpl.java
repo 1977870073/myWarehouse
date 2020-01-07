@@ -144,7 +144,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
             return null;
         }
         String title =  rentHouseinfo.getTitle();
-        return "<a href='http://localhost:8080/renting/details/selectInfo.action?id="+id+"'>"+rentHouseinfo.getTitle()+"</a>";
+        return "<a href='http://localhost:8080/renting/details/selectInfo.action?id="+id+"' class='noticList_a'>"+rentHouseinfo.getTitle()+"</a>";
     }
 
     public String getTime(){
