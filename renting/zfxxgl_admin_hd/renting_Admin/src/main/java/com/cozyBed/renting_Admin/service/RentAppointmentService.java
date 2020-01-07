@@ -19,7 +19,7 @@ public interface RentAppointmentService {
      * @param user
      * @return
      */
-    public List<RentAppointmentExtends> getAppointmentInfo(String user);
+    public Object[] getAppointmentInfo(String user,Integer page);
 
     /**
      * 修改预定消息状态

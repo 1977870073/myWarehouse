@@ -21,8 +21,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+            <state relative-caret-position="-943">
+              <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -33,38 +33,17 @@
       <file leaf-file-name="shenpi.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            <state relative-caret-position="861">
+              <caret line="54" column="13" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yuyue.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="yuyue.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/yuyue.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="396">
+              <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -142,11 +121,11 @@
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/user/home.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/user/home.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/selectHouse.js" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/yuyue.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/yuyue.html" />
       </list>
     </option>
   </component>
@@ -170,7 +149,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,6 +209,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,11 +307,12 @@
       <workItem from="1578056717447" duration="12685000" />
       <workItem from="1578126972881" duration="2931000" />
       <workItem from="1578142502304" duration="6886000" />
+      <workItem from="1578320165559" duration="4276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189655000" />
+    <option name="totallyTimeSpent" value="193931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -595,9 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1078">
           <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,10 +616,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="123" column="63" lean-forward="true" selection-start-line="123" selection-start-column="63" selection-end-line="123" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+        <state relative-caret-position="-943">
+          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -651,32 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/yuyue.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+        <state relative-caret-position="396">
+          <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
         </state>
       </provider>
     </entry>

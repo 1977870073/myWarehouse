@@ -14,6 +14,16 @@ public class RentAppointmentExtends extends RentAppointment {
 
     private String userName;
 
+    private Integer rownum;
+
+    public Integer getRownum() {
+        return rownum;
+    }
+
+    public void setRownum(Integer rownum) {
+        this.rownum = rownum;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -6,13 +6,50 @@
     <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" />
 </head>
 <body>
-    <table class="layui-hide" id="shenpi"></table>
+    <table class="layui-hide" id="yuyue"></table>
     <script type="text/html" id="biaoti">
-        <a href="#" onclick="approval({{d.id}})" class="lauui-table-link">{{d.title}}</a>
+        <a href="#" class="lauui-table-link">{{d.title}}</a>
     </script>
     <script type="text/html" id="caozuo">
-        <button type="button" class="layui-btn layui-btn-fluid layui-btn-ms layui-btn-radius layui-btn-warm" onclick="approval({{d.id}})">查看</button>
+        <button type="button" class="layui-btn layui-btn-fluid layui-btn-ms layui-btn-radius layui-btn-warm" onclick="{{d.id}}">查看</button>
     </script>
     <script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+
+            table.render({
+                elem: '#yuyue'
+                ,url:'/web/do/appointment/getAppointmentInfo'
+                ,cellMinWidth: 60
+                ,size: 'lg'
+                ,parseData: function (res) {
+                    return {
+                        "code": 0,
+                        "msg": "",
+                        "count": res[1],
+                        data: res[0]
+                    }
+                }
+                ,cols: [[
+                    {field:'rownum',  title: '序号'}
+                    ,{field:'title', title: '预约房源', templet: '#biaoti'}
+                    ,{field:'userName', title: '预约用户'}
+                    ,{field:'user', title: '预约账号'}
+                    ,{field:'utime', title: '预约时间'}
+                    ,{field:'caozuo', title: '操作', width: '250', templet: '#caozuo'}
+                ]],
+                text: {
+                    none: '暂无相关数据'
+                }
+                ,page: true
+            });
+        });
+        function approval(cp01){
+            var url = "/web/zf/html/comm/approval.html?";
+            url += "cp01="+encodeURI(cp01);
+            window.parent.location.href=url;
+        }
+    </script>
 </body>
 </html>

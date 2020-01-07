@@ -7,6 +7,7 @@ import com.cozyBed.renting_Admin.utils.Aes;
 import com.cozyBed.renting_Admin.utils.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @RestController
+@RequestMapping("/appointment/")
 public class AppointmentController {
     @Autowired
     private RentAppointmentService rentAppointmentService;
@@ -34,11 +36,11 @@ public class AppointmentController {
      * @throws Exception
      */
     @RequestMapping("getAppointmentInfo")
-    public List<RentAppointmentExtends> getAppointmentInfo(HttpServletRequest request) throws Exception {
+    public Object[] getAppointmentInfo(HttpServletRequest request,@RequestParam(required = false, defaultValue = "1") Integer page) throws Exception {
         String user = request.getSession().getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List<RentAppointmentExtends> rtList = rentAppointmentService.getAppointmentInfo(user);
-        return rtList;
+        Object[] result = rentAppointmentService.getAppointmentInfo(user, page);
+        return result;
     }
 
     @RequestMapping("updateFlag")

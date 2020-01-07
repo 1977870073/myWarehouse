@@ -31,18 +31,22 @@ public class RentAppointmentServiceImpl implements RentAppointmentService {
     private RentUserMapper rentUserMapper;
 
     @Override
-    public List<RentAppointmentExtends> getAppointmentInfo(String user) {
+    public Object[] getAppointmentInfo(String user,Integer page) {
         List<RentAppointmentExtends> rtList = new ArrayList<>();
         RentAppointmentExample example = new RentAppointmentExample();
         RentAppointmentExample.Criteria criteria = example.createCriteria();
         criteria.andFdEqualTo(user);
-        criteria.andFlagEqualTo(1);
+        criteria.andFlagEqualTo(0);
         List<RentAppointment> rsList = rentAppointmentMapper.selectByExample(example);
         if(ObjectUtil.isEmply(rsList)){
             return null;
         }
-        for(RentAppointment r: rsList){
+        int i = (page-1)*10;
+        int len = (rsList.size()>page*10)?page*10:rsList.size();
+        for(; i<len;i++){
+            RentAppointment r = rsList.get(i);
             RentAppointmentExtends rex = new RentAppointmentExtends();
+            rex.setRownum(i+1);
             rex.setId(r.getId());
             rex.setUser(r.getUser());
             rex.setFd(r.getFd());
@@ -69,7 +73,7 @@ public class RentAppointmentServiceImpl implements RentAppointmentService {
             rex.setUserName(userList.get(0).getName());
             rtList.add(rex);
         }
-        return rtList;
+        return new Object[]{rtList, rsList.size()};
     }
 
     @Override
