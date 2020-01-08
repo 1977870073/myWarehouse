@@ -4,52 +4,189 @@
     <meta charset="UTF-8">
     <title>用户预约房源</title>
     <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/old/yuyue.css" />
 </head>
 <body>
     <table class="layui-hide" id="yuyue"></table>
+    <script type="text/html" id="yonghu">
+        {{d.userName}}({{d.user}})
+    </script>
     <script type="text/html" id="biaoti">
-        <a href="#" class="lauui-table-link">{{d.title}}</a>
+        <a href="/web/zf/html/comm/detailsRead.html?cp01={{d.house}}" class="lauui-table-link">{{d.title}}</a>
     </script>
     <script type="text/html" id="caozuo">
-        <button type="button" class="layui-btn layui-btn-fluid layui-btn-ms layui-btn-radius layui-btn-warm" onclick="{{d.id}}">查看</button>
+        <button type="button" class="layui-btn layui-btn-fluid layui-btn-ms layui-btn-radius layui-btn-warm" onclick="yuy({{d.id}})">查看</button>
     </script>
+    <script src="../../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/js/old/general.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/js/old/yuyue.js" type="text/javascript" charset="utf-8"></script>
     <script>
-        layui.use('table', function(){
-            var table = layui.table;
-
-            table.render({
-                elem: '#yuyue'
-                ,url:'/web/do/appointment/getAppointmentInfo'
-                ,cellMinWidth: 60
-                ,size: 'lg'
-                ,parseData: function (res) {
-                    return {
-                        "code": 0,
-                        "msg": "",
-                        "count": res[1],
-                        data: res[0]
-                    }
-                }
-                ,cols: [[
-                    {field:'rownum',  title: '序号'}
-                    ,{field:'title', title: '预约房源', templet: '#biaoti'}
-                    ,{field:'userName', title: '预约用户'}
-                    ,{field:'user', title: '预约账号'}
-                    ,{field:'utime', title: '预约时间'}
-                    ,{field:'caozuo', title: '操作', width: '250', templet: '#caozuo'}
-                ]],
-                text: {
-                    none: '暂无相关数据'
-                }
-                ,page: true
+        var table,laydate,uutype;
+        layui.use(['table',"laydate"], function(){
+            table = layui.table,
+            laydate = layui.laydate;
+            laydate.render({
+                elem: '#yytime'
+                ,type: 'datetime'
             });
+            var cp01 = getQueryVariable("cp01");
+            if(isEmpty(cp01)){
+                uutype=null;
+            }else{
+                if(cp01=="ccs1e4"){
+                    uutype=2;
+                }else if(cp01=="ccs1px"){
+                    uutype=1;
+                }else{
+                    uutype="";
+                }
+            }
+            if(!isEmpty(uutype)){
+                table.render({
+                    elem: '#yuyue'
+                    ,url:'/web/do/appointment/getAppointmentInfo'
+                    ,where: {"type": uutype}
+                    ,cellMinWidth: 60
+                    ,size: 'lg'
+                    ,parseData: function (res) {
+                        return {
+                            "code": 0,
+                            "msg": "",
+                            "count": res[1],
+                            data: res[0]
+                        }
+                    }
+                    ,cols: [[
+                        {field:'rownum',  title: '序号'}
+                        ,{field:'title', title: '预约房源', templet: '#biaoti'}
+                        ,{field:'userName', title: '预约用户',templet: '#yonghu'}
+                        ,{field:'utime', title: '预约时间'}
+                        ,{field:'caozuo', title: '操作', width: '300', templet: '#caozuo'}
+                    ]],
+                    text: {
+                        none: '暂无相关数据'
+                    }
+                    ,page: true
+                });
+            }else{
+                layer.msg("信息异常！", {icon: 2, anim: 6});
+            }
+
         });
-        function approval(cp01){
-            var url = "/web/zf/html/comm/approval.html?";
-            url += "cp01="+encodeURI(cp01);
-            window.parent.location.href=url;
+        function reload() {
+            if(!isEmpty(uutype)){
+                table.reload('yuyue', {
+                    url:'/web/do/appointment/getAppointmentInfo'
+                    ,where: {"type": uutype}
+                    ,parseData: function (res) {
+                        return {
+                            "code": 0,
+                            "msg": "",
+                            "count": res[1],
+                            data: res[0]
+                        }
+                    }
+                });
+            }
+        }
+        function yuy(id){
+            var box = layer.open({
+                type: 1
+                ,title: "查看" //不显示标题栏：false
+                ,closeBtn: false
+                ,area: '700px;'
+                ,shade: 0.8
+                ,shadeClose: true //是否点击遮蔽关闭
+                ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                ,btn: ['同意', '不同意']
+                ,btnAlign: 'c'
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: $('#yybox')
+                ,success: function () {
+                    getInfo(id);
+                }
+                ,yes: function () {
+                    var notice = $('#fdNotice').val();
+                    var time = $('#yytime').val();
+                    var id = $('#yyid').val();
+                    if($('#yytime').val().length>100){
+                        layer.msg("备注信息长度不能超过100！", {icon: 2, anim: 6});
+                        return false;
+                    }
+                    btnYes(id, notice, time);
+                    clearInfo();
+                    layer.close(box);
+                    reload();
+                },
+                btn2: function () {
+                    var notice = $('#fdNotice').val();
+                    var id = $('#yyid').val();
+                    if($('#yytime').val().length>100){
+                        layer.msg("备注信息长度不能超过100！", {icon: 2, anim: 6});
+                        return false;
+                    }
+                    btnNo(id, notice);
+                    clearInfo();
+                    layer.close(box);
+                    reload();
+                }
+            });
+        }
+        function kk(url) {
+            layer.open({
+                type: 2,
+                title: '预定房源',
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['1000px', '600px'],
+                content: url
+            });
         }
     </script>
 </body>
+<div id="yybox" style="display: none;">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">预约用户</label>
+            <div class="layui-input-inline">
+                <span class="yy_span" id="yyuser">xxx</span>
+            </div>
+            <label class="layui-form-label">联系人</label>
+            <div class="layui-input-inline">
+                <span class="yy_span" id="yyuname">xxx</span>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-inline">
+                <span class="yy_span" id="yyuphone">xxx</span>
+            </div>
+            <label class="layui-form-label">预约时间</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="yytime">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">预约房源</label>
+            <div class="layui-input-block">
+                <span class="yy_span" id="yytitle">xxx</span>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系人备注</label>
+            <div class="layui-input-block">
+                <span class="yy_span_notice" id="yybz">xxx</span>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">房东备注</label>
+            <div class="layui-input-block">
+                <textarea id="fdNotice" name="fdNotice" placeholder="请输入内容" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+    <input type="hidden" id="yyid" />
+</div>
 </html>

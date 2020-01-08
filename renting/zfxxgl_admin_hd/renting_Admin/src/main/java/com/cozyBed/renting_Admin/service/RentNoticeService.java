@@ -57,14 +57,16 @@ public interface RentNoticeService {
     /**
      * 处理预约，成功发送通知
      * @param id 预约订单id
+     * @param notic 房东备注
      * @return
      */
-    public Integer fdSendSuccessToUser(Integer id);
+    public Integer fdSendSuccessToUser(Integer id, String notic);
 
     /**
      * 处理预约，失败发送通知
      * @param id 预约订单id
+     * @param notic  房东备注
      * @return
      */
-    public Integer fdSendErrorToUser(Integer id);
+    public Integer fdSendErrorToUser(Integer id, String notic);
 }

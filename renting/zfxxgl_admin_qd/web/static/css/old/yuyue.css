@@ -1,0 +1,16 @@
+#yybox{
+    background: rgba(204, 204, 204, 0.16);
+    padding: 50px 30px;
+}
+.yy_span{
+    height: 38px;
+    line-height: 38px;
+}
+.yy_span_notice{
+    width: 530px;
+    height: 38px;
+    line-height: 38px;
+    white-space:normal;
+    word-break:break-all;
+    overflow:hidden;
+}

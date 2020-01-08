@@ -703,6 +703,66 @@ public class RentAppointmentExample {
             addCriterion("flag not between", value1, value2, "flag");
             return (Criteria) this;
         }
+
+        public Criteria andSendtypeIsNull() {
+            addCriterion("sendType is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeIsNotNull() {
+            addCriterion("sendType is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeEqualTo(Integer value) {
+            addCriterion("sendType =", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeNotEqualTo(Integer value) {
+            addCriterion("sendType <>", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeGreaterThan(Integer value) {
+            addCriterion("sendType >", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sendType >=", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeLessThan(Integer value) {
+            addCriterion("sendType <", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeLessThanOrEqualTo(Integer value) {
+            addCriterion("sendType <=", value, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeIn(List<Integer> values) {
+            addCriterion("sendType in", values, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeNotIn(List<Integer> values) {
+            addCriterion("sendType not in", values, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeBetween(Integer value1, Integer value2) {
+            addCriterion("sendType between", value1, value2, "sendtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendtypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("sendType not between", value1, value2, "sendtype");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -92,7 +92,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
     }
 
     @Override
-    public Integer fdSendSuccessToUser(Integer id) {
+    public Integer fdSendSuccessToUser(Integer id, String notice) {
         RentAppointment rentAppointment = rentAppointmentMapper.selectByPrimaryKey(id);
         if(rentAppointment==null){
             log.error("方法fdSendSuccessToUser--》id:"+id+",获取预约信息失败！");
@@ -106,7 +106,8 @@ public class RentNoticeServiceImpl implements RentNoticeService {
         String fy = getFangyuan(rentAppointment.getHouse());
         String dTime = getTime();
         String muban = "预约成功！<br />预约房源："+fy+"<br />预约时间："+rentAppointment.getUtime()+"<br />" +
-                "联系人："+rentHouseinfo.getUserName()+"<br />联系电话："+rentHouseinfo.getUserPhone();
+                "联系人："+rentHouseinfo.getUserName()+"<br />联系电话："+rentHouseinfo.getUserPhone()+
+                "<br />房东备注："+notice;
         RentNotice rentNotice = new RentNotice();
         rentNotice.setAdmin(rentAppointment.getFd());
         rentNotice.setUser(rentAppointment.getUser());
@@ -118,7 +119,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
     }
 
     @Override
-    public Integer fdSendErrorToUser(Integer id) {
+    public Integer fdSendErrorToUser(Integer id, String notice) {
         RentAppointment rentAppointment = rentAppointmentMapper.selectByPrimaryKey(id);
         if(rentAppointment==null){
             log.error("方法fdSendErrorToUser--》id:"+id+",获取预约信息失败！");
@@ -129,7 +130,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
         RentNotice rentNotice = new RentNotice();
         rentNotice.setAdmin(rentAppointment.getFd());
         rentNotice.setUser(rentAppointment.getUser());
-        rentNotice.setMessage("预约失败！<br />预约房源:"+fy);
+        rentNotice.setMessage("预约失败！<br />预约房源:"+fy+"<br />房东备注："+notice);
         rentNotice.setFlag(1);
         rentNotice.setSendflag(3);
         rentNotice.setDotime(dTime);

@@ -19,6 +19,8 @@ public class RentAppointment {
 
     private Integer flag;
 
+    private Integer sendtype;
+
     public Integer getId() {
         return id;
     }
@@ -89,5 +91,13 @@ public class RentAppointment {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public Integer getSendtype() {
+        return sendtype;
+    }
+
+    public void setSendtype(Integer sendtype) {
+        this.sendtype = sendtype;
     }
 }

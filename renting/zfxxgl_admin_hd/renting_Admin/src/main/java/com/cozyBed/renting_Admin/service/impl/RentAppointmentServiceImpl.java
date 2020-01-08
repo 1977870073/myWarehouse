@@ -1,6 +1,7 @@
 package com.cozyBed.renting_Admin.service.impl;
 
 import com.cozyBed.renting_Admin.mapper.RentAppointmentMapper;
+import com.cozyBed.renting_Admin.mapper.RentAppointmentMapperExpand;
 import com.cozyBed.renting_Admin.mapper.RentHouseinfoMapper;
 import com.cozyBed.renting_Admin.mapper.RentUserMapper;
 import com.cozyBed.renting_Admin.po.*;
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: renting_Admin
@@ -26,60 +29,41 @@ public class RentAppointmentServiceImpl implements RentAppointmentService {
     @Autowired
     private RentAppointmentMapper rentAppointmentMapper;
     @Autowired
-    private RentHouseinfoMapper rentHouseinfoMapper;
-    @Autowired
-    private RentUserMapper rentUserMapper;
+    private RentAppointmentMapperExpand rentAppointmentMapperExpand;
 
     @Override
-    public Object[] getAppointmentInfo(String user,Integer page) {
-        List<RentAppointmentExtends> rtList = new ArrayList<>();
-        RentAppointmentExample example = new RentAppointmentExample();
-        RentAppointmentExample.Criteria criteria = example.createCriteria();
-        criteria.andFdEqualTo(user);
-        criteria.andFlagEqualTo(0);
-        List<RentAppointment> rsList = rentAppointmentMapper.selectByExample(example);
-        if(ObjectUtil.isEmply(rsList)){
-            return null;
-        }
-        int i = (page-1)*10;
-        int len = (rsList.size()>page*10)?page*10:rsList.size();
-        for(; i<len;i++){
-            RentAppointment r = rsList.get(i);
-            RentAppointmentExtends rex = new RentAppointmentExtends();
-            rex.setRownum(i+1);
-            rex.setId(r.getId());
-            rex.setUser(r.getUser());
-            rex.setFd(r.getFd());
-            rex.setUphone(r.getUphone());
-            rex.setUtime(r.getUtime());
-            rex.setHouse(r.getHouse());
-            rex.setBeizhu(r.getBeizhu());
-            rex.setFlag(r.getFlag());
-            //获取房源标题
-            RentHouseinfoWithBLOBs houseinfo = rentHouseinfoMapper.selectByPrimaryKey(r.getHouse());
-            if(houseinfo==null){
-                continue;
-            }
-            rex.setTitle(houseinfo.getTitle());
-            //获取用户昵称
-            RentUserExample userExample = new RentUserExample();
-            RentUserExample.Criteria userCriteria = userExample.createCriteria();
-            userCriteria.andUsernameEqualTo(r.getUser());
-            userCriteria.andUsertypeEqualTo("0");
-            List<RentUser> userList = rentUserMapper.selectByExample(userExample);
-            if(ObjectUtil.isEmply(userList)){
-                continue;
-            }
-            rex.setUserName(userList.get(0).getName());
-            rtList.add(rex);
-        }
-        return new Object[]{rtList, rsList.size()};
+    public Object[] getAppointmentInfo(String user,Integer page, Integer limit, Integer type) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("fd",user);
+        paramMap.put("flag",0);
+        paramMap.put("sendType",type);
+        paramMap.put("page",page);
+        paramMap.put("pagesize",limit);
+        Integer num = rentAppointmentMapperExpand.selectInfoCount(paramMap);
+        List<Map<String, Object>> rtList = rentAppointmentMapperExpand.selectInfo(paramMap);
+        return new Object[]{rtList, num};
+    }
+
+    @Override
+    public Map<String, Object> getAppointmentInfoById(Integer id) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id",id);
+        return rentAppointmentMapperExpand.selectInfoById(paramMap);
     }
 
     @Override
     public Integer updateAppointmentFlag(Integer id, Integer flag) {
         RentAppointment tt = new RentAppointment();
         tt.setFlag(flag);
+        tt.setId(id);
+        return rentAppointmentMapper.updateByPrimaryKeySelective(tt);
+    }
+
+    @Override
+    public Integer updateAppointmentFlag(Integer id, Integer flag, String time) {
+        RentAppointment tt = new RentAppointment();
+        tt.setFlag(flag);
+        tt.setUtime(time);
         tt.setId(id);
         return rentAppointmentMapper.updateByPrimaryKeySelective(tt);
     }
