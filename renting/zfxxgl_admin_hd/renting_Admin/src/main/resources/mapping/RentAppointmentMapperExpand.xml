@@ -3,15 +3,17 @@
 <mapper namespace="com.cozyBed.renting_Admin.mapper.RentAppointmentMapperExpand" >
     <select id="selectInfo" parameterType="hashmap" resultType="java.util.Map">
         SELECT (@rownum :=@rownum+1) as rownum,a.id, c.name as userName, a.user,a.uname,a.uphone,
-            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%m:%s') as utime,a.beizhu, b.title, a.house
+            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house
             FROM rent_appointment a, rent_houseinfo b ,rent_user c,(select @rownum:=#{page}) as rn
             where a.house=b.id and c.username=a.user and c.userType=0 and a.fd=#{fd} and a.flag=#{flag} and a.sendType=#{sendType}
             order by utime desc limit #{page},#{pagesize}
     </select>
 
     <select id="selectInfoById" parameterType="hashmap" resultType="java.util.Map">
-        SELECT  a.id, c.name as userName,a.user,a.uname,a.uphone,DATE_FORMAT(a.utime,'%Y-%m-%d %H:%m:%s') as utime,a.beizhu, b.title, a.house
+        SELECT  a.id, c.name as userName,a.user,a.uname,a.uphone,DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house
             FROM rent_appointment a, rent_houseinfo b, rent_user c
+            where a.house=b.id and c.username=a.user and c.userType=0 and a.id=#{id}
+            where a.house=b.id and c.username=a.user and c.userType=0 and a.id=#{id}
             where a.house=b.id and c.username=a.user and c.userType=0 and a.id=#{id}
     </select>
 

@@ -1,5 +1,10 @@
 package com.cozyBed.renting_Admin.po;
 
+
+
+
+import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +16,9 @@ import java.util.List;
  * @version 1.0
  * @date 2019/4/3
  */
-public class Choose {
+public class Choose implements Serializable {
+   private static final long serialVersionUID = 1L;
+
    //分别对应首页的五个筛选条件
    private List<String> c1 = new ArrayList<String>();
    private List<String> c2 = new ArrayList<String>();
@@ -210,4 +217,5 @@ public class Choose {
          c5.add(temp5[i]);
       }
    }
+
 }

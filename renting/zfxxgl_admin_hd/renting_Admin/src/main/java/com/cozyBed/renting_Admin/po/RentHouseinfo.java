@@ -1,6 +1,10 @@
 package com.cozyBed.renting_Admin.po;
 
-public class RentHouseinfo {
+import java.io.Serializable;
+
+public class RentHouseinfo implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Integer id;
 
     private Integer price;

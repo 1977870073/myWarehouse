@@ -7,6 +7,17 @@ spring:
     password: 123456
     url: jdbc:mysql://localhost:3306/renting?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&userAffectRows=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0  # 数据库索引
+    host: 127.0.0.1 # 宿主机IP
+    port: 6379 # 端口号
+    password:  # 密码，默认为空
+    timeout: 3000 # 连接超时时间 单位 ms（毫秒）
+    lettuce:
+      pool:
+        max-idle: 8 # 连接池中的最大空闲连接，默认值也是8
+        min-idle: 0 # 连接池中的最小空闲连接，默认值也是0
+        max-wait: 2000 # 连接池最大阻塞等待时间，如果赋值为-1，则表示不限制
 
 mybatis:
   type-aliases-package: com.cozyBed.renting_Admin.po

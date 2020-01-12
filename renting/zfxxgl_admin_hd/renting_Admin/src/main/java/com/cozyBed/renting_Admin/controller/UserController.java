@@ -15,7 +15,7 @@ import java.util.List;
  * @ProjectName: renting_Admin
  * @Package: com.cozyBed.renting_Admin.controller
  * @ClassName: UserController
- * @Description: java类作用描述
+ * @Description: 房东个人主页
  * @Author: zy
  * @CreateDate: 2020/1/4 11:54
  * @Version: 1.0

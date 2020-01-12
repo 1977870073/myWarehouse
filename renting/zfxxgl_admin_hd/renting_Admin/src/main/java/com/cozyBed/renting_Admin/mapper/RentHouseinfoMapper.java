@@ -5,6 +5,7 @@ import com.cozyBed.renting_Admin.po.RentHouseinfoExample;
 import com.cozyBed.renting_Admin.po.RentHouseinfoWithBLOBs;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -19,10 +20,11 @@ public interface RentHouseinfoMapper {
 
     int insertSelective(RentHouseinfoWithBLOBs record);
 
+    @Cacheable(value = "hinfo")
     List<RentHouseinfoWithBLOBs> selectByExampleWithBLOBs(RentHouseinfoExample example);
-
+    @Cacheable(value = "hinfo")
     List<RentHouseinfo> selectByExample(RentHouseinfoExample example);
-
+    @Cacheable(value = "hinfo")
     RentHouseinfoWithBLOBs selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") RentHouseinfoWithBLOBs record, @Param("example") RentHouseinfoExample example);

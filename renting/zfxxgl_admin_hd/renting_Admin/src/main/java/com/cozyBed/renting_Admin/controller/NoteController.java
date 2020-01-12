@@ -38,8 +38,8 @@ public class NoteController {
     public Integer hasNewNote(HttpServletRequest request)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List<RentNotice> list = rentNoticeService.getNotice(user,1);
-        if(ObjectUtil.isEmply(list)){
+        Integer result = rentNoticeService.hasNewNotice(user);
+        if(result<=0){
             return 0;
         }
         return 1;
@@ -55,10 +55,10 @@ public class NoteController {
     public Map<String, Object> getData(HttpServletRequest request)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List<RentNotice> list = rentNoticeService.getNotice(user,0);
+        List< Map<String, Object>> rtmap = rentNoticeService.getNotice(user);
         Integer ff = rentNoticeService.updateNoticFlagToFD(user,0);
         Map<String, Object> map  =new HashMap<>();
-        map.put("queryInfo", list);
+        map.put("queryInfo", rtmap);
         return map;
     }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cozyBed.renting_Admin.mapper.RentNoticeMapperExpand" >
+    <!-- 查询消息 -->
+    <select id="selectInfo" parameterType="hashmap" resultType="hashmap">
+        select id, admin, user,  message, flag, sendFlag, DATE_FORMAT(doTime,'%Y-%m-%d %H:%i:%s') as doTime from rent_notice where user=#{user} and sendFlag=#{sendFlag} order by doTime desc
+    </select>
+    <!-- 是否有新的消息 -->
+    <select id="hasNewNotice" parameterType="hashmap" resultType="java.lang.Integer">
+        select count(1) as num from rent_notice where user=#{user} and sendFlag=#{sendFlag} and flag=1
+    </select>
+
+</mapper>

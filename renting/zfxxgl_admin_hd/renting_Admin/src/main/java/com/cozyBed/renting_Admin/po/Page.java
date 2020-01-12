@@ -1,5 +1,7 @@
 package com.cozyBed.renting_Admin.po;
 
+import java.io.Serializable;
+
 /**
  * <p>Title: Page</p>
  * <p>Description: 分页类</p>
@@ -8,7 +10,8 @@ package com.cozyBed.renting_Admin.po;
  * @version 1.0
  * @date 2019/4/1
  */
-public class Page {
+public class Page implements Serializable {
+    private static final long serialVersionUID = 1L;
     //需初始化
     private int pagNum;// 当前的页数
     private int pageSize;// 每页显示数量，

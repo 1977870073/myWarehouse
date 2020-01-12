@@ -3,6 +3,7 @@ package com.cozyBed.renting_Admin.service;
 import com.cozyBed.renting_Admin.po.RentNotice;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: RentNoticeService</p>
@@ -26,7 +27,15 @@ public interface RentNoticeService {
      * @param user
      * @return
      */
-    public List<RentNotice> getNotice(String user, Integer flag)throws Exception;
+    public List<Map<String, Object>> getNotice(String user)throws Exception;
+
+    /**
+     * 是否有新的消息
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    public Integer hasNewNotice(String user)throws  Exception;
 
     /**
      * 修改房东通知状态

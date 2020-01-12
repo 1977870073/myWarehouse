@@ -3,6 +3,7 @@ package com.cozyBed.renting_Admin.service.impl;
 import com.cozyBed.renting_Admin.mapper.RentAppointmentMapper;
 import com.cozyBed.renting_Admin.mapper.RentHouseinfoMapper;
 import com.cozyBed.renting_Admin.mapper.RentNoticeMapper;
+import com.cozyBed.renting_Admin.mapper.RentNoticeMapperExpand;
 import com.cozyBed.renting_Admin.po.*;
 import com.cozyBed.renting_Admin.service.RentNoticeService;
 import org.slf4j.Logger;
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: RentNoticeServiceImpl</p>
@@ -27,6 +30,8 @@ public class RentNoticeServiceImpl implements RentNoticeService {
     private final static Logger log = LoggerFactory.getLogger(RentNoticeServiceImpl.class);
     @Autowired
     private RentNoticeMapper noticeMapper;
+    @Autowired
+    private RentNoticeMapperExpand rentNoticeMapperExpand;
     @Autowired
     private RentAppointmentMapper rentAppointmentMapper;
     @Autowired
@@ -43,21 +48,26 @@ public class RentNoticeServiceImpl implements RentNoticeService {
         return noticeMapper.insertSelective(notice);
     }
     /**
-     * 是否有新的消息
+     * 获取发送给房东的消息
      * @param user
      * @return
      */
     @Override
-    public List<RentNotice> getNotice(String user, Integer flag)throws Exception {
-        RentNoticeExample example = new RentNoticeExample();
-        RentNoticeExample.Criteria criteria = example.createCriteria();
-        if(flag!=0){
-            criteria.andFlagEqualTo(flag);
-        }
-        criteria.andUserEqualTo(user);
-        criteria.andSendflagEqualTo(1);
-        return noticeMapper.selectByExampleWithBLOBs(example);
+    public List< Map<String, Object>> getNotice(String user)throws Exception {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("user", user);
+        paramMap.put("sendFlag", 1);
+        return rentNoticeMapperExpand.selectInfo(paramMap);
     }
+
+    @Override
+    public Integer hasNewNotice(String user) throws Exception {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("user", user);
+        paramMap.put("sendFlag", 1);
+        return rentNoticeMapperExpand.hasNewNotice(paramMap);
+    }
+
 
     /**
      * 修改房东通知状态

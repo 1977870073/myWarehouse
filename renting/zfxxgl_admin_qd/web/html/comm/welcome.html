@@ -354,12 +354,12 @@
                                     layer.msg("您暂未登陆！",{icon: 2, anim: 6})
                                     setTimeout(function () {
                                         parent.window.location.href = "/web/zf/html/login.html"
-                                    },2000);
+                                    },1000);
                                 }else if(err.status==1001){
                                     layer.msg("权限不足！",{icon: 2, anim: 6})
 									setTimeout(function () {
                                         history.back();
-                                    },2000);
+                                    },1000);
                                 }else{
                                     layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
                                 }

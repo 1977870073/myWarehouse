@@ -1,9 +1,12 @@
 package com.cozyBed.renting_Admin.po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentHouseinfoExample {
+public class RentHouseinfoExample implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     protected String orderByClause;
 
     protected boolean distinct;

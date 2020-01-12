@@ -21,8 +21,17 @@
       <file leaf-file-name="shenpi.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="168">
+              <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -53,11 +62,13 @@
       <find>content_info</find>
       <find>update</find>
       <find>shenpi</find>
+      <find>err</find>
     </findStrings>
     <replaceStrings>
       <replace>/web/zf/static/images/img</replace>
       <replace>classList.add</replace>
       <replace>classList.remove</replace>
+      <replace>res</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -71,7 +82,6 @@
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/selectHouse.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/css/old/general.css" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/general.js" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/approval.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/details.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/css/old/details.css" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/update.html" />
@@ -98,15 +108,16 @@
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/user/home.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/user/home.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/selectHouse.js" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/selectHouse.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/css/old/yuyue.css" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/yuyue.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/index.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/yuyue.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/approval.js" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html" />
       </list>
     </option>
   </component>
@@ -130,6 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,11 +206,27 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renting" type="462c0819:PsiDirectoryNode" />
+              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renting" type="462c0819:PsiDirectoryNode" />
+              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="old" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -297,15 +325,17 @@
       <workItem from="1578126972881" duration="2931000" />
       <workItem from="1578142502304" duration="6886000" />
       <workItem from="1578320165559" duration="4276000" />
-      <workItem from="1578440813776" duration="23427000" />
+      <workItem from="1578440813776" duration="23808000" />
+      <workItem from="1578544616404" duration="642000" />
+      <workItem from="1578704937105" duration="3392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217358000" />
+    <option name="totallyTimeSpent" value="221773000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16776751" />
@@ -419,13 +449,6 @@
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/images/img/null.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/approval.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5571">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/general.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -537,13 +560,6 @@
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/fonts_expand/demo.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/approval.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="35" column="78" lean-forward="true" selection-start-line="35" selection-start-column="78" selection-end-line="35" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/notice.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-437">
@@ -579,20 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/selectHouse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="89" selection-start-line="89" selection-end-line="89" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="354" column="60" lean-forward="true" selection-start-line="354" selection-start-column="60" selection-end-line="354" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/details.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -621,6 +623,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="28" column="87" selection-start-line="28" selection-start-column="81" selection-end-line="28" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -628,20 +637,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/fdgl/index.html">
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/selectHouse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="28" column="87" selection-start-line="28" selection-start-column="81" selection-end-line="28" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1273">
+          <caret line="89" selection-start-line="89" selection-end-line="89" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/approval.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/approval.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        <state relative-caret-position="168">
+          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
         </state>
       </provider>
     </entry>

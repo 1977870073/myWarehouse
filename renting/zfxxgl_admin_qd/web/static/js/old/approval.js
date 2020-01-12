@@ -12,8 +12,24 @@ window.onload = function(){
 			success: function(data){
 				init(data);
 			},
-			error: function(errorMsg){
-				alert("网络链接失败！")
+			error: function(err){
+                if(err.status>=400&&err.status<500){
+                    alert(err.status+"网络异常！")
+                }else if(err.status>=500&&err.status<600){
+                    alert(err.status+"服务器异常！")
+                }else if(err.status==1000){
+                    alert("您暂未登陆！")
+                    setTimeout(function () {
+                        parent.window.location.href = "/web/zf/html/login.html"
+                    },1000);
+                }else if(err.status==1001){
+                    alert("权限不足！")
+                    setTimeout(function () {
+                        history.back();
+                    },1000);
+                }else{
+                    alert(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                }
 			}
 		});
 	}
