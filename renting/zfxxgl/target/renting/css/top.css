@@ -1,0 +1,167 @@
+/*导航栏样式*/
+.top{
+    width: 100%;
+    min-width: 1200px;
+    height: 50px;
+    background: #c73733;
+    /*设置阴影*/
+    -webkit-box-shadow: 3px 3px 4px #bcbcbc;
+    -moz-box-shadow: 3px 3px 4px #BCBCBC;
+    box-shadow: 3px 3px 4px #BCBCBC;
+}
+.top .top-title{
+    margin-left: 160px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+    float: left;
+}
+.top .top-general{
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+}
+.top .top-general:hover{
+    background: #ac0000;
+}
+.top-hidden{
+    position: absolute;
+    z-index: 1000;
+    width: 200px;
+    height: 126px;
+    background: rgba(255,255,255,0);
+    top: 24px;
+
+}
+.top-hidden .sanjiao{
+    border:13px solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    width: 0;
+    margin-left: 10px;
+}
+.top-hidden .hidden-content{
+    width: 200px;
+    height: 100px;
+    border: 1px solid;
+    border-color: transparent #9d9d9d #9d9d9d #9d9d9d;
+    background: rgba(255,255,255,1);
+    /*设置阴影*/
+    -webkit-box-shadow: 3px 3px 4px #bcbcbc;
+    -moz-box-shadow: 3px 3px 4px #BCBCBC;
+    box-shadow: 3px 3px 4px #BCBCBC;
+    padding: 5px 5px;
+    font-family: Microsoft YaHei;
+    color: #bcbcbc;
+}
+.top .top-right{
+    float: right;
+    margin-right:10%;
+}
+.top .top-right img{
+    width: 20px;
+}
+.top .top-right .userLogin{
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+    float: left;
+    display: inline-block;
+}
+.top .top-right .userRegister{
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    float: left;
+}
+.top .top-right .notice{
+    position: relative;
+}
+.top .top-right .notice span{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+.top .top-right div span{
+    font-family: Microsoft YaHei;
+    color: #ffffff;
+}
+.top .top-right .top-hidden .hidden-content a{
+    width: 100px;
+    height: 20px;
+    color: #4b4b4b;
+    font-family: Microsoft YaHei;
+    cursor: pointer;
+    padding: 5px 0px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.top .top-right .top-hidden .hidden-content a:hover{
+    text-decoration: underline;
+    color: #ff0000;
+}
+
+/*静态搜索样式------------------------------------------------------------------------*/
+.static-search{
+    width: 100%;
+    height: 100px;
+    min-width: 1200px;
+    background: #f0f0f0;
+    border: 1px solid;
+    border-color:transparent transparent #c0c0c0 transparent ;
+    margin-top: 4px ;
+}
+.static-search .search-text{
+    border: 1px solid #d2d2d2;
+    border-right: 0;
+    box-sizing: content-box;
+    color: #666;
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    outline: 0;
+    margin:30px 0px 0px 160px ;
+    padding: 9px 10px;
+    width: 437px;
+    font-family: Microsoft YaHei;
+}
+.static-search .search-button{
+    background: #c00;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    transition: all .2s linear 0s;
+    width: 89px;
+    margin-top:30px ;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+}
+.static-search .search-button:hover{
+    background: #e00;
+}

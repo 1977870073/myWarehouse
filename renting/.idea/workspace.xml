@@ -18,20 +18,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shenpi.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
+      <file leaf-file-name="update.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            <state relative-caret-position="445">
+              <caret line="62" column="11" lean-forward="true" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
+      <file leaf-file-name="forget.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/forget.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
+            <state relative-caret-position="209">
+              <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="24" column="180" selection-start-line="24" selection-start-column="161" selection-end-line="24" selection-end-column="180" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,9 +56,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -88,14 +103,12 @@
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/approval.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/detailsRead.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/ad.html" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/register.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/other/tips.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/update.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/welcome.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/login.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/selectHouse.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/addHouse.html" />
-        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/forget.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/main.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/update.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/update.js" />
@@ -118,6 +131,9 @@
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/approval.js" />
         <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_qd/web/index.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/register.html" />
+        <option value="$PROJECT_DIR$/zfxxgl_admin_qd/web/html/forget.html" />
       </list>
     </option>
   </component>
@@ -131,17 +147,15 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="430" />
-    <option name="y" value="50" />
-    <option name="width" value="1130" />
-    <option name="height" value="930" />
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,61 +186,13 @@
               <item name="renting" type="462c0819:PsiDirectoryNode" />
               <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="fdgl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="htgl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renting" type="462c0819:PsiDirectoryNode" />
-              <item name="zfxxgl_admin_qd" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="old" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,18 +204,18 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_qd\web\static" />
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\fonts_expand" />
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\images\img" />
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js\old" />
+      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\css\old" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\html\comm" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\html\fdgl" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\images\img" />
       <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\fonts_expand" />
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\images\img" />
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\js\old" />
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\css\old" />
-      <recent name="D:\gitWorkspace\myWarehouse\renting\zfxxgl_admin_qd\web\static\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -327,15 +293,19 @@
       <workItem from="1578320165559" duration="4276000" />
       <workItem from="1578440813776" duration="23808000" />
       <workItem from="1578544616404" duration="642000" />
-      <workItem from="1578704937105" duration="3392000" />
+      <workItem from="1578704937105" duration="3555000" />
+      <workItem from="1578818201562" duration="1127000" />
+      <workItem from="1578819576430" duration="277000" />
+      <workItem from="1578834439778" duration="2907000" />
+      <workItem from="1578876934550" duration="14271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221773000" />
+    <option name="totallyTimeSpent" value="240518000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16776751" />
@@ -369,16 +339,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/htgl/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/lib/echarts/chart/k.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/module/tool.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -432,36 +392,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/ad.html" />
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="123" column="13" selection-start-line="118" selection-start-column="12" selection-end-line="123" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/images/img/null.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/general.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/forget.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="71" column="67" selection-start-line="71" selection-start-column="67" selection-end-line="71" selection-end-column="67" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/update.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -505,23 +437,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/other/tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="5" column="89" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/new_file.html" />
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/selectHouse.html" />
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/test.html" />
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fly-3.0/fly-3.0/html/user/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -581,20 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/selectHouse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/details.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -637,13 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/selectHouse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="89" selection-start-line="89" selection-end-line="89" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/approval.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -660,15 +557,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="7788">
           <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/shenpi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        <state relative-caret-position="322">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/selectHouse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/comm/selectHouse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_qd/web/index.html" />
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="118" column="53" lean-forward="true" selection-start-line="118" selection-start-column="53" selection-end-line="118" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/static/js/old/general.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/other/tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="24" column="180" selection-start-line="24" selection-start-column="161" selection-end-line="24" selection-end-column="180" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/forget.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zfxxgl_admin_qd/web/html/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="62" column="11" lean-forward="true" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
         </state>
       </provider>
     </entry>

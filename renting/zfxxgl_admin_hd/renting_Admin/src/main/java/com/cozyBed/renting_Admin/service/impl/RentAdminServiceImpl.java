@@ -65,6 +65,14 @@ public class RentAdminServiceImpl implements RentAdminService {
      */
     @Override
     public String registerFD(String username, String password, String name, String email)throws Exception  {
+        RentUserExample example = new RentUserExample();
+        RentUserExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(username);
+        criteria.andUsertypeEqualTo("1");
+        List<RentUser> exit = rentUserMapper.selectByExample(example);
+        if(exit.size()>0){
+            return "exit";
+        }
         RentUser user = new RentUser();
         user.setUsername(username);
         user.setPassword(password);
@@ -77,11 +85,33 @@ public class RentAdminServiceImpl implements RentAdminService {
             return "error";
         }
         String code = UUID.randomUUID().toString();
+        if(!RedisUtil.setString(code, username)){
+            return "error";
+        }
         username = Aes.aesEncrypt(username, Aes.KEY);
         code = Aes.aesEncrypt(code, Aes.KEY);
         Sender sender = new Sender(name, username, email, code, 1,0);
         pool.send(sender);
         return "success";
+    }
+
+    /**
+     * 验证房东账号是否已存在
+     * @param username
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public String FDisExit(String username) throws Exception {
+        RentUserExample example = new RentUserExample();
+        RentUserExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(username);
+        criteria.andUsertypeEqualTo("1");
+        List<RentUser> exit = rentUserMapper.selectByExample(example);
+        if(exit==null||exit.size()<=0){
+            return "ok";
+        }
+        return "exit";
     }
 
     /**

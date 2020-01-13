@@ -1,0 +1,307 @@
+body{
+    width: 100%;
+    min-width: 1000px;
+    height: 100%;
+    background: #f8f8f8;
+}
+/*滚动显示搜索样式------------------------------------------------------------------------*/
+.scroll-search{
+    width: 1200px;
+    height: 70px;
+    z-index: 1000;
+    background: #f0f0f0;
+    position: fixed;
+    left: 160px;
+    top: 0px;
+    box-shadow: 1px 1px 3px #BCBCBC;
+}
+.scroll-search .search-close{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 1001;
+    background: url("../img/close.gif") no-repeat;
+    right: -7px;
+    bottom: -7px;
+}
+.scroll-search .search-text{
+    border: 1px solid #d2d2d2;
+    border-right: 0;
+    box-sizing: content-box;
+    color: #666;
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    outline: 0;
+    margin-left:160px ;
+    padding: 9px 10px;
+    width: 437px;
+    font-family: Microsoft YaHei;
+}
+.scroll-search .search-button{
+    background: #c00;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    transition: all .2s linear 0s;
+    width: 89px;
+    margin-top:14px ;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+}
+.scroll-search .search-button:hover{
+    background: #e00;
+}
+.scroll-search .renting-button{
+    background: #08adb9;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    transition: all .2s linear 0s;
+    width: 89px;
+    margin-top:14px ;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+}
+.scroll-search .renting-button:hover{
+    background: #08d4e0;
+}
+/*筛选样式------------------------------------------------------------------------*/
+.choseNav{
+    width: 1000px;
+    background: #FFFFFF;
+    border:1px solid rgba(192, 192, 192, 0.45);
+    margin: 30px 0 0 160px;
+}
+.choseNav .choseNavTop{
+    width: 100%;
+    height: 50px;
+    background: #f0f0f0;
+    line-height: 50px;
+    padding-left: 20px;
+    font-family: Microsoft YaHei;
+    color: rgba(72, 72, 72, 0.64);
+}
+.choseNav .choseNavLists{
+    width: 100%;
+    height: 200px;
+    padding: 10px 15px;
+}
+.choseNav .choseNavLists .choseList{
+    width: 100%;
+    margin-top: 12px;
+    font-size: 13px;
+    font-family: Microsoft YaHei;
+}
+.choseNav .choseNavLists .choseList dt{
+    float: left;
+}
+.choseNav .choseNavLists .choseList dd a{
+    color: #000;
+    margin-left: 8px;
+}
+.choseNav .choseNavLists .choseList .listFocus{
+    color: #ff0000;
+    font-weight: bold;
+}
+.choseNav .choseNavLists .choseList dd a:hover{
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/*右侧菜单样式------------------------------------------------------------------------*/
+.rightNav{
+    width: 44px;
+    height: 132px;
+    z-index: 1000;
+    position: fixed;
+    right: 0px;
+    bottom: 200px;
+}
+.rightNav .fabu{
+    width: 44px;
+    height: 44px;
+    background: url("../img/floatbg.png") no-repeat;
+    background-position: 0 -1px;
+}
+.rightNav .fabu:hover{
+    background-position: -44px -1px;
+}
+.rightNav .shoucang{
+    width: 44px;
+    height: 44px;
+    background: url("../img/floatbg.png") no-repeat;
+    background-position: 0 -136px;
+}
+.rightNav .shoucang:hover{
+    background-position: -44px -136px;
+}
+.rightNav .toTop{
+    width: 44px;
+    height: 44px;
+    background: url("../img/floatbg.png") no-repeat;
+    background-position: -44px -225px;
+}
+
+/*内容样式------------------------------------------------------------------------*/
+
+
+.content{
+    width: 900px;
+    background: #FFFFFF;
+    margin: 50px 0px 40px 160px;
+    border:1px solid rgba(192, 192, 192, 0.45);
+}
+.content .content-top{
+    width: 100%;
+    height: 50px;
+    background: #f0f0f0;
+    padding: 15px;
+    font-weight: bold;
+    color: rgba(72, 72, 72, 0.64);
+}
+.content .conList{
+    width: 880px;
+    height: 215px;
+    border: 1px solid;
+    border-color: transparent transparent rgb(244, 244, 244) transparent;
+    padding: 10px;
+    margin: 0 auto;
+}
+.content .conList dt{
+    float:left;
+    height: 100%;
+}
+.content .conList dt a img{
+    margin-top: 15px;
+}
+.content .conList dd{
+    margin: 15px 0 0 240px;
+}
+.content .conList dd p{
+    margin-top: 10px;
+}
+.content .conList dd p:nth-of-type(1) a{
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
+.content .conList dd p:nth-of-type(1) a:hover{
+    color: #ff0000;
+    text-decoration: underline;
+}
+.content .conList dd p:nth-of-type(2){
+    color: #000;
+    font-weight: 600;
+    font-size: 17px;
+}
+.content .conList dd p:nth-of-type(2) span{
+    margin: 0 15px 0 15px;
+    color: rgba(75, 75, 75, 0.75);
+    font-size: 15px;
+}
+.content .conList dd p:nth-of-type(3){
+    color: rgba(114, 114, 114, 0.83);
+    font-size: 13px;
+}
+.content .conList dd p:nth-of-type(4){
+    background: url(../img/subInforBg.gif) left no-repeat;
+    padding-left: 30px;
+    color: rgba(114, 114, 114, 0.83);
+    font-size: 13px;
+}
+.content .conList dd p:nth-of-type(5){
+    font-size: 14px;
+}
+.content .conList dd p:nth-of-type(5) span{
+    color: #f32e2e;
+    font-size: 28px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+
+/*底部样式------------------------------------------------------------------------*/
+.bottom{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    color: #c0c0c0;
+}
+.bottom i{
+    z-index: -1;
+}
+
+
+
+/*分页样式*/
+.page{
+    margin: 30px auto;
+    width: 750px;
+    height: 34px;
+}
+.page a{
+    color: #000 !important;
+    height: 34px;
+    padding: 0 15px;
+    margin: 0 2px;
+    line-height: 34px;
+    border: 1px solid #e3e3e3;
+    zoom: 1;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.page a:hover{
+    color: red;
+    border-color: red;
+}
+.page .page_active{
+    color: red;
+    border-color: red;
+}
+.page span{
+    margin: 0 5px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    /*设置对其方式*/
+    vertical-align: top;
+    color: #727272;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

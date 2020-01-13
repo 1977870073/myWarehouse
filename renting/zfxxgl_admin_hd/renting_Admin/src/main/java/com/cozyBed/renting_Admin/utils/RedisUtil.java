@@ -18,7 +18,7 @@ import redis.clients.jedis.Jedis;
 
 public class RedisUtil {
     private final static Logger log = LoggerFactory.getLogger(RedisUtil.class);
-    private final static String REDIS_HOST = "localhost";
+    private final static String REDIS_HOST = "127.0.0.1";
     private static Jedis jedis;
 
     static {
@@ -67,4 +67,5 @@ public class RedisUtil {
         }
         return jedis.get(key);
     }
+
 }

@@ -1,0 +1,143 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: rgba(192, 192, 192, 0.15);
+}
+.conTop{
+    width: 100%;
+    height: 100px;
+    padding-left: 200px;
+    background: rgba(192, 192, 192, 0.66);
+    line-height: 100px;
+    font-weight: 500;
+    font-size: 25px;
+}
+.content .txt{
+    border: 1px solid #d2d2d2;
+    box-sizing: content-box;
+}
+.content .conInfo{
+    width: 800px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    overflow: hidden;
+    zoom:1;
+    padding: 10px;
+}
+.content .conInfo dl{
+    margin: 10px 0 ;
+}
+.content .conInfo dl dt{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 600;
+    text-align: right;
+    position: relative;
+    float: left;
+    margin-right: 15px;
+    
+}
+.content .conInfo dl dd input[type=text]{
+    font-size: 17px;
+    padding: 3px 0px 3px 10px;
+    color: #727272;
+    font-family: "Microsoft YaHei";
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.content .conInfo dl dd select{
+    background:#fafdfe;
+    height:28px;
+    width:100px;
+    line-height:28px;
+    border:1px solid #9bc0dd;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.content .conInfo dl:nth-of-type(15) dd .picshow{
+    width: 700px;
+    margin: 10px 0 10px 100px;
+    /*清除浮动使父盒子自适应高度*/
+    overflow: hidden;
+    zoom:1;
+}
+.content .conInfo dl:nth-of-type(15) dd .picshow p{
+    color: #0557da;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.content .conInfo dl:nth-of-type(15) dd #add{
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 600;
+    background: #336dda;
+    border: 0;
+    border-radius: 3px;
+    transition: all 1s ease;
+}
+.content .conInfo dl:nth-of-type(15) dd #add:hover{
+    background:  #3385ff;
+}
+.content .conInfo #submit{
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 600;
+    background: #ca3c10;
+    border: 0;
+    border-radius: 3px;
+    transition: all 1s ease;
+    margin: 20px 0 30px 250px;
+}
+.content .conInfo #submit:hover{
+    background: #fd4410;
+}
+/*图片上传显示样式---------------------------------------------------------------------------------*/
+.result{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.result img{
+    position: relative;
+}
+#file_input{
+    display: none;
+}
+.delete{
+    width: 200px;
+    height:200px;
+    position: absolute;
+    text-align: center;
+    line-height: 200px;
+    z-index: 10;
+    font-size: 30px;
+    background-color: rgba(255,255,255,0.8);
+    color: #777;
+    opacity: 0;
+    transition-duration: 0.7s;
+    -webkit-transition-duration: 0.7s;
+}
+.delete:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.float{
+    float:left;
+    width : 200px;
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}

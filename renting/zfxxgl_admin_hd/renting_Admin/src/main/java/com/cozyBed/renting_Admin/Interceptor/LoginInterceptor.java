@@ -46,18 +46,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         String user = (String)session.getAttribute("user");
         String uType = (String)session.getAttribute("type");
         if(user!=null){
-//            if(!ObjectUtil.isEmply(uType)){
-//                if(uType.equals("cc0111")){
-//                    if(url.indexOf("index")>=0){
-//                        httpServletResponse.addHeader("FLAG", "-1");
-//                        httpServletResponse.setHeader("SESSIONSTATUS", "TIMEOUT");
-//                        httpServletResponse.setHeader("CONTEXTPATH", "http://localhost:7049/web/zf/html/login.html");//重定向目标地址
-//                        httpServletResponse.setStatus(1001);
-//                        log.debug("请求资源："+url+"，权限不足，进行拦截!");
-//                        return false;
-//                    }
-//                }
-//            }
             if(!checkAccess(url,uType)){
                 httpServletResponse.addHeader("FLAG", "-1");
                 httpServletResponse.setHeader("SESSIONSTATUS", "TIMEOUT");

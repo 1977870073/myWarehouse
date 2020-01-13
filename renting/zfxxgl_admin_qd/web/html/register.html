@@ -22,8 +22,9 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名</label>
 					<div class="layui-input-inline">
-					  <input type="text" name="username" lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+					  <input type="text" name="username" id="username" lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input" onblur="checkFD()">
 					</div>
+					<div class="layui-form-mid" style="color: #fd4410;display: none;" id="exitFD">用户名已存在！</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">昵称</label>
@@ -61,7 +62,9 @@
 		<script src="../static/js/tools/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/tools/aes.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/old/general.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var exit = true;
 			layui.use(['form'],function (){
 				var form = layui.form;
 				//自定义验证规则
@@ -84,31 +87,42 @@
                         password = encrypt(password);
                         var nc = data.field.ncname;
                         var email = data.field.email;
-                        $.ajax({
-                            url: '/web/do/login/registerFD',
-                            type: 'post',
-                            data: {"arg1":username,"arg2":password,"arg3":nc,"arg4":email},
-                            dataType: 'text',
-                            success: function (data) {
-                                if(data=="success"){
+                        if(exit){
+                            $.ajax({
+                                url: '/web/do/login/registerFD',
+                                type: 'post',
+                                data: {"arg1":username,"arg2":password,"arg3":nc,"arg4":email},
+                                dataType: 'text',
+                                success: function (data) {
+                                    if(data=="success"){
+                                        layer.close(index);
+                                        layer.msg("注册成功！请前往邮箱激活。");
+                                        setTimeout(function () {
+                                            window.location.href = './login.html';
+                                        },1000)
+                                    }else if(data=="exit"){
+                                        layer.close(index);
+                                        layer.msg("用户名已存在");
+                                    }else{
+                                        layer.close(index);
+                                        layer.msg("系统异常");
+                                    }
+                                },
+                                error: function(err){
                                     layer.close(index);
-                                    window.location.href = 'login.html';
-                                }else{
-                                    layer.close(index);
-                                    layer.msg("系统异常");
-								}
-                            },
-                            error: function(err){
-                                layer.close(index);
-                                if(err.status>=400&&err.status<500){
-                                    layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
-                                }else if(err.status>=500&&err.status<600){
-                                    layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
-                                }else{
-                                    layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                                    if(err.status>=400&&err.status<500){
+                                        layer.msg(err.status+"网络异常！",{icon: 2, anim: 6})
+                                    }else if(err.status>=500&&err.status<600){
+                                        layer.msg(err.status+"服务器异常！",{icon: 2, anim: 6})
+                                    }else{
+                                        layer.msg(err.status+ '(' + err.statusText + ')',{icon: 2, anim: 6})
+                                    }
                                 }
-                            }
-                        })
+                            })
+						}else{
+                            layer.close(index);
+                            layer.msg("用户名已存在,请换个用户名试试。");
+						}
 					}else{
                         layer.close(index);
 						layer.msg("密码不一致");
@@ -116,6 +130,26 @@
 					return false;
 				});
 			})
+			function checkFD() {
+				var username = $("#username").val();
+				if(!isEmpty(username)){
+                    username = encrypt(username);
+				    $.ajax({
+						type: 'post',
+						url: '/web/do/login/FDisExit',
+						data: {"arg1": username},
+						success:function (data) {
+							if(data=="exit"){
+                                exit=false;
+								$("#exitFD").css("display","block");
+							}else{
+							    exit=true;
+                                $("#exitFD").css("display","none");
+							}
+                        }
+					});
+				}
+            }
             function encrypt(word){
                 var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
                 var srcs = CryptoJS.enc.Utf8.parse(word);

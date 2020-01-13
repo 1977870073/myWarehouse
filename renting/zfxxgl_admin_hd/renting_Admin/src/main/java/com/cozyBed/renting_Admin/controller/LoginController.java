@@ -137,6 +137,19 @@ public class LoginController {
     }
 
     /**
+     * 判断房东账号是否存在
+     * @param arg1
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/FDisExit")
+    public String FDisExit(String arg1)throws  Exception{
+        String username = Aes.aesDecrypt(arg1,Aes.KEY);
+        String result = adminService.FDisExit(username);
+        return result;
+    }
+
+    /**
      * 忘记密码--发送邮箱
      * @param arg1 用户名
      * @param arg2 邮箱
@@ -211,13 +224,13 @@ public class LoginController {
         String code = Aes.aesDecrypt(arg2,Aes.KEY);
         String result = adminService.activation(0,0,username,code);
         if("success".equals(result)){
-            return new String[]{"success","http://localhost:8080/renting/login/init.action","前往登陆页面"};
+            return new String[]{"success","/login/init.action","前往登陆页面"};
         }
         return new String[]{"error"};
     }
 
     /**
-     * 房东用户密码
+     * 用户忘记密码
      * @param arg1  用户
      * @param arg2  激活码
      * @return

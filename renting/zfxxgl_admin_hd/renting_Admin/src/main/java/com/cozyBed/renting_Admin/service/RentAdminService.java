@@ -38,6 +38,14 @@ public interface RentAdminService {
     public String registerFD(String username, String password, String name, String email)throws Exception ;
 
     /**
+     * 验证房东账号是否已存在
+     * @param username
+     * @return
+     * @throws Exception
+     */
+    public String FDisExit(String username)throws  Exception;
+
+    /**
      * 房东忘记密码发送邮件
      * @param username
      * @param email
