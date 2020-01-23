@@ -1,0 +1,38 @@
+body .layer-ext-moon .layui-layer-title{
+    background: #f6f6f6;
+    color: #212a31;
+    font-size: 16px;
+    font-weight: 700;
+    height: 46px;
+    line-height: 46px;
+    border-bottom: 1px solid #D5D5D5;
+}
+body .layer-ext-moon .layui-layer-btn{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #f0f4f7;
+    border-top: 1px #c7c7c7 solid;
+}
+body .layer-ext-moon .layui-layer-btn a{
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0 7px;
+    padding: 6px 20px;
+    background: #fff;
+    border-color: #e8e6e6;
+    color: #333;
+    border-radius: 3px;
+    display: inline-block;
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    outline: 0;
+}
+body .layer-ext-moon .layui-layer-btn .layui-layer-btn0 {
+    background: #0071ce;
+    color: #fff;
+    border: 1px solid #0064b6;
+}

@@ -25,6 +25,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
         RentNoticeExample example = new RentNoticeExample();
         RentNoticeExample.Criteria criteria = example.createCriteria();
         criteria.andUserEqualTo(user);
+        criteria.andSendflagNotEqualTo(1);
         return rentNoticeMapper.selectByExampleWithBLOBs(example);
     }
 
@@ -37,7 +38,16 @@ public class RentNoticeServiceImpl implements RentNoticeService {
     }
 
     @Override
-    public int deleteNotice(Integer id) throws Exception {
+    public Integer delNotice(Integer id) throws Exception {
         return rentNoticeMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Integer delAllNotice(String user, Integer notEqualsSendFlag) throws Exception {
+        RentNoticeExample example = new RentNoticeExample();
+        RentNoticeExample.Criteria criteria = example.createCriteria();
+        criteria.andUserEqualTo(user);
+        criteria.andSendflagNotEqualTo(notEqualsSendFlag);
+        return rentNoticeMapper.deleteByExample(example);
     }
 }

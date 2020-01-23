@@ -30,6 +30,15 @@
                     <img src="${pageContext.request.contextPath }/img/login.png" style="margin-top: 10px;"/>
                     <span>${sessionScope.username}</span>
                 </div>
+                <div class="top-hidden" style="display: none">
+                    <div class="sanjiao"></div>
+                    <div class="hidden-content" style="width: 100px;height: auto;">
+                        <a href="${pageContext.request.contextPath }/user/initUserInfo.action">个人中心</a><br />
+                        <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
+                        <a href="${pageContext.request.contextPath }/appointment/initYuyue.action">我的预约</a><br />
+                        <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
+                    </div>
+                </div>
             </c:if>
             <c:if test="${empty sessionScope.username}">
                 <div>
@@ -37,15 +46,6 @@
                     <span>登陆</span>
                 </div>
             </c:if>
-            <div class="top-hidden" style="display: none">
-                <div class="sanjiao"></div>
-                <div class="hidden-content" style="width: 100px;height: auto;">
-                    <a href="#">个人中心</a><br />
-                    <a href="${pageContext.request.contextPath }/myRenting/init.action">我的出租</a><br />
-                    <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
-                    <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
-                </div>
-            </div>
         </div>
         <c:if test="${empty sessionScope.username}">
             <div class="userRegister top-general" style="margin-left: 20px;" onclick="window.location.href='${pageContext.request.contextPath }/register/init.action'">
@@ -63,6 +63,7 @@
         </div>
     </div>
 </div>
+<div class></div>
 <!--悬浮搜索栏-->
 <div class="scroll-search" hidden="hidden">
     <div class="search-content">
@@ -183,7 +184,7 @@
 
 <!--右侧菜单栏-->
 <div class="rightNav">
-    <a href="${pageContext.request.contextPath }/addHouseInfo/init.action" title="发布房源" target="_blank"><div class="fabu"></div></a>
+    <a href="${pageContext.request.contextPath }/appointment/initYuyue.action" title="预约房源" target="_blank"><div class="fabu"></div></a>
     <a href="${pageContext.request.contextPath }/collection/init.action" title="收藏房源" target="_blank"><div class="shoucang"></div></a>
     <div class="toTop" onclick="toTop()"></div>
 </div>

@@ -1,11 +1,18 @@
+var cp01;
 window.onload = function () {
-    query();
+    cp01 = getQueryVariable("cp01");
+    if(!isEmpty(cp01)){
+        query();
+    }else{
+        alert("无法正常访问该网页！");
+    }
 }
 //获取通知数据
 function query(){
     $.ajax({
         type: 'get',
         url: '/web/do/notice/getData',
+        data:{"type":cp01},
         dataType: 'json',
         success: function(data){
             renderHTML(data);
@@ -26,7 +33,7 @@ function query(){
 }
 //将通知的红点去掉
 function reloadTZ() {
-    window.parent.hasNewNotice();
+    window.parent.hasNewNotice(cp01);
 }
 //将数据渲染到content
 function renderHTML(json){
@@ -45,7 +52,7 @@ function renderHTML(json){
 //删除消息
 function del(id) {
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: '/web/do/notice/delNotice',
         data:{"id":id},
         success: function(data){

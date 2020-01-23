@@ -57,18 +57,34 @@
 {{if queryInfo.length>0}}
     <ul class="commentList">
     	{{each(i,info) queryInfo}}
-    		<li class="item cl"> <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
-                <div class="comment-main">
-                    <header class="comment-header">
-                        <div class="comment-meta"><a class="comment-author" href="#">管理员</a> 发送于
-                            <time title="${info.doTime}" datetime="${info.doTime}">${info.doTime}</time>
-                            <a href="javascript:;" onclick="del(${info.id})" style="float:right;">删除</a>
+    		<li class="item cl">
+                {{if info.sendFlag==1}}
+                    <a href="#"><i class="avatar size-L radius"><img alt="" src="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar"></i></a>
+                    <div class="comment-main">
+                        <header class="comment-header">
+                            <div class="comment-meta"><a class="comment-author" href="#">${info.name}(管理员)</a> 发送于
+                                <time title="${info.doTime}" datetime="${info.doTime}">${info.doTime}</time>
+                                <a href="javascript:;" onclick="del(${info.id})" style="float:right;">删除</a>
+                            </div>
+                        </header>
+                        <div class="comment-body">
+                            <p>${info.message}</p>
                         </div>
-                    </header>
-                    <div class="comment-body">
-                        <p>${info.message}</p>
                     </div>
-                </div>
+                {{else}}
+                    <a href="#"><i class="avatar size-L radius"><img alt="" src="http://img.qqzhi.com/uploads/2018-12-15/225610954.jpg"></i></a>
+                    <div class="comment-main">
+                        <header class="comment-header">
+                            <div class="comment-meta"><a class="comment-author" href="#">${info.name}(用户)</a> 发送于
+                                <time title="${info.doTime}" datetime="${info.doTime}">${info.doTime}</time>
+                                <a href="javascript:;" onclick="del(${info.id})" style="float:right;">删除</a>
+                            </div>
+                        </header>
+                        <div class="comment-body">
+                            <p>${info.message}</p>
+                        </div>
+                    </div>
+                {{/if}}
             </li>
     	{{/each}}
     </ul>
@@ -82,6 +98,7 @@
         <script src="../../static/js/tools/jquery-3.3.1.min.js"></script>
         <script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../static/js/tools/jquery.tmpl.js"></script>
+        <script src="../../static/js/old/general.js"></script>
         <script src="../../static/js/old/notice.js"></script>
 </body>
 </html>

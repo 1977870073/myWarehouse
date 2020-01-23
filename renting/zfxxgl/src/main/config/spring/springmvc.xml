@@ -48,7 +48,7 @@
             <!--/**表示所有url包括子url路径-->
             <mvc:mapping path="/**"/>
             <!--需要排除的连接-->
-            <mvc:exclude-mapping path="/login/verification.do" />
+            <mvc:exclude-mapping path="/login/*" />
             <mvc:exclude-mapping path="/index/*" />
             <mvc:exclude-mapping path="/details/*" />
             <mvc:exclude-mapping path="/register/*" />

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.RentAppointmentMapperExpand" >
+    <!--查询预约信息-->
+    <select id="selectInfo" parameterType="hashmap" resultType="java.util.Map">
+        SELECT (@rownum :=@rownum+1) as rownum, t.* from (
+        select * from (select
+            a.id, c.name as userName, a.user,a.uname,a.uphone,
+            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house, a.flag,b.user_name,b.user_phone
+            FROM rent_appointment a, rent_houseinfo b ,rent_user c where a.house=b.id and c.username=a.user
+            and c.userType=0 and utime<![CDATA[>=]]>SYSDATE() and a.user=#{user}) e) t, (select @rownum:=#{page}) as rn
+            order by utime asc limit #{page},#{limit}
+    </select>
+
+    <!-- 查询过期预约信息 -->
+    <select id="selectgqInfo" parameterType="hashmap" resultType="java.util.Map">
+        SELECT (@rownum :=@rownum+1) as rownum, t.* from (
+        select * from (select
+            a.id, c.name as userName, a.user,a.uname,a.uphone,
+            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house, a.flag
+            FROM rent_appointment a, rent_houseinfo b ,rent_user c where a.house=b.id and c.username=a.user
+            and c.userType=0 and utime<![CDATA[<]]>SYSDATE() and a.user=#{user}) e) t, (select @rownum:=#{page}) as rn
+            order by utime asc limit #{page},#{limit}
+    </select>
+    <!-- 查询预约信息数量 -->
+    <select id="selectInfoCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT count(1)FROM rent_appointment a, rent_houseinfo b ,rent_user c
+        where a.house=b.id and c.username=a.user and c.userType=0 and utime<![CDATA[>=]]>SYSDATE() and a.user=#{user}
+    </select>
+    <!-- 查询过期预约信息数量 -->
+    <select id="selectgqInfoCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT count(1)FROM rent_appointment a, rent_houseinfo b ,rent_user c
+        where a.house=b.id and c.username=a.user and c.userType=0 and utime<![CDATA[<]]>SYSDATE() and a.user=#{user}
+    </select>
+
+</mapper>

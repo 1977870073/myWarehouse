@@ -109,6 +109,7 @@ body{
 .choseNav .choseNavLists .choseList dd a{
     color: #000;
     margin-left: 8px;
+    text-decoration: none;
 }
 .choseNav .choseNavLists .choseList .listFocus{
     color: #ff0000;
@@ -196,6 +197,7 @@ body{
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 .content .conList dd p:nth-of-type(1) a:hover{
     color: #ff0000;

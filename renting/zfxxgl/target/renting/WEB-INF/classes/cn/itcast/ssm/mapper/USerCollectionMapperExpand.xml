@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.USerCollectionMapperExpand" >
+
+    <select id="getCollectionInfo" parameterType="java.lang.String" resultType="hashmap">
+        SELECT b.*,a.doTime as time FROM user_collection a, rent_houseinfo b
+        where a.house=b.id and b.flag!=0 and a.user=#{user} order by a.doTime desc;
+    </select>
+</mapper>

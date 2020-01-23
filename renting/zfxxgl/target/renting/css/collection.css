@@ -26,7 +26,7 @@ body{
 }
 .content .conList{
     width: 880px;
-    height: 215px;
+    height: 225px;
     border: 1px solid;
     border-color: transparent transparent rgb(244, 244, 244) transparent;
     padding: 10px;
@@ -35,6 +35,23 @@ body{
 .content .conList dt{
     float:left;
     height: 100%;
+    position: relative;
+}
+.content .conList dt .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(101, 101, 101, 0.6);
+    color: #ffffff;
+    opacity: 1;
+}
+.content .conList dt .mask h3{
+    text-align: center;
+    height: 100%;
+    line-height: 150px;
+    line-height: 150px;
 }
 .content .conList dt a img{
     margin-top: 15px;
@@ -51,6 +68,7 @@ body{
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 .content .conList dd p:nth-of-type(1) a:hover{
     color: #ff0000;

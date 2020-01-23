@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cozyBed.renting_Admin.mapper.RentNoticeMapperExpand" >
-    <!-- 查询消息 -->
-    <select id="selectInfo" parameterType="hashmap" resultType="hashmap">
-        select id, admin, user,  message, flag, sendFlag, DATE_FORMAT(doTime,'%Y-%m-%d %H:%i:%s') as doTime from rent_notice where user=#{user} and sendFlag=#{sendFlag} order by doTime desc
+    <!-- 查询房东消息 -->
+    <select id="selectFDInfo" parameterType="hashmap" resultType="hashmap">
+        select * from (select a.id, a.admin, a.user,b.name, a.message, a.flag, a.sendFlag, DATE_FORMAT(a.doTime,'%Y-%m-%d %H:%i:%s') as doTime
+        from rent_notice a, rent_user b where user=#{user} and a.admin=b.username and b.userType=0 and a.sendFlag=5
+        UNION ALL
+        select a.id, a.admin, a.user,b.name, a.message, a.flag, a.sendFlag, DATE_FORMAT(a.doTime,'%Y-%m-%d %H:%i:%s') as doTime
+        from rent_notice a, rent_admin b where user=#{user} and a.admin=b.username and a.sendFlag=1 )t order by doTime desc
     </select>
-    <!-- 是否有新的消息 -->
-    <select id="hasNewNotice" parameterType="hashmap" resultType="java.lang.Integer">
-        select count(1) as num from rent_notice where user=#{user} and sendFlag=#{sendFlag} and flag=1
+    <!-- 房东是否有新的消息 -->
+    <select id="FDhasNewNotice" parameterType="hashmap" resultType="java.lang.Integer">
+        select count(1) as num from rent_notice where user=#{user} and (sendFlag=1 or sendFlag=5) and flag=1
+    </select>
+    <!-- 查询管理员消息 -->
+    <select id="selectGLYInfo" parameterType="hashmap" resultType="hashmap">
+        select * from (select a.id, a.admin, a.user,b.name, a.message, a.flag, a.sendFlag, DATE_FORMAT(a.doTime,'%Y-%m-%d %H:%i:%s') as doTime
+        from rent_notice a, rent_user b where user=#{user} and a.admin=b.username and b.userType=0 and a.sendFlag=4 ) t order by doTime desc
+    </select>
+    <!-- 管理员是否有新的消息 -->
+    <select id="GLYhasNewNotice" parameterType="hashmap" resultType="java.lang.Integer">
+        select count(1) as num from rent_notice where user=#{user} and sendFlag=4 and flag=1
     </select>
 
 </mapper>

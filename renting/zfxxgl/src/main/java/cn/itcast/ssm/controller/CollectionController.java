@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: CollectionController</p>
@@ -38,27 +39,19 @@ public class CollectionController {
         HttpSession session = request.getSession();
         String user = session.getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        UserCollectionExample example = new UserCollectionExample();
-        UserCollectionExample.Criteria criteria = example.createCriteria();
-        criteria.andUserEqualTo(user);
-        List<UserCollection> collections = userCollectionService.selectByExample(example);
-        List<RentHouseinfoWithBLOBs> list = new ArrayList<RentHouseinfoWithBLOBs>();
-        for (UserCollection f:collections){
-            RentHouseinfoWithBLOBs t = houseInfo.findByPrimaryKeyOther(f.getHouse());
-            String s = t.getPicture().split("[,]")[0];
-            if(t.getPicture().split("[,]").length<=1){
-                t.setPicture(s.substring(s.indexOf("[")+1,s.indexOf("]")));
-            }else{
-               t.setPicture(s.substring(s.indexOf("[")+1));
-            }
-            list.add(t);
-        }
+        List<Map<String, Object>> collections = userCollectionService.selectCollectionInfo(user);
         //返回ModelAndView
         ModelAndView modelAndView =  new ModelAndView();
-        modelAndView.addObject("queryInfo", list);
+        modelAndView.addObject("queryInfo", collections);
         //指定视图
         modelAndView.setViewName("collection");
         return modelAndView;
+    }
+
+    @RequestMapping("/checkHouse")
+    public @ResponseBody String checkHouse(HttpServletRequest request, Integer id)throws  Exception{
+        String result = userCollectionService.checkHouse(id);
+        return result;
     }
 
     @RequestMapping("/deleteInfo")

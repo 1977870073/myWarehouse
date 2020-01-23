@@ -47,21 +47,13 @@
             <div class="top-hidden" style="display: none">
                 <div class="sanjiao"></div>
                 <div class="hidden-content" style="width: 100px;height: auto;">
-                    <a href="#">个人中心</a><br />
-                    <a href="${pageContext.request.contextPath }/myRenting/init.action">我的出租</a><br />
+                    <a href="${pageContext.request.contextPath }/user/initUserInfo.action">个人中心</a><br />
                     <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
+                    <a href="${pageContext.request.contextPath }/appointment/initYuyue.action">我的预约</a><br />
                     <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
                 </div>
             </div>
         </div>
-        <c:if test="${empty sessionScope.username}">
-            <div class="userRegister top-general" style="margin-left: 20px;" onclick="window.location.href='${pageContext.request.contextPath }/register/init.action'">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath }/img/register.png"  style="margin-top: 10px;"/>
-                    <span>注册</span>
-                </a>
-            </div>
-        </c:if>
     </div>
 </div>
 
@@ -81,20 +73,25 @@
                     <a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">
                         <img src="/upload/${info.picture}" width="220px" height="165.24px">
                     </a>
+                    <c:if test="${info.flag==2}">
+                        <div class="mask">
+                            <h3>已下架</h3>
+                        </div>
+                    </c:if>
                 </dt>
                 <dd>
                     <p><a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">${info.title}</a></p>
                     <p>
-                            ${info.rentalMode}
+                            ${info.rental_mode}
                         <span class="splitline">|</span>
-                            ${info.houseType}
+                            ${info.house_type}
                         <span class="splitline">|</span>
                             ${info.area}平方
                         <span class="splitline">|</span>
                             ${info.orientation}
                     </p>
-                    <p>${info.district}-${info.residentialAreas}</p>
-                    <p>${info.residentialNote}</p>
+                    <p>${info.district}-${info.residential_areas}</p>
+                    <p>${info.residential_note}</p>
                     <p><span>${info.price}</span>元/月</p>
                     <button type="button" class="delete" onclick="send(${info.id})">删&nbsp;除</button>
                 </dd>

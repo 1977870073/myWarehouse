@@ -20,11 +20,13 @@
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
         <result column="flag" jdbcType="INTEGER" property="flag" />
+        <result column="dotime" jdbcType="VARCHAR" property="dotime" />
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.itcast.ssm.po.RentHouseinfoWithBLOBs">
         <result column="title" jdbcType="LONGVARCHAR" property="title" />
         <result column="address" jdbcType="LONGVARCHAR" property="address" />
         <result column="picture" jdbcType="LONGVARCHAR" property="picture" />
+        <result column="miaoshu" jdbcType="LONGVARCHAR" property="miaoshu" />
     </resultMap>
     <resultMap extends="ResultMapWithBLOBs" id="ResultMapWithBLOBsExpand" type="cn.itcast.ssm.po.RentHouseinfoWithBLOBsExpand"></resultMap>
     <!-- 定义房源筛选的sql片段，就是房源查询条件 -->

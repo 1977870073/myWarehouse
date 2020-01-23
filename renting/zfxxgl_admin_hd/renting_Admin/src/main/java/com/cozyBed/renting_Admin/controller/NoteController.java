@@ -31,14 +31,15 @@ public class NoteController {
     /**
      * 房东有新的消息
      * @param request
+     * @param type
      * @return
      * @throws Exception
      */
     @RequestMapping("hasNewNote")
-    public Integer hasNewNote(HttpServletRequest request)throws  Exception{
+    public Integer hasNewNote(HttpServletRequest request,Integer type)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        Integer result = rentNoticeService.hasNewNotice(user);
+        Integer result = rentNoticeService.hasNewNotice(user,type);
         if(result<=0){
             return 0;
         }
@@ -46,16 +47,17 @@ public class NoteController {
     }
 
     /**
-     * 房东有新的消息
+     * 获取通知消息
      * @param request
+     * @param type
      * @return
      * @throws Exception
      */
     @RequestMapping("getData")
-    public Map<String, Object> getData(HttpServletRequest request)throws  Exception{
+    public Map<String, Object> getData(HttpServletRequest request,Integer type)throws  Exception{
         String user = request.getSession().getAttribute("user").toString();
         user = Aes.aesDecrypt(user,Aes.KEY);
-        List< Map<String, Object>> rtmap = rentNoticeService.getNotice(user);
+        List< Map<String, Object>> rtmap = rentNoticeService.getNotice(user,type);
         Integer ff = rentNoticeService.updateNoticFlagToFD(user,0);
         Map<String, Object> map  =new HashMap<>();
         map.put("queryInfo", rtmap);

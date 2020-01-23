@@ -17,6 +17,21 @@ public interface RentNoticeService {
     public List<RentNotice> selectByExampleWithBLOBs(String user)throws Exception;
     //修改信息状态
     public int updateFlag(Integer id)throws Exception;
-    //删除信息
-    public int deleteNotice(Integer id)throws Exception;
+
+    /**
+     * 删除消息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public Integer delNotice(Integer id)throws  Exception;
+
+    /**
+     * 删除该用户全部消息
+     * @param user
+     * @param notEqualsSendFlag
+     * @return
+     * @throws Exception
+     */
+    public Integer delAllNotice(String user, Integer notEqualsSendFlag)throws  Exception;
 }

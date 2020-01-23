@@ -18,16 +18,30 @@ import java.util.Map;
 @Repository
 public interface RentNoticeMapperExpand {
     /**
-     * 查询通知
+     * 查询房东消息
      * @param paramMap
      * @return
      */
-    public List<Map<String, Object>> selectInfo(Map<String, Object> paramMap);
+    public List<Map<String, Object>> selectFDInfo(Map<String, Object> paramMap);
 
     /**
-     * 是否有新的消息
+     * 房东是否有新的消息
      * @param paramMap
      * @return
      */
-    public Integer hasNewNotice(Map<String, Object> paramMap);
+    public Integer FDhasNewNotice(Map<String, Object> paramMap);
+
+    /**
+     * 查询管理员消息
+     * @param paramMap
+     * @return
+     */
+    public List<Map<String, Object>> selectGLYInfo(Map<String, Object> paramMap);
+
+    /**
+     * 管理员是否有新的消息
+     * @param paramMap
+     * @return
+     */
+    public Integer GLYhasNewNotice(Map<String, Object> paramMap);
 }

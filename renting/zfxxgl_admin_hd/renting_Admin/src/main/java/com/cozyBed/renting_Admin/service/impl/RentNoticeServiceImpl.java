@@ -48,24 +48,28 @@ public class RentNoticeServiceImpl implements RentNoticeService {
         return noticeMapper.insertSelective(notice);
     }
     /**
-     * 获取发送给房东的消息
+     * 获取消息
      * @param user
      * @return
      */
     @Override
-    public List< Map<String, Object>> getNotice(String user)throws Exception {
+    public List< Map<String, Object>> getNotice(String user, Integer type)throws Exception {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("user", user);
-        paramMap.put("sendFlag", 1);
-        return rentNoticeMapperExpand.selectInfo(paramMap);
+        if(type==0){
+            return rentNoticeMapperExpand.selectFDInfo(paramMap);
+        }
+        return rentNoticeMapperExpand.selectGLYInfo(paramMap);
     }
 
     @Override
-    public Integer hasNewNotice(String user) throws Exception {
+    public Integer hasNewNotice(String user, Integer type) throws Exception {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("user", user);
-        paramMap.put("sendFlag", 1);
-        return rentNoticeMapperExpand.hasNewNotice(paramMap);
+        if(type==0){
+            return rentNoticeMapperExpand.FDhasNewNotice(paramMap);
+        }
+        return rentNoticeMapperExpand.GLYhasNewNotice(paramMap);
     }
 
 
@@ -155,7 +159,7 @@ public class RentNoticeServiceImpl implements RentNoticeService {
             return null;
         }
         String title =  rentHouseinfo.getTitle();
-        return "<a href='http://localhost:8080/renting/details/selectInfo.action?id="+id+"' class='noticList_a'>"+rentHouseinfo.getTitle()+"</a>";
+        return "<a href='http://localhost:8080/zfxxgl/details/selectInfo.action?id="+id+"' class='noticList_a'>"+rentHouseinfo.getTitle()+"</a>";
     }
 
     public String getTime(){

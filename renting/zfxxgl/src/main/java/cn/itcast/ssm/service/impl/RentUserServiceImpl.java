@@ -188,4 +188,25 @@ public class RentUserServiceImpl implements RentUserService {
         }
         return "error";
     }
+
+    @Override
+    public List<RentUser> getUserInfo(String user, String type) {
+        RentUserExample example = new RentUserExample();
+        RentUserExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(user);
+        criteria.andUsertypeEqualTo(type);
+        return rentUserMapper.selectByExample(example);
+    }
+
+    @Override
+    public Integer updateUser(String user, String type, String email, String name) {
+        RentUserExample example = new RentUserExample();
+        RentUserExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(user);
+        criteria.andUsertypeEqualTo(type);
+        RentUser u = new RentUser();
+        u.setEmail(email);
+        u.setName(name);
+        return rentUserMapper.updateByExampleSelective(u, example);
+    }
 }

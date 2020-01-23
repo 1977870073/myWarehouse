@@ -40,7 +40,7 @@
 						</a>
 					</div>
 					<ul class="layui-nav" lay-filter="rightNav">
-					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/notice.html" data-id='4' data-text="通知">
+					  <li class="layui-nav-item"><a href="javascript:;" data-url="../comm/notice.html?cp01=0" data-id='4' data-text="通知">
 						  <i class="layui-icon layui-icon-notice"></i><span class="layui-badge-dot" id="hasNewNotice" style="display: none;"></span></a>
 					  </li>
 					  <li class="layui-nav-item">
@@ -78,13 +78,14 @@
 		<script src="../../static/js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			window.onload = function () {
-			    var timer = setTimeout(hasNewNotice(),60000);//定时查询是否有新的通知
+			    var timer = setTimeout(hasNewNotice(0),60000);//定时查询是否有新的通知
             }
 
-            function hasNewNotice() {
+            function hasNewNotice(type) {
                 $.ajax({
                     type: 'get',
                     url: '/web/do/notice/hasNewNote',
+					data: {"type":type},
                     success: function (data) {
                         if(data==1){
                             $('#hasNewNotice').css("display","block");

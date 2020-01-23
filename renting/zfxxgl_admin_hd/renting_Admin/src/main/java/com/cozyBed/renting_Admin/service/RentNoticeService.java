@@ -23,19 +23,21 @@ public interface RentNoticeService {
     public Integer insert(RentNotice notice)throws Exception;
 
     /**
-     * 获取发送给房东的消息
+     * 获取消息
      * @param user
+     * @param type 0：房东 1:管理员
      * @return
      */
-    public List<Map<String, Object>> getNotice(String user)throws Exception;
+    public List<Map<String, Object>> getNotice(String user, Integer type)throws Exception;
 
     /**
      * 是否有新的消息
      * @param user
+     * @param type 0：房东 1:管理员
      * @return
      * @throws Exception
      */
-    public Integer hasNewNotice(String user)throws  Exception;
+    public Integer hasNewNotice(String user, Integer type)throws  Exception;
 
     /**
      * 修改房东通知状态

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
     <link rel="stylesheet" href="https://cache.amap.com/lbs/static/AMap.PlaceSearchRender1120.css"/>
     <link href="${pageContext.request.contextPath }/img/icon.png" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/layui/css/layui.css" />
     <link href="${pageContext.request.contextPath }/css/details.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/css/top.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/css/general.css" rel="stylesheet">
@@ -90,7 +91,7 @@
         </div>
         <div class="mImg">
             <div class="mListImg">
-                <ul class="litImg">
+                <ul class="litImg" id="litImg">
                     <c:forEach items="${info.pic}" var="pic">
                         <li><img width="120px" height="78px" src="/upload/${pic}"></li>
                     </c:forEach>
@@ -126,6 +127,7 @@
                 <p>${info.userPhone}</p>
             </div>
         </div>
+        <button class="yuyue">预约房东</button>
     </div>
 </div>
 <%--地图--%>
@@ -134,13 +136,14 @@
     <div id="container" style="width: 1000px;height: 600px;"></div>
     <div id="panel"></div>
 </div>
-
+<p style="display: none;" id="houseid">${info.id}</p>
 <p id="address" hidden>${info.district}${info.address}${info.residentialAreas}</p>
 
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=0466ce613d6cc03b9b2a4e214c67ee89&plugin=AMap.PlaceSearch"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
 <script src="${pageContext.request.contextPath }/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath }/js/general.js"></script>
 <script src="${pageContext.request.contextPath }/js/details.js"></script>
 </body>
@@ -171,4 +174,105 @@
 
     })
 
+    layui.use(['form','layer','laydate'], function () {
+        var layer = layui.layer,
+            form = layui.form,
+            laydate = layui.laydate;
+        laydate.render({
+            elem: '#utime'
+            ,type: 'datetime'
+        });
+        layer.config({
+            extend: 'skin/style.css' //同样需要加载新皮肤
+        });
+        $('.yuyue').on("click", function () {
+            yyboxClear();
+            var yybox = layer.open({
+                type: 1
+                ,title: "填写预约信息" //不显示标题栏：false
+                ,closeBtn: false
+                ,area: '430px;'
+                ,shade: 0.8
+                ,skin: 'layer-ext-moon'
+                ,shadeClose: true //是否点击遮蔽关闭
+                ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                ,btn: ['确定', '返回']
+                ,btnAlign: 'c'
+                ,moveType: 1 //拖拽模式，0或者1
+                ,content: $('#yybox')
+                ,yes: function () {
+                    var uname = $('#uname').val();
+                    var uphone = $('#uphone').val();
+                    var utime = $('#utime').val();
+                    var beizhu = $('#beizhu').val();
+                    var house = $('#houseid').text();
+                    if(isEmpty(uname)){
+                        layer.msg("联系人不能为空！",{icon:2, anim:6})
+                        $('#uname').select();
+                        return false;
+                    }
+                    if(isEmpty(uphone)){
+                        layer.msg("联系电话不能为空！",{icon:2, anim:6})
+                        $('#uphone').select();
+                        return false;
+                    }
+                    if(isEmpty(utime)){
+                        layer.msg("预约时间不能为空！",{icon:2, anim:6})
+                        return false;
+                    }
+                    $.ajax({
+                        type: 'post',
+                        url: '${pageContext.request.contextPath}/appointment/addAppointment.action',
+                        data: {'uname':uname,'uphone':uphone,'utime':utime,'beizhu':beizhu,'id':house},
+                        success: function (data) {
+                            if(data=="success"){
+                                layer.msg("预约成功，正在等待房东同意！", {icon:1});
+                                layer.close(yybox);
+                                return true;
+                            }else{
+                                layer.msg("预约失败！", {icon:2, anim:6});
+                                return false;
+                            }
+                        }
+                    })
+                }
+            });
+        });
+    })
+    function yyboxClear() {
+        $('#uname').val('');
+        $('#uphone').val('');
+        $('#utime').val('');
+        $('#beizhu').val('');
+
+    }
 </script>
+<div id="yybox" style="display: none;">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label xyy">联系人</label>
+            <div class="layui-input-inline">
+                <input type="text" name="uname" id="uname" maxlength="20" required lay-verify="required" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label xyy">联系电话</label>
+            <div class="layui-input-inline">
+                <input type="text" name="uphone" id="uphone"maxlength="15" required lay-verify="required|phone|number" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label xyy">预约时间</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" placeholder="请选择预约时间"  id="utime" required lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label xyy">备注</label>
+            <div class="layui-input-inline">
+                <textarea id="beizhu" rows="5" name="beizhu" placeholder="请输入内容"maxlength="150"  class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+</html>

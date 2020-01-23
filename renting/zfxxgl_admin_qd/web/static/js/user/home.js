@@ -24,7 +24,7 @@ function initBox() {
         type: 'get',
         url: '/web/do/user/getUsesInfo',
         success: function(data){
-            xname.val(data.username);
+            xname.val(data.name);
             xemail.val(data.email);
         }
     });

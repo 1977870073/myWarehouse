@@ -28,7 +28,7 @@ public class SelectHouseInfoController {
     @Autowired
     private HouseInfoService houseInfoService;
     @RequestMapping("/init")
-    public String init(@RequestParam(required = false, defaultValue = "1") Integer page,
+    public Object[] init(@RequestParam(required = false, defaultValue = "1") Integer page,
             @RequestParam(required = false, defaultValue = "10") Integer limit)throws Exception{
         Choose c = new Choose();
         c.setIndex((page-1)*10);
@@ -36,6 +36,6 @@ public class SelectHouseInfoController {
         Page p =  new Page(page,10,(int)houseInfoService.infoCount(c));
         List<RentHouseinfoWithBLOBsExpand> list = houseInfoService.selectInfoes(c);
         Object[] obj = new Object[]{list, p.getTotalRecord()};
-        return JSON.toJSONString(obj);
+        return obj;
     }
 }

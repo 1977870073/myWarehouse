@@ -61,4 +61,20 @@ public interface RentUserService {
      */
     public String updatePassword(String username, String password);
 
+    /**
+     * 获取用户信息
+     * @param user
+     * @param type
+     * @return
+     */
+    public List<RentUser> getUserInfo(String user, String type);
+
+    /**
+     * 修改用户邮箱、昵称
+     * @param email
+     * @param name
+     * @return
+     */
+    public Integer updateUser(String user, String type, String email, String name);
+
 }

@@ -337,3 +337,22 @@ body{
     right: 0;
     width: 280px;
 }
+.content .rentInfo .yuyue{
+    width: 200px;
+    height: 70px;
+    border: 0px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 600;
+    background: rgba(0, 127, 210, 0.88);
+    border-radius: 5px;
+    cursor: pointer;
+    margin:20px 100px;
+    transition: all 1s ease;
+}
+.content .rentInfo .yuyue:hover{
+    background: rgb(0, 154, 240);
+}
+.content .rentInfo .yuyue:active{
+    background: rgba(0, 154, 240, 0.61);
+}

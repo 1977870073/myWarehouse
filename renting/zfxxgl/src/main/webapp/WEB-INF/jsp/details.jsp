@@ -50,9 +50,9 @@
             <div class="top-hidden" style="display: none">
                 <div class="sanjiao"></div>
                 <div class="hidden-content" style="width: 100px;height: auto;">
-                    <a href="#">个人中心</a><br />
-                    <a href="${pageContext.request.contextPath }/myRenting/init.action">我的出租</a><br />
+                    <a href="${pageContext.request.contextPath }/user/initUserInfo.action">个人中心</a><br />
                     <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
+                    <a href="${pageContext.request.contextPath }/appointment/initYuyue.action">我的预约</a><br />
                     <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
                 </div>
             </div>
@@ -126,7 +126,7 @@
                 <p>${info.userPhone}</p>
             </div>
         </div>
-        <button class="shoucang" onclick="send(${info.id})">我要收藏</button>
+        <button class="shoucang" id="shoucang" onclick="send(${info.id})" style="display: none;">我要收藏</button>
     </div>
 </div>
 <%--地图--%>
@@ -146,7 +146,14 @@
 <script src="${pageContext.request.contextPath }/js/details.js"></script>
 </body>
 </html>
-
+<script type="text/javascript">
+    window.onload = function () {
+        var cp01 = getQueryVariable("cp01");
+        if(isEmpty(cp01)){
+            $('#shoucang').css("display","block");
+        }
+    }
+</script>
 <script type="text/javascript">
     var map = new AMap.Map("container", {
         resizeEnable: true

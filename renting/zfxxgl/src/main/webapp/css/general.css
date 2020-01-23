@@ -5,11 +5,11 @@
 	 box-sizing: border-box;/*限制大小*/
 	 font-family: Microsoft YaHei;
  }
-a,
-a:link,
-a:hover,
-a:visited,
-a:focus{
+.top a,
+.top a:link,
+.top a:hover,
+.top a:visited,
+.top a:focus{
 	color: #FFFFFF;
 	text-decoration: none;
 }
