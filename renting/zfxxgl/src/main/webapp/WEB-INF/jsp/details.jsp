@@ -129,6 +129,17 @@
         <button class="shoucang" id="shoucang" onclick="send(${info.id})" style="display: none;">我要收藏</button>
     </div>
 </div>
+<div class="ms">
+    <div class="ms_top">房源描述</div>
+    <div class="ms_content">
+        <c:if test="${empty info.miaoshu}">
+            <p id="miaoshu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;暂无相关描述！</p>
+        </c:if>
+        <c:if test="${not empty info.miaoshu}">
+            <p id="miaoshu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${info.miaoshu}</p>
+        </c:if>
+    </div>
+</div>
 <%--地图--%>
 <div class="cityMap">
     <div class="map-top">地图</div>

@@ -51,9 +51,9 @@
             <div class="top-hidden" style="display: none">
                 <div class="sanjiao"></div>
                 <div class="hidden-content" style="width: 100px;height: auto;">
-                    <a href="#">个人中心</a><br />
-                    <a href="${pageContext.request.contextPath }/myRenting/init.action">我的出租</a><br />
+                    <a href="${pageContext.request.contextPath }/user/initUserInfo.action">个人中心</a><br />
                     <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
+                    <a href="${pageContext.request.contextPath }/appointment/initYuyue.action">我的预约</a><br />
                     <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
                 </div>
             </div>
@@ -128,6 +128,17 @@
             </div>
         </div>
         <button class="yuyue">预约房东</button>
+    </div>
+</div>
+<div class="ms">
+    <div class="ms_top">房源描述</div>
+    <div class="ms_content">
+        <c:if test="${empty info.miaoshu}">
+            <p id="miaoshu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;暂无相关描述！</p>
+        </c:if>
+        <c:if test="${not empty info.miaoshu}">
+            <p id="miaoshu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${info.miaoshu}</p>
+        </c:if>
     </div>
 </div>
 <%--地图--%>

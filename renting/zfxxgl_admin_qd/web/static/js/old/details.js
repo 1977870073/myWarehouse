@@ -6,7 +6,7 @@ window.onload = function(){
     if(!isEmpty(cp01)){
         $.ajax({
             type: 'get',
-            url: '/web/do/approval/selectInfo',
+            url: '/web/do/detailsRead/init',
             data: {"bh": cp01},
             dataType: 'json',
             success: function(data){
@@ -239,6 +239,14 @@ function init(data){
     $('#bigImg').html(bigHtml);
     $('#litImg').html(litHtml);
     $('#address').text(data.district+data.address+data.residentialAreas);
+    var miaoshu  = data.miaoshu;
+    var ms="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    if(isEmpty(miaoshu)){
+        ms+="暂无相关描述！";
+    }else{
+        ms+=miaoshu;
+    }
+    $('#miaoshu').html(ms);
     gaode();
 }
 

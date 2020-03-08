@@ -52,12 +52,13 @@ function renderHTML(json){
 		$("#content-info").tmpl(json).appendTo("#content");
 		var page_startToend_html = "";
 		var page = json.page;
+		var uType = json.userType;
 		if(page!=null){
 			for(var i = page.start; i<=page.end; i++){
 				if(i==page.pagNum){
-					page_startToend_html+="<a href='/web/zf/html/comm/selectHouse.html?page="+i+"' class='page_active'  target='_self'>"+i+"</a>";
+					page_startToend_html+="<a href='/web/zf/html/comm/selectHouse.html?page="+i+"&uType="+uType+"' class='page_active'  target='_self'>"+i+"</a>";
 				}else{
-					page_startToend_html+="<a href='/web/zf/html/comm/selectHouse.html?page="+i+"'  target='_self'>"+i+"</a>";
+					page_startToend_html+="<a href='/web/zf/html/comm/selectHouse.html?page="+i+"&uType="+uType+"'  target='_self'>"+i+"</a>";
 				}
 			}
 			$("#page_startToend").html(page_startToend_html);

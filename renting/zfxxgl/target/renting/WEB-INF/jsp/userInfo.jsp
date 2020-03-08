@@ -40,9 +40,9 @@
                 <div class="top-hidden" style="display: none">
                     <div class="sanjiao"></div>
                     <div class="hidden-content" style="width: 100px;height: auto;">
-                        <a href="#">个人中心</a><br />
-                        <a href="${pageContext.request.contextPath }/myRenting/init.action">我的出租</a><br />
+                        <a href="${pageContext.request.contextPath }/user/initUserInfo.action">个人中心</a><br />
                         <a href="${pageContext.request.contextPath }/collection/init.action">我的收藏</a><br />
+                        <a href="${pageContext.request.contextPath }/appointment/initYuyue.action">我的预约</a><br />
                         <a href="${pageContext.request.contextPath }/index/invalidate.action">退出</a><br />
                     </div>
                 </div>

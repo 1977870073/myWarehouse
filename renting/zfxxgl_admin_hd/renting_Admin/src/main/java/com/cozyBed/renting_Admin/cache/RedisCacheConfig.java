@@ -35,7 +35,7 @@ import java.time.Duration;
 @EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {
     // 缓存时长，单位秒
-    private long exps = 72;
+    private long exps = 5;
 
     @Bean(name = "hinfo")
     public KeyGenerator keyGenerator(){

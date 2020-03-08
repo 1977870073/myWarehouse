@@ -69,7 +69,6 @@
     <div class="search-content">
             <input type="text" placeholder="输入关键字" class="search-text"/>
             <input type="button" value="搜索" class="search-button">
-            <input type="button" value="我要出租" onclick="window.location.href='${pageContext.request.contextPath }/addHouseInfo/init.action'" class="renting-button">
     </div>
     <div class="search-close"></div>
 </div>

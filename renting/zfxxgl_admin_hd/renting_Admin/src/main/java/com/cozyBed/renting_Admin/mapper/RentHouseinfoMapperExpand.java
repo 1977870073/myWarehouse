@@ -35,7 +35,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public RentHouseinfoWithBLOBsExpand findByPrimaryKey(Integer id)throws Exception;
 
     /**

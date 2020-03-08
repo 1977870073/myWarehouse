@@ -365,3 +365,26 @@ body{
     width: 110px;
     box-sizing: border-box;
 }
+.ms{
+    width: 1200px;
+    margin:30px auto 0px;
+    background: #FFFFFF;
+}
+.ms .ms_top{
+    width: 100%;
+    height: 50px;
+    background: #f0f0f0;
+    padding: 15px;
+    font-weight: bold;
+    color: rgba(72, 72, 72, 0.64);
+}
+.ms .ms_content{
+    width: 100%;
+    margin:10px auto 10px;
+    min-height: 100px;
+    padding: 15px;
+    font-family: Microsoft YaHei;
+    color: #727272;
+    font-size: 15px;
+    line-height: 27px;
+}

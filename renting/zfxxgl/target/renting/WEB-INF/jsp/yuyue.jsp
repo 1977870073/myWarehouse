@@ -77,6 +77,7 @@
         <button type="button" class="layui-btn layui-btn-fluid layui-btn-ms layui-btn-radius layui-btn-warm" onclick="del({{d.id}})">删除</button>
     </script>
     <script src="${pageContext.request.contextPath }/js/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/general.js"></script>
     <script src="${pageContext.request.contextPath }/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <script>
         layui.use(['table','element'],function () {
@@ -134,6 +135,11 @@
                 ,page: true
             });
         })
+
+        window.onload = function(){
+            showHidden("top-address","top-hidden",0);
+            showHidden("userLogin","top-hidden",1);
+        }
     </script>
 </body>
 </html>

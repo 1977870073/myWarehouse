@@ -50,6 +50,7 @@ public class HouseController {
         Map<String, Object> rtMap = new HashMap<>();
         rtMap.put("queryInfo", list);
         rtMap.put("page", p);
+        rtMap.put("userType", userType);
         return rtMap;
     }
 

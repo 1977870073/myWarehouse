@@ -24,13 +24,12 @@ public class DetailsReadController {
     private HouseInfoService houseInfoService;
 
     @RequestMapping("/init")
-    public String selectInfo(HttpServletRequest request)throws Exception{
-        String id = request.getParameter("id");
+    public String selectInfo(String bh)throws Exception{
         int i = 0;
-        if(id==""||id==null){
-            i=47;
+        if(bh==""||bh==null){
+            return "";
         }else{
-            i=Integer.parseInt(id);
+            i=Integer.parseInt(bh);
         }
         RentHouseinfoWithBLOBsExpand info = houseInfoService.findByPrimaryKey(i);
 

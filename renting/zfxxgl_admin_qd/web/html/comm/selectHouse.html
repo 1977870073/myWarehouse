@@ -24,7 +24,7 @@
     	{{each(i,info) queryInfo}}
     		<dl class="conList">
                 <dt>
-                    <a href="/web/zf/html/htgl/detailsRead.html?cp01=${info.id}" target="_self">
+                    <a href="/web/zf/html/comm/detailsRead.html?cp01=${info.id}" target="_self">
                         <img src="/web/img/${info.picture}" width="220px" height="165.24px">
                     </a>
                 </dt>
@@ -58,21 +58,21 @@
     	{{/each}}
     	 <div class="page">
             <div id="page_content">
-                <a href="/web/zf/html/comm/selectHouse.html?page=1"  target="_self">首页<span style="display: none">1</span></a>
+                <a href="/web/zf/html/comm/selectHouse.html?page=1&uType=${userType}"  target="_self">首页<span style="display: none">1</span></a>
                 {{if page.pagNum<=page.start}}
-                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.start}" target="_self">上一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.start}&uType=${userType}" target="_self">上一页</a>
                 {{/if}}
                 {{if page.pagNum>page.start}}
-                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum-1}" target="_self">上一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum-1}&uType=${userType}" target="_self">上一页</a>
                 {{/if}}
                 <span id="page_startToend"></span>
                 {{if page.pagNum>=page.totalPage}}
-                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}"  target="_self">下一页</a>
+                    <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}&uType=${userType}"  target="_self">下一页</a>
                 {{/if}}
                 {{if page.pagNum<page.end}}
-                     <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum+1}" target="_self">下一页</a>
+                     <a href="/web/zf/html/comm/selectHouse.html?page=${page.pagNum+1}&uType=${userType}" target="_self">下一页</a>
                 {{/if}}
-                <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}">尾页</a>
+                <a href="/web/zf/html/comm/selectHouse.html?page=${page.totalPage}&uType=${userType}">尾页</a>
                 <span>共${page.totalPage}页,${page.totalRecord}条数据</span>
             </div>
         </div>
