@@ -148,7 +148,7 @@
 </div>
 
 <p id="address" hidden>${info.district}${info.address}${info.residentialAreas}</p>
-
+<p id="houseId" hidden>${info.id}</p>
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=0466ce613d6cc03b9b2a4e214c67ee89&plugin=AMap.PlaceSearch"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
 <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
@@ -210,7 +210,8 @@
                     }else{
                         var flag = confirm("您还没有登录，是否要登录");
                         if(flag==true){
-                            window.location.href="${pageContext.request.contextPath }/login/init.action";
+                            var cp01 = $('#houseId').text();
+                            window.location.href="${pageContext.request.contextPath }/login/init.action?cp01="+cp01;
                         }
                     }
                 }

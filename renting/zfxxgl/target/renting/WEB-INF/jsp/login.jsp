@@ -60,6 +60,7 @@
 <script src="${pageContext.request.contextPath }/js/aes.js" type="text/javascript" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath }/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath }/js/login.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath }/js/general.js" type="text/javascript" charset="utf-8"></script>
 <script>
     layui.use(['form','element'], function() {
         var form = layui.form,
@@ -92,6 +93,11 @@
                     success: function (data) {
                         if(data=="success"){
                             layer.close(index);
+                            var cp01 = getQueryVariable("cp01");
+                            if(!isEmpty(cp01)){
+                                window.location.href ='${pageContext.request.contextPath }/details/selectInfo.action?id='+cp01;
+                                return;
+                            }
                             window.location.href = '${pageContext.request.contextPath }/index/queryInfo.action';
                         }else if(data=="passE"){
                             layer.close(index);
