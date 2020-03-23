@@ -26,7 +26,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public List<RentHouseinfoWithBLOBsExpand> selectInfoes(Choose choose)throws Exception;
 
     /**
@@ -43,7 +42,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public long infoCount(Choose choose)throws Exception;
 
     /**
@@ -52,7 +50,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public List<RentHouseinfoWithBLOBs> selectBySearch(String search)throws Exception;
 
     /**
@@ -61,7 +58,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public long userHouseCount(@Param("user") String user, @Param("userType") String userType)throws Exception;
 
     /**
@@ -71,7 +67,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public List<RentHouseinfoWithBLOBs> userHouse(@Param("user") String user, @Param("userType") String userType, @Param("index") Integer index)throws Exception;
 
     /**
@@ -79,7 +74,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public List<Map<String, Object>> selectWeekCountForHT()throws Exception;
 
     /**
@@ -87,7 +81,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public List<Map<String, Object>> selectWeekCountForYH()throws Exception;
 
     /**
@@ -95,7 +88,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
     public Integer selectMonthCountForHT()throws Exception;
 
     /**
@@ -103,6 +95,6 @@ public interface RentHouseinfoMapperExpand {
      * @return
      * @throws Exception
      */
-    @Cacheable(value = "hinfo")
+
     public Integer selectMonthCountForYH()throws Exception;
 }

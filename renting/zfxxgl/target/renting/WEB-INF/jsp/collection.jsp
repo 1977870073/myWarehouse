@@ -80,7 +80,14 @@
                     </c:if>
                 </dt>
                 <dd>
-                    <p><a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">${info.title}</a></p>
+                    <p>
+                        <c:if test="${info.flag==2}">
+                            <a href="javascript:void(0)" target="_blank">${info.title}</a>
+                        </c:if>
+                        <c:if test="${info.flag!=2}">
+                            <a href="${pageContext.request.contextPath }/detailsRead/init.action?id=${info.id}" target="_blank">${info.title}</a>
+                        </c:if>
+                    </p>
                     <p>
                             ${info.rental_mode}
                         <span class="splitline">|</span>

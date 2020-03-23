@@ -57,7 +57,7 @@
 <div class="content">
     <div class="layui-tab">
         <ul class="layui-tab-title">
-            <li class="layui-this">为过期预约信息</li>
+            <li class="layui-this">有效预约信息</li>
             <li>过期预约信息</li>
         </ul>
         <div class="layui-tab-content">
@@ -80,10 +80,28 @@
     <script src="${pageContext.request.contextPath }/js/general.js"></script>
     <script src="${pageContext.request.contextPath }/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <script>
+        var table,element;
         layui.use(['table','element'],function () {
-            var table = layui.table,
+                table = layui.table;
                 element = layui.element;
-
+                tableRelod();
+        })
+        function del(id) {
+            $.ajax({
+                type: 'post',
+                url:'${pageContext.request.contextPath }/appointment/deleteAppointment.action',
+                data: {"id":id},
+                success: function (data) {
+                    if(data=="success"){
+                        tableRelod();
+                        layer.msg("操作成功！", {icon: 1});
+                    }else{
+                        layer.msg("操作失败！", {icon: 2, anim: 6});
+                    }
+                }
+            });
+        }
+        function tableRelod(){
             table.render({
                 elem: '#yyInfo'
                 ,url:'${pageContext.request.contextPath }/appointment/getyyinfo.action'
@@ -103,6 +121,7 @@
                     ,{field:'user_name', title: '联系人'}
                     ,{field:'user_phone', title: '联系电话'}
                     ,{field:'utime', title: '预约时间'}
+                    ,{field:'uflag', title: '预约结果'}
                     ,{field:'caozuo', title: '操作', width: '300', templet: '#caozuo'}
                 ]],
                 text: {
@@ -127,6 +146,7 @@
                     {field:'rownum',  title: '序号'}
                     ,{field:'title', title: '预约房源', templet: '#biaoti'}
                     ,{field:'utime', title: '预约时间'}
+                    ,{field:'uflag', title: '预约结果'}
                     ,{field:'caozuo', title: '操作', width: '300', templet: '#caozuo'}
                 ]],
                 text: {
@@ -134,8 +154,7 @@
                 }
                 ,page: true
             });
-        })
-
+        }
         window.onload = function(){
             showHidden("top-address","top-hidden",0);
             showHidden("userLogin","top-hidden",1);

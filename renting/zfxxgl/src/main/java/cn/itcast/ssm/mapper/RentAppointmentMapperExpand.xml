@@ -6,7 +6,9 @@
         SELECT (@rownum :=@rownum+1) as rownum, t.* from (
         select * from (select
             a.id, c.name as userName, a.user,a.uname,a.uphone,
-            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house, a.flag,b.user_name,b.user_phone
+            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house,
+            (case when a.flag=0 then '审批中' when a.flag=1 then '成功' when a.flag=2 then '失败' else '未知'  end) as uflag
+            ,b.user_name,b.user_phone
             FROM rent_appointment a, rent_houseinfo b ,rent_user c where a.house=b.id and c.username=a.user
             and c.userType=0 and utime<![CDATA[>=]]>SYSDATE() and a.user=#{user}) e) t, (select @rownum:=#{page}) as rn
             order by utime asc limit #{page},#{limit}
@@ -17,7 +19,8 @@
         SELECT (@rownum :=@rownum+1) as rownum, t.* from (
         select * from (select
             a.id, c.name as userName, a.user,a.uname,a.uphone,
-            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house, a.flag
+            DATE_FORMAT(a.utime,'%Y-%m-%d %H:%i:%s') as utime,a.beizhu, b.title, a.house,
+            (case when a.flag=0 then '审批中' when a.flag=1 then '成功' when a.flag=2 then '失败' else '未知'  end) as uflag
             FROM rent_appointment a, rent_houseinfo b ,rent_user c where a.house=b.id and c.username=a.user
             and c.userType=0 and utime<![CDATA[<]]>SYSDATE() and a.user=#{user}) e) t, (select @rownum:=#{page}) as rn
             order by utime asc limit #{page},#{limit}

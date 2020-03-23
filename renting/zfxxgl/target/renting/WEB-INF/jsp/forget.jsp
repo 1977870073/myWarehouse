@@ -20,7 +20,7 @@
         <a href="javascript:;" onClick="javascript:history.back();">《返回</a>
     </li>
     <li class="layui-nav-item">
-        <a href="${pageContext.request.contextPath }/login/queryInfo.action">登录</a>
+        <a href="${pageContext.request.contextPath }/login/init.action">登录</a>
     </li>
 </ul>
 <div style="margin: 30px 100px;padding: 10px 20px;background: #ffffff;height: 450px;">

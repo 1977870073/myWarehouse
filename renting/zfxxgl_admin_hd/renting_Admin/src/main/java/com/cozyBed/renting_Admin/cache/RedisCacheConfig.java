@@ -85,7 +85,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         config.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer));
         config.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer));
         //设置缓存的默认过期时间
-        config.entryTtl(Duration.ofSeconds(exps));
+        config = config.entryTtl(Duration.ofSeconds(exps));
         //不缓存空值
         config.disableCachingNullValues();
         RedisCacheManager cacheManager = RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(config).build();
